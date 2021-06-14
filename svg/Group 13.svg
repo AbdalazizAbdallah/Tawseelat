@@ -1,0 +1,25 @@
+<svg height="3" viewBox="0 0 68 3" width="68" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.009" x2="1" y1="0.5" y2="0.5">
+      <stop offset="0" stop-color="#f9909d" stop-opacity="0" />
+      <stop offset="0.174" stop-color="#f1919c" />
+      <stop offset="0.475" stop-color="#ea1e37" />
+      <stop offset="0.736" stop-color="#ee6676" />
+      <stop offset="1" stop-color="#f19da7" stop-opacity="0" />
+    </linearGradient>
+    <radialGradient cx="0.5" cy="0.5" gradientUnits="objectBoundingBox" id="radial-gradient"
+        r="0.5">
+      <stop offset="0" stop-color="#613a3a" stop-opacity="0.31" />
+      <stop offset="0.46" stop-color="#141414" stop-opacity="0.122" />
+      <stop offset="1" stop-color="#141414" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <g id="Group_13" opacity="0.84" transform="translate(-159 -235)">
+    <path
+        d="M34,0C52.778,0,68,.672,68,1.5S52.778,3,34,3,0,2.328,0,1.5C0,.954,6.611.476,16.79.206,21.607.078,27.6,0,34,0Z"
+        fill="url(#linear-gradient)" id="Path_27" transform="translate(159 235)" />
+    <path
+        d="M34,0C52.778,0,68,.672,68,1.5S52.778,3,34,3,0,2.328,0,1.5C0,.954,6.611.476,16.79.206,21.607.078,27.6,0,34,0Z"
+        fill="url(#radial-gradient)" id="Path_28" transform="translate(159 235)" />
+  </g>
+</svg>

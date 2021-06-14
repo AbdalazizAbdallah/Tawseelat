@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="MyStylePrimaryButton" parent="TextAppearance.AppCompat.Widget.Button.Colored">
+        <item name="android:textSize">@dimen/f16sp</item>
+        <item name="android:background">@drawable/bg_layer_button</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textFontWeight">700</item>
+    </style>
+
+    <style name="MyStyleTextViewHeadline" parent="TextAppearance.MaterialComponents.Headline5">
+        <item name="android:textSize">@dimen/f20sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textFontWeight">700</item>
+    </style>
+</resources>

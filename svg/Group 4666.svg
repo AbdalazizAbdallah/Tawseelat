@@ -1,0 +1,15 @@
+<svg height="1616.616" viewBox="0 0 1778.616 1616.616" width="1778.616"
+    xmlns="http://www.w3.org/2000/svg">
+    <g id="Group_4666" transform="translate(709.598 393.014)">
+        <g fill="none" id="Ellipse_5" opacity="0.1" stroke="#ea1e37" stroke-width="30"
+            transform="matrix(0.799, -0.602, 0.602, 0.799, -223.598, 486.461)">
+            <circle cx="461.5" cy="461.5" r="461.5" stroke="none" />
+            <circle cx="461.5" cy="461.5" fill="none" r="446.5" />
+        </g>
+        <g fill="none" id="Ellipse_6" opacity="0.1" stroke="#141414" stroke-width="30"
+            transform="matrix(0.799, -0.602, 0.602, 0.799, -709.598, 162.461)">
+            <circle cx="461.5" cy="461.5" r="461.5" stroke="none" />
+            <circle cx="461.5" cy="461.5" fill="none" r="446.5" />
+        </g>
+    </g>
+</svg>

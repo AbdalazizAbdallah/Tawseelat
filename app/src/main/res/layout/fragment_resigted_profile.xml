@@ -1,0 +1,560 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.abdalazizabdallah.tawseelat.view.ResigtedProfileFragment">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include layout="@layout/static_background_layout" />
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <include
+                android:id="@+id/includedLayout"
+                layout="@layout/static_app_bar"
+                bind:headerText="@{@string/my_profile_text}" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbarAlwaysDrawVerticalTrack="true"
+            android:scrollbars="vertical"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/my_light_grey_color"
+                    android:padding="@dimen/d6dp">
+
+                    <TextView
+                        android:id="@+id/fragment_resigted_profile_modifyTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_margin="@dimen/d16dp"
+                        android:drawablePadding="@dimen/d5dp"
+                        android:text="@string/modify_text"
+                        android:textAppearance="?attr/textAppearanceHeadline6"
+                        app:drawableStartCompat="@drawable/img_edit"
+                        app:drawableTint="@color/my_light_red_color" />
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@id/fragment_resigted_profile_modifyTextView"
+                        android:layout_alignBottom="@id/fragment_resigted_profile_modifyTextView"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="@dimen/d5dp"
+                        android:layout_toStartOf="@+id/fragment_resigted_profile_modifyTextView"
+                        android:drawablePadding="@dimen/d5dp"
+                        android:text="@string/advertiser_name_text"
+                        android:textAppearance="?attr/textAppearanceHeadline6"
+                        app:drawableStartCompat="@drawable/img_n_letter"
+                        app:drawableTint="@color/my_light_red_color" />
+
+                    <TextView
+                        android:id="@+id/fragment_resigted_profile_advertiserNameTextView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/textView2"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginStart="@dimen/d35dp"
+                        android:layout_marginTop="@dimen/d16dp"
+                        android:layout_marginEnd="@dimen/d16dp"
+                        android:layout_marginBottom="@dimen/d16dp"
+                        android:text="@string/demo_advertiser_name_text"
+                        android:textAppearance="?attr/textAppearanceBody2" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_below="@id/fragment_resigted_profile_advertiserNameTextView3"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginStart="@dimen/d16dp"
+                        android:layout_marginEnd="@dimen/d16dp"
+                        android:background="?android:attr/listDivider" />
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/my_light_grey_color"
+                    android:orientation="vertical"
+                    android:padding="@dimen/d5dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/d5dp"
+                        android:drawablePadding="@dimen/d5dp"
+                        android:text="@string/last_activity_text"
+                        android:textAppearance="?attr/textAppearanceHeadline6"
+                        app:drawableStartCompat="@drawable/img_time_filled"
+                        app:drawableTint="@color/my_light_red_color" />
+
+                    <TextView
+                        android:id="@+id/fragment_resigted_profile_lastActivityTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/d35dp"
+                        android:layout_marginTop="@dimen/d10dp"
+                        android:layout_marginBottom="@dimen/d16dp"
+                        android:text="@string/time_text"
+                        android:textAppearance="?attr/textAppearanceBody2" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginStart="@dimen/d16dp"
+                        android:layout_marginEnd="@dimen/d16dp"
+                        android:background="?android:attr/listDivider" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/my_light_grey_color"
+                    android:orientation="vertical"
+                    android:padding="@dimen/d5dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/d5dp"
+                        android:drawablePadding="@dimen/d5dp"
+                        android:text="@string/phone_number_text"
+                        android:textAppearance="?attr/textAppearanceHeadline6"
+                        app:drawableStartCompat="@drawable/img_mobile"
+                        app:drawableTint="@color/my_light_red_color" />
+
+                    <TextView
+                        android:id="@+id/fragment_resigted_profile_telephoneNumberTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/d35dp"
+                        android:layout_marginTop="@dimen/d10dp"
+                        android:layout_marginBottom="@dimen/d16dp"
+                        android:text="@string/demo_phone_text"
+                        android:textAppearance="?attr/textAppearanceBody2" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginStart="@dimen/d16dp"
+                        android:layout_marginEnd="@dimen/d16dp"
+                        android:background="?android:attr/listDivider" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/my_light_grey_color"
+                    android:orientation="vertical"
+                    android:padding="@dimen/d5dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/d5dp"
+                        android:drawablePadding="@dimen/d5dp"
+                        android:text="@string/telephone_number_text"
+                        android:textAppearance="?attr/textAppearanceHeadline6"
+                        app:drawableStartCompat="@drawable/ic_telephone"
+                        app:drawableTint="@color/my_light_red_color" />
+
+                    <TextView
+                        android:id="@+id/fragment_resigted_profile_phoneNumberTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/d35dp"
+                        android:layout_marginTop="@dimen/d10dp"
+                        android:layout_marginBottom="@dimen/d16dp"
+                        android:text="@string/demo_telephone_text"
+                        android:textAppearance="?attr/textAppearanceBody2" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginStart="@dimen/d16dp"
+                        android:layout_marginEnd="@dimen/d16dp"
+                        android:background="?android:attr/listDivider" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/my_light_grey_color"
+                    android:orientation="vertical"
+                    android:padding="@dimen/d5dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/d5dp"
+                        android:drawablePadding="@dimen/d5dp"
+                        android:text="@string/whatsup_phone_number_text"
+                        android:textAppearance="?attr/textAppearanceHeadline6"
+                        app:drawableStartCompat="@drawable/img_whatsapp"
+                        app:drawableTint="@color/my_light_red_color" />
+
+                    <TextView
+                        android:id="@+id/fragment_resigted_profile_whatsappNumberTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/d35dp"
+                        android:layout_marginTop="@dimen/d10dp"
+                        android:layout_marginBottom="@dimen/d16dp"
+                        android:text="@string/demo_whatsapp_text"
+                        android:textAppearance="?attr/textAppearanceBody2" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginStart="@dimen/d16dp"
+                        android:layout_marginEnd="@dimen/d16dp"
+                        android:background="?android:attr/listDivider" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/my_light_grey_color"
+                    android:orientation="vertical"
+                    android:padding="@dimen/d5dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/d5dp"
+                        android:drawablePadding="@dimen/d5dp"
+                        android:text="@string/location_text"
+                        android:textAppearance="?attr/textAppearanceHeadline6"
+                        app:drawableStartCompat="@drawable/img_location"
+                        app:drawableTint="@color/my_light_red_color" />
+
+                    <TextView
+                        android:id="@+id/fragment_resigted_profile_locationTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/d35dp"
+                        android:layout_marginTop="@dimen/d10dp"
+                        android:layout_marginBottom="@dimen/d16dp"
+                        android:text="@string/demo_loaction_text"
+                        android:textAppearance="?attr/textAppearanceBody2" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginStart="@dimen/d16dp"
+                        android:layout_marginEnd="@dimen/d16dp"
+                        android:background="?android:attr/listDivider" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/my_light_grey_color"
+                    android:orientation="vertical"
+                    android:padding="@dimen/d5dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/d5dp"
+                        android:drawablePadding="@dimen/d5dp"
+                        android:text="@string/website_text"
+                        android:textAppearance="?attr/textAppearanceHeadline6"
+                        app:drawableStartCompat="@drawable/img_website"
+                        app:drawableTint="@color/my_light_red_color" />
+
+                    <TextView
+                        android:id="@+id/fragment_resigted_profile_websiteTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/d35dp"
+                        android:layout_marginTop="@dimen/d10dp"
+                        android:layout_marginBottom="@dimen/d16dp"
+                        android:text="@string/demo_website_text"
+                        android:textAppearance="?attr/textAppearanceBody2"
+                        android:textDirection="locale" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginStart="@dimen/d16dp"
+                        android:layout_marginEnd="@dimen/d16dp"
+                        android:background="?android:attr/listDivider" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/d16dp"
+                    android:layout_marginBottom="@dimen/d16dp"
+                    android:background="@color/my_light_grey_color"
+                    android:orientation="vertical"
+                    android:padding="@dimen/d5dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/d5dp"
+                        android:drawablePadding="@dimen/d5dp"
+                        android:text="@string/bio_text"
+                        android:textAppearance="?attr/textAppearanceHeadline6"
+                        app:drawableStartCompat="@drawable/img_letter"
+                        app:drawableTint="@color/my_light_red_color" />
+
+                    <TextView
+                        android:id="@+id/fragment_resigted_profile_bioTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/d35dp"
+                        android:layout_marginTop="@dimen/d10dp"
+                        android:layout_marginBottom="@dimen/d16dp"
+                        android:text="@string/demo_bio_text"
+                        android:textAppearance="?attr/textAppearanceBody2"
+                        android:textDirection="locale" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginStart="@dimen/d16dp"
+                        android:layout_marginEnd="@dimen/d16dp"
+                        android:background="?android:attr/listDivider" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/d5dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/d5dp"
+                        android:drawablePadding="@dimen/d5dp"
+                        android:text="@string/latest_ads_text"
+                        android:textAppearance="?attr/textAppearanceHeadline6"
+                        app:drawableStartCompat="@drawable/img_time_filled"
+                        app:drawableTint="@color/my_light_red_color" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/d16dp"
+                        android:backgroundTint="@color/my_light_grey_color"
+                        app:cardCornerRadius="@dimen/d10dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/fragment_resigted_profile_imageViewCard1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:adjustViewBounds="true"
+                                    app:srcCompat="@drawable/house" />
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:id="@+id/fragment_resigted_profile_textViewTimeCard1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="@dimen/d10dp"
+                                    android:drawablePadding="@dimen/d5dp"
+                                    android:gravity="top|start"
+                                    android:text="@string/time_text"
+                                    android:textColor="@android:color/white"
+                                    android:textDirection="locale"
+                                    app:drawableStartCompat="@drawable/img_time_filled"
+                                    app:drawableTint="@android:color/white" />
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:id="@+id/fragment_resigted_profile_textViewPriceCard1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="bottom|start"
+                                    android:layout_margin="@dimen/d10dp"
+                                    android:background="@drawable/bg_shape_grey_price"
+                                    android:padding="@dimen/d5dp"
+                                    android:text="@string/price_text_with_suffix_example"
+                                    android:textAppearance="?attr/textAppearanceBody2"
+                                    android:textColor="@color/my_light_red_color"
+                                    android:textDirection="locale"
+                                    android:textSize="@dimen/f18sp"
+                                    android:textStyle="bold" />
+                            </FrameLayout>
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/fragment_resigted_profile_textViewtitleCard1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/d10dp"
+                                android:text="@string/ads_headline_text"
+                                android:textAppearance="?attr/textAppearanceBody1"
+                                android:textColor="@color/my_black_color"
+                                android:textDirection="locale" />
+
+                        </LinearLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/d16dp"
+                        android:backgroundTint="@color/my_light_grey_color"
+                        app:cardCornerRadius="@dimen/d10dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/fragment_resigted_profile_imageViewCard2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:adjustViewBounds="true"
+                                    app:srcCompat="@drawable/house" />
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:id="@+id/fragment_resigted_profile_textViewTimeCard2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="@dimen/d10dp"
+                                    android:drawablePadding="@dimen/d5dp"
+                                    android:gravity="top|start"
+                                    android:text="@string/time_text"
+                                    android:textColor="@android:color/white"
+                                    android:textDirection="locale"
+                                    app:drawableStartCompat="@drawable/img_time_filled"
+                                    app:drawableTint="@android:color/white" />
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:id="@+id/fragment_resigted_profile_textViewPriceCard2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="bottom|start"
+                                    android:layout_margin="@dimen/d10dp"
+                                    android:background="@drawable/bg_shape_grey_price"
+                                    android:padding="@dimen/d5dp"
+                                    android:text="@string/price_text_with_suffix_example"
+                                    android:textAppearance="?attr/textAppearanceBody2"
+                                    android:textColor="@color/my_light_red_color"
+                                    android:textDirection="locale"
+                                    android:textSize="@dimen/f18sp"
+                                    android:textStyle="bold" />
+                            </FrameLayout>
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/fragment_resigted_profile_textViewtitleCard2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/d10dp"
+                                android:text="@string/ads_headline_text"
+                                android:textAppearance="?attr/textAppearanceBody1"
+                                android:textColor="@color/my_black_color"
+                                android:textDirection="locale" />
+
+                        </LinearLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/d16dp"
+                    android:background="@drawable/bg_shape_textview"
+                    android:drawablePadding="@dimen/d5dp"
+                    android:padding="@dimen/d6dp"
+                    android:text="@string/my_ads_text"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    app:drawableEndCompat="@drawable/img_keyboard_arrow_left"
+                    app:drawableStartCompat="@drawable/img_megaphone"
+                    app:drawableTint="@color/my_light_red_color" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/d16dp"
+                    android:background="@drawable/bg_shape_textview"
+                    android:drawablePadding="@dimen/d5dp"
+                    android:padding="@dimen/d6dp"
+                    android:text="@string/update_password_account_text"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    app:drawableEndCompat="@drawable/img_keyboard_arrow_left"
+                    app:drawableStartCompat="@drawable/img_pass_lock"
+                    app:drawableTint="@color/my_light_red_color" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/d16dp"
+                    android:background="@drawable/bg_shape_textview"
+                    android:drawablePadding="@dimen/d5dp"
+                    android:padding="@dimen/d6dp"
+                    android:text="@string/contact_us"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    app:drawableEndCompat="@drawable/img_keyboard_arrow_left"
+                    app:drawableStartCompat="@drawable/ic_telephone"
+                    app:drawableTint="@color/my_light_red_color" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/d16dp"
+                    android:background="@drawable/bg_shape_textview"
+                    android:drawablePadding="@dimen/d5dp"
+                    android:padding="@dimen/d6dp"
+                    android:text="@string/delete_account_text"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    app:drawableEndCompat="@drawable/img_keyboard_arrow_left"
+                    app:drawableStartCompat="@drawable/img_delete"
+                    app:drawableTint="@color/my_light_red_color" />
+
+
+            </LinearLayout>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+        <include
+            layout="@layout/static_bottom_app_bar_and_fab"
+            bind:nullBackground="@{null}" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="headerText"
+            type="String" />
+    </data>
+
+    <merge>
+
+        <androidx.appcompat.widget.Toolbar
+            style="@style/AppTheme.Toolbar.ActionButton"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            app:menu="@menu/menu_main_menu">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{headerText}"
+                android:textColor="@color/white"
+                android:textFontWeight="700"
+                android:textSize="@dimen/f16sp"
+                android:textStyle="bold" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <EditText
+            style="@style/Widget.AppCompat.EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/d10dp"
+            android:background="@drawable/bg_shape_search_edit_text"
+            android:drawableStart="@drawable/img_search"
+            android:drawablePadding="@dimen/d5dp"
+            android:hint="@string/search_about_ads_text"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            app:drawableTint="@color/my_light_red_color" />
+
+    </merge>
+
+</layout>

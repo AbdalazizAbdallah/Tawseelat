@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/d10dp"
+    android:backgroundTint="@color/my_light_grey_color">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/d10dp">
+
+        <!-- Media -->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/item_recycle_imageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/d5dp"
+            android:layout_weight="3"
+            android:adjustViewBounds="true"
+            tools:srcCompat="@drawable/ipad" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:orientation="vertical"
+            android:padding="@dimen/d5dp">
+
+            <!-- Title, secondary and supporting text -->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/item_recycle_textViewTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/d5dp"
+                android:textDirection="locale"
+                app:drawableStartCompat="@drawable/img_time_filled"
+                app:drawableTint="@color/my_light_red_color"
+                tools:text="@string/time_text" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/item_recycle_textViewtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textAppearance="?attr/textAppearanceBody2"
+                android:textColor="@color/my_black_color"
+                android:textDirection="locale"
+                tools:text="@string/ads_headline_text" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/item_recycle_textViewPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_shape_price"
+                android:padding="@dimen/d5dp"
+                android:textAppearance="?attr/textAppearanceBody2"
+                android:textColor="@color/my_light_red_color"
+                android:textDirection="locale"
+                android:textSize="@dimen/f18sp"
+                android:textStyle="bold"
+                tools:text="@string/price_text_with_suffix_example" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

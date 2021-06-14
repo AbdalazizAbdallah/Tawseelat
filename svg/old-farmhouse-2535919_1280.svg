@@ -1,0 +1,10 @@
+<svg height="110" viewBox="0 0 111.667 110" width="111.667" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="linear-gradient" x1="1" x2="0" y1="0.432" y2="0.457">
+            <stop offset="0" stop-color="#141414" />
+            <stop offset="1" stop-color="#750f1c" />
+        </linearGradient>
+    </defs>
+    <rect fill="url(#linear-gradient)" height="110" id="old-farmhouse-2535919_1280" opacity="0.3"
+        rx="8" width="111.667" />
+</svg>

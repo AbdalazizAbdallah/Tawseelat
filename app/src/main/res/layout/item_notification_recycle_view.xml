@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/d10dp"
+    android:backgroundTint="@color/my_light_grey_color"
+    android:maxHeight="150dp"
+    app:cardCornerRadius="@dimen/d10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/d12dp">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/item_notification_recycle_textViewTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/d12dp"
+            android:text="@string/title_item_notification"
+            android:textAppearance="?attr/textAppearanceHeadline6"
+            android:textColor="@color/my_light_red_color" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/item_notification_recycle_textViewBody"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/din_next_lt_arabic_font"
+            android:lines="5"
+            android:scrollbars="vertical"
+            android:text="@string/body_item_notification"
+            android:textAppearance="?attr/textAppearanceBody2" />
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

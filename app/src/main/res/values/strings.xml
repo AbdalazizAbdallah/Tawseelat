@@ -1,0 +1,73 @@
+<resources>
+    <string name="app_name">Tawseelat</string>
+    <string name="introduce_app_text">App ads of the first platform in Yemen for the publication of your ads</string>
+    <string name="login_as_visitor_text">login as visitor</string>
+    <string name="login_to_my_account">login to my account</string>
+    <string name="login">Login</string>
+    <string name="email_text">Email</string>
+    <string name="password_text">password</string>
+    <string name="create_account">create account</string>
+    <string name="required">Required*</string>
+    <string name="contact_us">contact us</string>
+    <string name="your_name_text">Your name</string>
+    <string name="subject_text">Subject (optional)</string>
+    <string name="submit_text">Submit</string>
+    <string name="letter_text">letter</string>
+    <string name="back_text">back</string>
+    <string name="post_ads_text">post ads</string>
+    <string name="telephone_number_text">phone number</string>
+    <string name="whatsup_phone_number_text">whatsup number</string>
+    <string name="allow_show_email_text">show email on ads page</string>
+    <string name="image_ads_text">photo ads</string>
+    <string name="catgory_text">catgory</string>
+    <string name="location_text">location</string>
+    <string name="price_text">price</string>
+    <string name="real_yamen_text">YER</string>
+    <string name="website_post_text">website</string>
+    <string name="description_text">description</string>
+    <string name="home_text" translatable="false">Home</string>
+    <string name="profile_text" translatable="false">Profile</string>
+    <string name="fab_button" translatable="false">fab</string>
+    <string name="notifications_text" translatable="false">notifications</string>
+    <string name="filter_text" translatable="false">filter</string>
+    <string name="main_page_text">main page</string>
+    <string name="search_about_ads_text">search about ads</string>
+    <string name="time_text">since month</string>
+    <string name="ads_headline_text">مجمعات خشبية للأطفال والرحلات عنا بس</string>
+    <string name="price_text_with_suffix">%.3f r.l</string>
+    <string name="price_text_with_suffix_example"> ر.ل 300.000</string>
+    <string name="my_profile_text">My profile</string>
+    <string name="opps_text">opps …</string>
+    <string name="description_unregister_user">يجب تسجيل الدخول الى الحساب او انشاء حساب لرؤية  ملفك الشخصي، سعداء بتواجدك معنا</string>
+    <string name="title_item_notification">عنوان الاشعار سيكون هنا باي نص كان</string>
+    <string name="body_item_notification">"هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق. "</string>
+    <string name="country_text">Country</string>
+    <string name="region_text">Region</string>
+    <string name="city_text">City</string>
+    <string name="update_data_account_text">update data account</string>
+    <string name="update_password_account_text">change password account</string>
+    <string name="current_password_text">current password</string>
+    <string name="new_password_text">New password</string>
+    <string name="confirm_new_password_text">Confrim new password</string>
+    <string name="update_ads_text">Update ads</string>
+    <string name="my_ads_text">My ads</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="modify_text">modify</string>
+    <string name="advertiser_name_text">Advertiser Name</string>
+    <string name="demo_advertiser_name_text">سالم سي السالم الشيخ سالم</string>
+    <string name="last_activity_text">last activity</string>
+    <string name="phone_number_text">phone number</string>
+    <string name="demo_phone_text">009991112223334</string>
+    <string name="demo_telephone_text">08012345645</string>
+    <string name="demo_whatsapp_text">009991112223334</string>
+    <string name="demo_loaction_text">اليمن - العاصمة صنعاء - حي السادة - شارع الثورة</string>
+    <string name="demo_website_text">EXAMPLE@EXAMPLE.COM</string>
+    <string name="website_text">الموقع الالكتروني</string>
+    <string name="demo_bio_text">هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق. إذا كنت تحتاج إلى عدد أكبر من الفقرات يتيح لك مولد النص العربى.</string>
+    <string name="bio_text">bio</string>
+    <string name="latest_ads_text">Latest ads</string>
+    <string name="delete_account_text">delete account</string>
+    <string name="advertiser_profile_text">advertiser profile</string>
+    <!-- TODO: Remove or change this placeholder text -->
+
+</resources>
