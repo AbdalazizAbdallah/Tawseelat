@@ -5,9 +5,12 @@
     <string name="login_as_visitor_text">دخول كزائر</string>
     <string name="login_to_my_account">الدخول إلي حسابي</string>
     <string name="login">تسجيل الدخول</string>
+    <string name="login_underline">&lt;u&gt;تسجيل الدخول&lt;/u&gt;</string>
     <string name="email_or_phone_text">البريد إلكتروني/ رقم جوال</string>
+    <string name="email_text">البريد إلكتروني</string>
     <string name="password_text">كلمة السر</string>
     <string name="create_account">إنشاء حساب</string>
+    <string name="create_account_underline">&lt;u&gt; إنشاء حساب &lt;/u&gt;</string>
     <string name="required">مطلوب*</string>
     <string name="contact_us">اتصل بنا</string>
     <string name="your_name_text">اسمك</string>

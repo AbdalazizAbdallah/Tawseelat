@@ -4,9 +4,12 @@
     <string name="login_as_visitor_text">login as visitor</string>
     <string name="login_to_my_account">Login to my account</string>
     <string name="login">Login</string>
+    <string name="login_underline">&lt;u&gt;login&lt;/u&gt;</string>
     <string name="email_or_phone_text">Email/phone</string>
+    <string name="email_text">Email</string>
     <string name="password_text">password</string>
     <string name="create_account">Create Account</string>
+    <string name="create_account_underline">&lt;u&gt;Create Account&lt;/u&gt;</string>
     <string name="required">Required*</string>
     <string name="contact_us">Contact Us</string>
     <string name="your_name_text">Your name</string>
@@ -69,5 +72,6 @@
     <string name="delete_account_text">delete account</string>
     <string name="advertiser_profile_text">advertiser profile</string>
     <string name="login_as_employee">Login as employee</string>
+    <string name="country_code_text" translatable="false">Country Code</string>
 
 </resources>

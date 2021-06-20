@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.text.Html" />
+    </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
@@ -9,8 +15,8 @@
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:elevation="@dimen/d0dp"
-            android:background="@android:color/transparent">
+            android:background="@android:color/transparent"
+            app:elevation="@dimen/d0dp">
 
             <include layout="@layout/static_brand_layout" />
 
@@ -47,23 +53,74 @@
                     app:srcCompat="@drawable/img_decorator" />
 
 
-                <com.google.android.material.textfield.TextInputLayout
+                <LinearLayout
                     style="@style/MyStyleTextInputLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/email_or_phone_text"
-                    app:startIconDrawable="@drawable/img_email"
-                    app:startIconTint="@color/my_purple_Dark">
+                    android:orientation="horizontal">
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/fragment_login_email_or_phone"
-                        android:layout_width="match_parent"
+                    <com.hbb20.CountryCodePicker
+                        android:id="@+id/fragment_login_ccp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:inputType="textEmailAddress|text|textCapWords" />
-                </com.google.android.material.textfield.TextInputLayout>
+                        android:visibility="gone"
+                        app:ccpDialog_backgroundColor="@color/white"
+                        app:ccp_autoDetectCountry="true"
+                        app:ccp_autoDetectLanguage="true"
+                        app:ccp_contentColor="@color/my_purple_Dark"
+                        app:ccp_countryAutoDetectionPref="SIM_ONLY"
+                        app:ccp_countryPreference="ps"
+                        app:ccp_defaultNameCode="PS"
+                        app:ccp_rememberLastSelection="true"
+                        app:ccp_showPhoneCode="true" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/fragment_login_country_code_layout"
+                        style="@style/MyStyleTextInputLayout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/d10dp"
+                        android:layout_weight="1"
+                        android:hint="@string/country_code_text"
+                        android:visibility="gone"
+                        app:endIconMode="none"
+                        tools:visibility="visible">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/fragment_login_country_code_editText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:cursorVisible="false"
+                            android:focusable="false"
+                            tools:text="+970" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/fragment_login_email_or_phone_layout"
+                        style="@style/MyStyleTextInputLayout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:hint="@string/email_or_phone_text"
+                        app:startIconDrawable="@drawable/img_email"
+                        app:startIconTint="@color/my_purple_Dark">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/fragment_login_email_or_password"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:imeOptions="actionNext"
+                            android:inputType="textEmailAddress|text" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     style="@style/MyStyleTextInputLayout"
+                    android:id="@+id/fragment_login_password_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/d0dp"
@@ -84,9 +141,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/login_as_employee"
-                    app:buttonTint="@color/my_purple_Dark"
                     android:textAppearance="?textAppearanceBody2"
-                    android:textDirection="locale" />
+                    android:textDirection="locale"
+                    app:buttonTint="@color/my_purple_Dark" />
 
 
                 <com.google.android.material.button.MaterialButton
@@ -98,9 +155,12 @@
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/fragment_login_create_account"
                     style="@style/MyStyleSecondaryButton"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/create_account" />
+                    android:layout_gravity="center"
+                    android:text="@{Html.fromHtml(@string/create_account_underline)}"
+                    android:textAllCaps="false"
+                    tools:text="@string/create_account" />
 
             </LinearLayout>
 

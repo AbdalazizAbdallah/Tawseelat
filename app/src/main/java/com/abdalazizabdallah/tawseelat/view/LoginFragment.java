@@ -1,6 +1,12 @@
 package com.abdalazizabdallah.tawseelat.view;
 
+import android.annotation.SuppressLint;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,17 +20,20 @@ import androidx.navigation.Navigation;
 
 import com.abdalazizabdallah.tawseelat.R;
 import com.abdalazizabdallah.tawseelat.databinding.FragmentLoginBinding;
+import com.hbb20.CountryCodePicker;
 
 
-public class LoginFragment extends Fragment {
+@SuppressLint("RestrictedApi")
+public class LoginFragment extends Fragment implements TextWatcher, CountryCodePicker.DialogEventsListener {
 
     private FragmentLoginBinding fragmentLoginBinding;
     private NavController navController;
 
+    private static final String TAG = "LoginFragment";
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
@@ -41,13 +50,71 @@ public class LoginFragment extends Fragment {
         navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
 
 
-        fragmentLoginBinding.fragmentLoginCreateAccount.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                NavDirections navDirections = LoginFragmentDirections.actionLoginFragmentToSignUpFragment();
+        fragmentLoginBinding.fragmentLoginCcp.registerCarrierNumberEditText(fragmentLoginBinding.fragmentLoginCountryCodeEditText);
 
-                navController.navigate(navDirections);
-            }
+        fragmentLoginBinding.fragmentLoginEmailOrPassword.addTextChangedListener(this);
+        fragmentLoginBinding.fragmentLoginCcp.setDialogEventsListener(this);
+        fragmentLoginBinding.fragmentLoginCountryCodeEditText.setOnClickListener(v ->
+                fragmentLoginBinding.fragmentLoginCcp.launchCountrySelectionDialog());
+
+
+        fragmentLoginBinding.fragmentLoginCreateAccount.setOnClickListener(v -> {
+            NavDirections navDirections = LoginFragmentDirections.actionLoginFragmentToSignUpFragment();
+            navController.navigate(navDirections);
         });
+
+
     }
+
+
+    @Override
+    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+    }
+
+    @Override
+    public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+    }
+
+    @Override
+    public void afterTextChanged(Editable s) {
+        if (s.length() >= 3) {
+            if (TextUtils.isDigitsOnly(s)) {
+                fragmentLoginBinding.fragmentLoginCountryCodeEditText.setText(
+                        fragmentLoginBinding.fragmentLoginCcp.getDefaultCountryCodeWithPlus());
+
+                fragmentLoginBinding.fragmentLoginCountryCodeLayout.setVisibility(View.VISIBLE);
+                fragmentLoginBinding.fragmentLoginEmailOrPhoneLayout.setStartIconDrawable(R.drawable.img_mobile);
+
+            } else {
+                fragmentLoginBinding.fragmentLoginCountryCodeLayout.setVisibility(View.GONE);
+                fragmentLoginBinding.fragmentLoginEmailOrPhoneLayout.setStartIconDrawable(R.drawable.img_email);
+            }
+        } else {
+            fragmentLoginBinding.fragmentLoginCountryCodeLayout.setVisibility(View.GONE);
+            fragmentLoginBinding.fragmentLoginEmailOrPhoneLayout.setStartIconDrawable(R.drawable.img_email);
+        }
+    }
+
+    @Override
+    public void onCcpDialogOpen(Dialog dialog) {
+
+    }
+
+    @Override
+    public void onCcpDialogDismiss(DialogInterface dialogInterface) {
+        fragmentLoginBinding.fragmentLoginCountryCodeEditText.setText(
+                fragmentLoginBinding.fragmentLoginCcp.getSelectedCountryCodeWithPlus());
+    }
+
+    @Override
+    public void onCcpDialogCancel(DialogInterface dialogInterface) {
+
+    }
+
+//    public boolean isEmailValid(CharSequence email) {
+//        return android.util.Patterns.EMAIL_ADDRESS.matcher(email)
+//                .matches();
+//    }
 }
