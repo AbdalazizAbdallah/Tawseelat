@@ -1,6 +1,5 @@
 package com.abdalazizabdallah.tawseelat;
 
-import android.content.res.Configuration;
 import android.os.Bundle;
 import android.widget.AutoCompleteTextView;
 
@@ -13,7 +12,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
-import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,13 +27,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        String languageToLoad = "ar"; // your language
-        Locale locale = new Locale(languageToLoad);
-        Locale.setDefault(locale);
-        Configuration config = new Configuration();
-        config.locale = locale;
-        getBaseContext().getResources().updateConfiguration(config,
-                getBaseContext().getResources().getDisplayMetrics());
+//        String languageToLoad = "ar"; // your language
+//        Locale locale = new Locale(languageToLoad);
+//        Locale.setDefault(locale);
+//        Configuration config = new Configuration();
+//        config.locale = locale;
+//        getBaseContext().getResources().updateConfiguration(config,
+//                getBaseContext().getResources().getDisplayMetrics());
 
         DataBindingUtil.setContentView(this, R.layout.activity_main);
 

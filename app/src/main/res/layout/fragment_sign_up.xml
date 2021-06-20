@@ -4,13 +4,15 @@
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/my_purple_light">
+
 
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:elevation="@dimen/d0dp"
-            android:background="@android:color/transparent">
+            android:background="@android:color/transparent"
+            app:elevation="@dimen/d0dp">
 
             <include layout="@layout/static_brand_layout" />
 
@@ -24,6 +26,7 @@
             android:scrollbars="vertical"
             app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
+
             <LinearLayout
                 android:id="@+id/linearLayout"
                 android:layout_width="match_parent"
@@ -31,12 +34,15 @@
                 android:layout_margin="@dimen/d20dp"
                 android:orientation="vertical">
 
+
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/materialTextView2"
                     style="@style/MyStyleTextViewHeadline"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/login" />
+                    android:inputType="textCapWords|text"
+                    android:text="@string/create_account"
+                    android:textAllCaps="true" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/appCompatImageView3"
@@ -46,6 +52,20 @@
                     android:layout_marginBottom="@dimen/d35dp"
                     app:srcCompat="@drawable/img_decorator" />
 
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/MyStyleTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/your_name_text"
+                    app:startIconDrawable="@drawable/img_n_letter"
+                    app:startIconTint="@color/my_purple_Dark">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text|textPersonName"
+                        android:textDirection="locale" />
+                </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     style="@style/MyStyleTextInputLayout"
@@ -56,51 +76,39 @@
                     app:startIconTint="@color/my_purple_Dark">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/fragment_login_email_or_phone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="textEmailAddress|text|textCapWords" />
+                        android:inputType="textEmailAddress" />
+
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     style="@style/MyStyleTextInputLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/d0dp"
                     android:hint="@string/password_text"
                     app:endIconMode="password_toggle"
                     app:startIconDrawable="@drawable/img_pass_lock"
                     app:startIconTint="@color/my_purple_Dark">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/fragment_login_password"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textPassword" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.checkbox.MaterialCheckBox
-                    android:id="@+id/fragment_login_checkBox_login_as_employee"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/login_as_employee"
-                    app:buttonTint="@color/my_purple_Dark"
-                    android:textAppearance="?textAppearanceBody2"
-                    android:textDirection="locale" />
-
-
                 <com.google.android.material.button.MaterialButton
                     style="@style/MyStylePrimaryButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/login" />
+                    android:text="@string/create_account" />
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/fragment_login_create_account"
+                    android:id="@+id/fragment_sign_up_login"
                     style="@style/MyStyleSecondaryButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/create_account" />
+                    android:text="@string/login" />
 
             </LinearLayout>
 

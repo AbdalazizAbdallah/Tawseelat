@@ -2,21 +2,21 @@
     <string name="app_name">Tawseelat</string>
     <string name="introduce_app_text">App ads of the first platform in Yemen for the publication of your ads</string>
     <string name="login_as_visitor_text">login as visitor</string>
-    <string name="login_to_my_account">login to my account</string>
+    <string name="login_to_my_account">Login to my account</string>
     <string name="login">Login</string>
     <string name="email_or_phone_text">Email/phone</string>
     <string name="password_text">password</string>
-    <string name="create_account">create account</string>
+    <string name="create_account">Create Account</string>
     <string name="required">Required*</string>
-    <string name="contact_us">contact us</string>
+    <string name="contact_us">Contact Us</string>
     <string name="your_name_text">Your name</string>
     <string name="subject_text">Subject (optional)</string>
     <string name="submit_text">Submit</string>
-    <string name="letter_text">letter</string>
+    <string name="letter_text">Letter</string>
     <string name="back_text">back</string>
-    <string name="post_ads_text">post ads</string>
-    <string name="telephone_number_text">phone number</string>
-    <string name="whatsup_phone_number_text">whatsup number</string>
+    <string name="post_ads_text">Post ads</string>
+    <string name="telephone_number_text">Phone number</string>
+    <string name="whatsup_phone_number_text">Whatsup number</string>
     <string name="allow_show_email_text">show email on ads page</string>
     <string name="image_ads_text">photo ads</string>
     <string name="catgory_text">catgory</string>
@@ -68,7 +68,6 @@
     <string name="latest_ads_text">Latest ads</string>
     <string name="delete_account_text">delete account</string>
     <string name="advertiser_profile_text">advertiser profile</string>
-    <string name="login_as_employee">login as employee</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="login_as_employee">Login as employee</string>
 
 </resources>

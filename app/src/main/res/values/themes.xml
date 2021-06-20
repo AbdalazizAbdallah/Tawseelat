@@ -32,9 +32,9 @@
     </style>
 
 
-    <style name="MyStyleSecoundryButton" parent="Widget.MaterialComponents.Button.TextButton">
+    <style name="MyStyleSecondaryButton" parent="Widget.MaterialComponents.Button.TextButton">
         <item name="android:textSize">@dimen/f16sp</item>
-        <item name="android:background">@android:color/transparent</item>
+        <!--        <item name="android:background">@android:color/transparent</item>-->
         <item name="android:textColor">@color/my_black_color</item>
     </style>
 

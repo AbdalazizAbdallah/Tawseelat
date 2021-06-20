@@ -9,17 +9,18 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
-import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
 import com.abdalazizabdallah.tawseelat.R;
-import com.abdalazizabdallah.tawseelat.databinding.FragmentLoginBinding;
+import com.abdalazizabdallah.tawseelat.databinding.FragmentSignUpBinding;
 
 
-public class LoginFragment extends Fragment {
+public class SignUpFragment extends Fragment {
 
-    private FragmentLoginBinding fragmentLoginBinding;
+
+    private FragmentSignUpBinding fragmentSignUpBinding;
     private NavController navController;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -30,9 +31,9 @@ public class LoginFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        fragmentLoginBinding = FragmentLoginBinding.inflate(inflater, container, false);
-        return fragmentLoginBinding.getRoot();
+
+        fragmentSignUpBinding = FragmentSignUpBinding.inflate(inflater, container, false);
+        return fragmentSignUpBinding.getRoot();
     }
 
     @Override
@@ -40,14 +41,15 @@ public class LoginFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
 
-
-        fragmentLoginBinding.fragmentLoginCreateAccount.setOnClickListener(new View.OnClickListener() {
+        fragmentSignUpBinding.fragmentSignUpLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                NavDirections navDirections = LoginFragmentDirections.actionLoginFragmentToSignUpFragment();
-
-                navController.navigate(navDirections);
+                navController.navigateUp();
             }
         });
+
+
     }
+
+
 }
