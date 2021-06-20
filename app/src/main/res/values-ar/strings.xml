@@ -5,7 +5,7 @@
     <string name="login_as_visitor_text">دخول كزائر</string>
     <string name="login_to_my_account">الدخول إلي حسابي</string>
     <string name="login">تسجيل الدخول</string>
-    <string name="email_text">البريد إلكتروني</string>
+    <string name="email_or_phone_text">البريد إلكتروني/ رقم جوال</string>
     <string name="password_text">كلمة السر</string>
     <string name="create_account">إنشاء حساب</string>
     <string name="required">مطلوب*</string>
@@ -64,5 +64,6 @@
     <string name="latest_ads_text">أحدث الإعلانات</string>
     <string name="delete_account_text">حذف الحساب</string>
     <string name="advertiser_profile_text">ملف المعلن</string>
+    <string name="login_as_employee">التسجيل كموظف</string>
 
 </resources>

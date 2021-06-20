@@ -1,26 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:bind="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <com.google.android.material.appbar.AppBarLayout
-            android:layout_width="match_parent"
-            android:layout_height="?actionBarSize">
 
-            <include
-                layout="@layout/static_tool_bar"
-                bind:headerText="@{@string/contact_us}" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent">
+
+            <include layout="@layout/static_brand_layout" />
 
         </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.core.widget.NestedScrollView
-            android:id="@+id/nestedScrollView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:scrollbars="vertical"
             app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
             <LinearLayout
@@ -35,7 +33,7 @@
                     style="@style/MyStyleTextViewHeadline"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/contact_us" />
+                    android:text="@string/login" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/appCompatImageView3"
@@ -50,74 +48,58 @@
                     style="@style/MyStyleTextInputLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/your_name_text"
-                    app:startIconDrawable="@drawable/img_n_letter"
-                    app:startIconTint="@color/my_red_color">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="text" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/MyStyleTextInputLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
                     android:hint="@string/email_or_phone_text"
                     app:startIconDrawable="@drawable/img_email"
-                    app:startIconTint="@color/my_red_color">
+                    app:startIconTint="@color/my_purple_Dark">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/fragment_login_email_or_phone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="textEmailAddress" />
-
+                        android:inputType="textEmailAddress|text" />
                 </com.google.android.material.textfield.TextInputLayout>
-
 
                 <com.google.android.material.textfield.TextInputLayout
                     style="@style/MyStyleTextInputLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/subject_text"
-                    app:startIconDrawable="@drawable/img_subject"
-                    app:startIconTint="@color/my_red_color">
+                    android:layout_marginBottom="@dimen/d0dp"
+                    android:hint="@string/password_text"
+                    app:endIconMode="password_toggle"
+                    app:startIconDrawable="@drawable/img_pass_lock"
+                    app:startIconTint="@color/my_purple_Dark">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/fragment_login_password"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="text" />
+                        android:inputType="textPassword" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/MyStyleTextInputLayout"
+                <com.google.android.material.checkbox.MaterialCheckBox
+                    android:id="@+id/fragment_login_checkBox_login_as_employee"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/letter_text"
-                    app:startIconDrawable="@drawable/img_letter"
-                    app:startIconTint="@color/my_red_color">
+                    android:text="@string/login_as_employee"
+                    android:textAppearance="?textAppearanceBody2"
+                    android:textDirection="locale" />
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="top"
-                        android:inputType="text|textMultiLine"
-                        android:lines="7" />
-                </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.button.MaterialButton
                     style="@style/MyStylePrimaryButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/d35dp"
-                    android:text="@string/submit_text" />
+                    android:text="@string/login" />
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/MyStyleSecoundryButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/create_account" />
 
             </LinearLayout>
 
         </androidx.core.widget.NestedScrollView>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
 </layout>

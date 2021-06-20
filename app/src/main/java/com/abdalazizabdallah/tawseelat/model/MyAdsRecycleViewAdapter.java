@@ -1,7 +1,6 @@
 package com.abdalazizabdallah.tawseelat.model;
 
 import android.app.Application;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
@@ -33,8 +32,8 @@ public class MyAdsRecycleViewAdapter extends RecyclerView.Adapter<MyAdsRecycleVi
     @NonNull
     @Override
     public MyAdsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_my_ads_recycle_view, parent, false);
-        return new MyAdsViewHolder(view);
+        //View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_my_ads_recycle_view, parent, false);
+        return null;
     }
 
     @Override

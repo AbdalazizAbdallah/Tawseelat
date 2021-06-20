@@ -2,6 +2,7 @@
     xmlns:aapt="http://schemas.android.com/aapt"
     android:width="68dp"
     android:height="3dp"
+    android:tint="@color/my_purple_Dark"
     android:viewportWidth="68"
     android:viewportHeight="3">
     <path

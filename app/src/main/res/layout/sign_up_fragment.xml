@@ -5,8 +5,6 @@
     android:layout_height="match_parent">
 
 
-    <include layout="@layout/static_background_layout" />
-
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -49,7 +47,7 @@
                 style="@style/MyStyleTextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/email_text"
+                android:hint="@string/email_or_phone_text"
                 app:startIconDrawable="@drawable/img_email"
                 app:startIconTint="@color/my_red_color">
 
@@ -63,7 +61,7 @@
                 style="@style/MyStyleTextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/email_text"
+                android:hint="@string/email_or_phone_text"
                 app:startIconDrawable="@drawable/img_email"
                 app:startIconTint="@color/my_red_color">
 

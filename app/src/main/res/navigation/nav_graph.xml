@@ -11,8 +11,8 @@
         android:label="SplashScreenFragment"
         tools:layout="@layout/fragment_splash_screen">
         <action
-            android:id="@+id/action_splashScreenFragment_to_resigtedProfileFragment"
-            app:destination="@id/resigtedProfileFragment"
+            android:id="@+id/action_splashScreenFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/fade_out"
             app:popEnterAnim="@android:anim/fade_in"
@@ -22,9 +22,9 @@
     </fragment>
 
     <fragment
-        android:id="@+id/resigtedProfileFragment"
-        android:name="com.abdalazizabdallah.tawseelat.view.ResigtedProfileFragment"
-        android:label="fragment_advertiser_profile"
-        tools:layout="@layout/fragment_advertiser_profile" />
+        android:id="@+id/loginFragment"
+        android:name="com.abdalazizabdallah.tawseelat.view.LoginFragment"
+        android:label="loginFragment"
+        tools:layout="@layout/fragment_login" />
 
 </navigation>

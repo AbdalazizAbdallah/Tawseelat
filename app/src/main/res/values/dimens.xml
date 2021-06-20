@@ -20,4 +20,5 @@
     <dimen name="d100dp">100dp</dimen>
     <dimen name="d150dp">150dp</dimen>
     <dimen name="d200dp">200dp</dimen>
+    <dimen name="d0dp">0dp</dimen>
 </resources>
