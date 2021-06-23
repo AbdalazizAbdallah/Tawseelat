@@ -68,5 +68,11 @@
     <string name="delete_account_text">حذف الحساب</string>
     <string name="advertiser_profile_text">ملف المعلن</string>
     <string name="login_as_employee">التسجيل كموظف</string>
+    <string name="verification_code_text">رمز التحقق</string>
+    <string name="country_code_text">رمز الدولة</string>
+    <string name="check_email_message">رجاءا افحص البريد الخاص بك.</string>
+    <string name="didnT_receive_tap_to_send_message">لم تستقبله ؟ انقر لإرساله مجددا.</string>
+    <string name="enter_code_message">إدخال رمز نحن فقط راسلناك.</string>
+    <string name="verify_code">تحقق</string>
 
 </resources>

@@ -18,4 +18,5 @@
     <color name="transparent_white">#B3FFFFFF</color>
     <color name="my_purple_light">#26FAD6EA</color>
     <color name="my_purple_Dark">#BE2079</color>
+    <color name="my_transparent_black_color">#26000000</color>
 </resources>

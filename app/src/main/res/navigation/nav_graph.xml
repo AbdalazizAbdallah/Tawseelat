@@ -11,8 +11,8 @@
         android:label="SplashScreenFragment"
         tools:layout="@layout/fragment_splash_screen">
         <action
-            android:id="@+id/action_splashScreenFragment_to_loginFragment"
-            app:destination="@id/loginFragment"
+            android:id="@+id/action_splashScreenFragment_to_login_flow_nav"
+            app:destination="@id/login_flow_nav"
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/fade_out"
             app:popEnterAnim="@android:anim/fade_in"
@@ -21,23 +21,8 @@
             app:popUpToInclusive="true" />
     </fragment>
 
-    <fragment
-        android:id="@+id/loginFragment"
-        android:name="com.abdalazizabdallah.tawseelat.view.LoginFragment"
-        android:label="loginFragment"
-        tools:layout="@layout/fragment_login">
-        <action
-            android:id="@+id/action_loginFragment_to_signUpFragment"
-            app:destination="@id/signUpFragment"
-            app:enterAnim="@android:anim/slide_in_left"
-            app:exitAnim="@android:anim/fade_out"
-            app:popEnterAnim="@android:anim/fade_in"
-            app:popExitAnim="@android:anim/slide_out_right" />
-    </fragment>
-    <fragment
-        android:id="@+id/signUpFragment"
-        android:name="com.abdalazizabdallah.tawseelat.view.SignUpFragment"
-        android:label="SignUpFragment"
-        tools:layout="@layout/fragment_sign_up" />
+    <include
+        android:id="@+id/login_flow_nav"
+        app:graph="@navigation/login_flow_nav_graph" />
 
 </navigation>

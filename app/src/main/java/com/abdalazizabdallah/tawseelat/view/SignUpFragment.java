@@ -41,12 +41,10 @@ public class SignUpFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
 
-        fragmentSignUpBinding.fragmentSignUpLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                navController.navigateUp();
-            }
-        });
+        fragmentSignUpBinding.fragmentSignUpLogin.setOnClickListener(v -> navController.navigateUp());
+        fragmentSignUpBinding.fragmentSignUpCreateAccount.setOnClickListener(v ->
+                navController.navigate(SignUpFragmentDirections.actionSignUpFragmentToVerifySignUpFragment())
+        );
 
 
     }

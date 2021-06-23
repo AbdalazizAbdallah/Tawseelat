@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".view.VerifySignUpFragment">
+
+    <data>
+
+    </data>
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:id="@+id/parent_progress_circular"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/my_transparent_black_color"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <com.google.android.material.progressindicator.CircularProgressIndicator
+                android:id="@+id/progress_circular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:indeterminate="true"
+                android:visibility="visible"
+                app:hideAnimationBehavior="outward"
+                app:indicatorColor="@color/my_purple_Dark"
+                app:showAnimationBehavior="outward"
+                app:trackColor="@color/my_purple_light"
+                tools:visibility="visible" />
+
+
+        </FrameLayout>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/d16dp">
+
+            <!--        <com.google.android.material.textview.MaterialTextView-->
+            <!--            android:layout_width="wrap_content"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:text="@string/verification_code_text"-->
+            <!--            android:layout_gravity="center"-->
+            <!--            android:layout_margin="@dimen/d6dp"-->
+            <!--            android:textAppearance="?textAppearanceHeadline5"-->
+            <!--            android:textColor="@color/my_purple_Dark"-->
+            <!--            />-->
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/d6dp"
+                android:gravity="center"
+                android:maxLines="2"
+                android:singleLine="false"
+                android:text="@string/enter_code_message"
+                android:textAppearance="?textAppearanceHeadline5"
+                android:textColor="@color/black" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/check_email_message"
+                android:textAppearance="?textAppearanceBody1"
+                android:textColor="@color/black" />
+
+            <com.chaos.view.PinView
+                android:id="@+id/pinView"
+                style="@style/PinWidget.PinView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/d35dp"
+                android:cursorVisible="true"
+                android:inputType="number"
+                android:itemBackground="@color/my_purple_light"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/f20sp"
+                app:cursorColor="@color/my_purple_Dark"
+                app:hideLineWhenFilled="true"
+                app:itemCount="6"
+                app:lineColor="@color/my_purple_Dark"
+                app:viewType="line"
+                tools:text="789486" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/resend_code"
+                style="@style/MyStyleSecondaryButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/d6dp"
+                android:gravity="center"
+                android:text="@string/didnT_receive_tap_to_send_message"
+                android:textAllCaps="false"
+                android:textColor="@color/black" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/verify_code"
+                style="@style/MyStylePrimaryButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/d35dp"
+                android:padding="@dimen/d10dp"
+                android:text="@string/verify_code"
+                android:textAllCaps="false"
+                app:cornerRadius="@dimen/d150dp" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </FrameLayout>
+
+</layout>

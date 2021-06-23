@@ -7,9 +7,11 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -49,10 +51,16 @@ public class LoginFragment extends Fragment implements TextWatcher, CountryCodeP
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
 
+        fragmentLoginBinding.fragmentLoginCcp.registerCarrierNumberEditText(
+                fragmentLoginBinding.fragmentLoginEmailOrPassword);
 
-        fragmentLoginBinding.fragmentLoginCcp.registerCarrierNumberEditText(fragmentLoginBinding.fragmentLoginCountryCodeEditText);
+//        fragmentLoginBinding.fragmentLoginCcp.launchCountrySelectionDialog(
+//                fragmentLoginBinding.fragmentLoginCcp.getDefaultCountryNameCode());
+
+        Log.e(TAG, "onViewCreated: " + fragmentLoginBinding.fragmentLoginCcp.getDefaultCountryNameCode(), null);
 
         fragmentLoginBinding.fragmentLoginEmailOrPassword.addTextChangedListener(this);
+
         fragmentLoginBinding.fragmentLoginCcp.setDialogEventsListener(this);
         fragmentLoginBinding.fragmentLoginCountryCodeEditText.setOnClickListener(v ->
                 fragmentLoginBinding.fragmentLoginCcp.launchCountrySelectionDialog());
@@ -63,6 +71,19 @@ public class LoginFragment extends Fragment implements TextWatcher, CountryCodeP
             navController.navigate(navDirections);
         });
 
+        fragmentLoginBinding.fragmentLoginLoginButton.setOnClickListener(v -> {
+            if (fragmentLoginBinding.fragmentLoginCcp.isValidFullNumber()) {
+                Log.e(TAG, fragmentLoginBinding.fragmentLoginCcp.getFormattedFullNumber()
+                        + "\n number is Valid ", null);
+                Toast.makeText(getContext(), fragmentLoginBinding.fragmentLoginCcp.getFormattedFullNumber()
+                        + "\n number is Valid ", Toast.LENGTH_SHORT).show();
+            } else {
+                Log.e(TAG, fragmentLoginBinding.fragmentLoginCcp.getFormattedFullNumber()
+                        + "\n number is not Valid ", null);
+                Toast.makeText(getContext(), fragmentLoginBinding.fragmentLoginCcp.getFormattedFullNumber() +
+                        "number is not Valid ", Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 
@@ -82,7 +103,7 @@ public class LoginFragment extends Fragment implements TextWatcher, CountryCodeP
         if (s.length() >= 3) {
             if (TextUtils.isDigitsOnly(s)) {
                 fragmentLoginBinding.fragmentLoginCountryCodeEditText.setText(
-                        fragmentLoginBinding.fragmentLoginCcp.getDefaultCountryCodeWithPlus());
+                        fragmentLoginBinding.fragmentLoginCcp.getSelectedCountryCodeWithPlus());
 
                 fragmentLoginBinding.fragmentLoginCountryCodeLayout.setVisibility(View.VISIBLE);
                 fragmentLoginBinding.fragmentLoginEmailOrPhoneLayout.setStartIconDrawable(R.drawable.img_mobile);

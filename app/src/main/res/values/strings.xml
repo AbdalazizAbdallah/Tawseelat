@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Tawseelat</string>
     <string name="introduce_app_text">App ads of the first platform in Yemen for the publication of your ads</string>
     <string name="login_as_visitor_text">login as visitor</string>
@@ -31,7 +31,7 @@
     <string name="home_text" translatable="false">Home</string>
     <string name="profile_text" translatable="false">Profile</string>
     <string name="fab_button" translatable="false">fab</string>
-    <string name="notifications_text" translatable="false">notifications</string>
+    <string name="notifications_text">notifications</string>
     <string name="filter_text" translatable="false">filter</string>
     <string name="main_page_text">main page</string>
     <string name="search_about_ads_text">search about ads</string>
@@ -72,6 +72,12 @@
     <string name="delete_account_text">delete account</string>
     <string name="advertiser_profile_text">advertiser profile</string>
     <string name="login_as_employee">Login as employee</string>
-    <string name="country_code_text" translatable="false">Country Code</string>
+    <string name="country_code_text">Country Code</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="verification_code_text">Verification Code</string>
+    <string name="check_email_message">please check your Email.</string>
+    <string name="didnT_receive_tap_to_send_message" tools:ignore="StringEscaping">Didn\'t receive it? Tap to send again.</string>
+    <string name="enter_code_message">Enter the code we just texted you.</string>
+    <string name="verify_code">Verify Code</string>
 
 </resources>

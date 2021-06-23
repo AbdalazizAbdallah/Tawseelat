@@ -19,6 +19,7 @@
         <item name="actionButtonStyle">@style/AppTheme.Toolbar.ActionButton</item>
 
     </style>
+
     <!-- this will be applied regardless api version -->
     <style name="Base.AppTheme.Toolbar.ActionButton" parent="@style/Widget.AppCompat.ActionButton">
         <item name="android:minWidth">0dp</item>

@@ -98,7 +98,7 @@ public class SplashScreenFragment extends Fragment {
             SplashScreenFragment splashScreenFragment = splashScreenFragmentWeakReference.get();
             if (splashScreenFragment != null && splashScreenFragment.isRunning) {
                 splashScreenFragment.navController.navigate(SplashScreenFragmentDirections
-                        .actionSplashScreenFragmentToLoginFragment());
+                        .actionSplashScreenFragmentToLoginFlowNav());
             }
         }
     }
