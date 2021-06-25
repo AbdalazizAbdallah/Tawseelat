@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".view.ClientProfileFragment">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:background="@color/my_purple_Dark">
+
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/my_profile_text"
+                    android:textAppearance="?textAppearanceHeadline6"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbarAlwaysDrawVerticalTrack="true"
+            android:scrollbars="vertical"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/MyStyleTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/d6dp"
+                    android:background="@color/my_purple_light"
+                    android:text="@string/demo_my_info_text"
+                    android:textAppearance="?textAppearanceHeadline6"
+                    android:textColor="@color/my_purple_Dark"
+                    android:textStyle="bold"
+                    app:drawableEndCompat="@null" />
+
+                <TextView
+                    android:id="@+id/name_textview"
+                    style="@style/MyStyleTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/d6dp"
+                    android:text="@string/demo_client_name_text"
+                    app:drawableEndCompat="@null"
+                    app:drawableStartCompat="@drawable/ic_user" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_margin="@dimen/d6dp"
+                    android:background="?android:attr/listDivider" />
+
+                <TextView
+                    android:id="@+id/email_textview"
+                    style="@style/MyStyleTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/d6dp"
+                    android:text="@string/demo_email_text"
+                    app:drawableEndCompat="@null"
+                    app:drawableStartCompat="@drawable/img_email" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_margin="@dimen/d6dp"
+                    android:background="?android:attr/listDivider" />
+
+                <TextView
+                    android:id="@+id/phone_textview"
+                    style="@style/MyStyleTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/d6dp"
+                    android:text="@string/demo_phone_text"
+                    app:drawableEndCompat="@null"
+                    app:drawableStartCompat="@drawable/ic_phone_call" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_margin="@dimen/d6dp"
+                    android:background="?android:attr/listDivider" />
+
+
+                <TextView
+                    android:id="@+id/id_textview"
+                    style="@style/MyStyleTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/d6dp"
+                    android:text="@string/demo_id_name_text"
+                    app:drawableEndCompat="@null"
+                    app:drawableStartCompat="@drawable/ic_id"
+                    app:drawableTint="@null" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_margin="@dimen/d6dp"
+                    android:background="?android:attr/listDivider" />
+
+
+                <TextView
+                    android:id="@+id/dob_textview"
+                    style="@style/MyStyleTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/d6dp"
+                    android:text="@string/demo_dob_text"
+                    app:drawableEndCompat="@null"
+                    app:drawableStartCompat="@drawable/ic_calendar" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_margin="@dimen/d6dp"
+                    android:background="?android:attr/listDivider" />
+
+                <TextView
+                    android:id="@+id/gender_textview"
+                    style="@style/MyStyleTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/d6dp"
+                    android:text="@string/demo_gender_text"
+                    app:drawableEndCompat="@null"
+                    app:drawableStartCompat="@drawable/ic_gender" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_margin="@dimen/d6dp"
+                    android:background="?android:attr/listDivider" />
+
+
+                <TextView
+                    android:id="@+id/feedback_textview"
+                    style="@style/MyStyleTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/d6dp"
+                    android:background="@drawable/bg_layer_list_text_view"
+                    android:text="@string/feedback_complaints_text"
+                    app:drawableStartCompat="@drawable/ic_feedback" />
+
+                <TextView
+                    android:id="@+id/language_textview"
+                    style="@style/MyStyleTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/d6dp"
+                    android:background="@drawable/bg_layer_list_text_view"
+                    android:text="@string/language_text"
+                    app:drawableStartCompat="@drawable/ic_feedback" />
+
+            </LinearLayout>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+        <!--        <include-->
+        <!--            layout="@layout/static_bottom_app_bar_and_fab"-->
+        <!--            app:nullBackground="@{null}" />-->
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

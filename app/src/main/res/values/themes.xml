@@ -65,4 +65,13 @@
 
     </style>
 
+    <style name="MyStyleTextView" parent="Widget.MaterialComponents.TextView">
+        <item name="android:drawablePadding">@dimen/d5dp</item>
+        <item name="android:padding">@dimen/d6dp</item>
+        <item name="android:textAppearance">?attr/textAppearanceBody1</item>
+        <item name="drawableEndCompat">@drawable/ic_baseline_keyboard_arrow_right_24</item>
+        <item name="drawableTint">@color/my_purple_Dark</item>
+        <item name="android:textDirection">locale</item>
+    </style>
+
 </resources>

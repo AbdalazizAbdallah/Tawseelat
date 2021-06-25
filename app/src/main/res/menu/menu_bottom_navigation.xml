@@ -11,7 +11,7 @@
 
     <item
         android:id="@+id/Profile"
-        android:icon="@drawable/img_person"
+        android:icon="@drawable/ic_user"
         android:title="@string/profile_text"
         app:iconTint="@color/my_red_color"
         app:showAsAction="ifRoom" />

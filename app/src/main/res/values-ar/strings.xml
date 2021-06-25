@@ -7,14 +7,14 @@
     <string name="login">تسجيل الدخول</string>
     <string name="login_underline">&lt;u&gt;تسجيل الدخول&lt;/u&gt;</string>
     <string name="email_or_phone_text">البريد إلكتروني/ رقم جوال</string>
-    <string name="email_text">البريد إلكتروني</string>
+    <string name="email_text">بريدك إلكتروني</string>
     <string name="password_text">كلمة السر</string>
     <string name="create_account">إنشاء حساب</string>
     <string name="create_account_underline">&lt;u&gt; إنشاء حساب &lt;/u&gt;</string>
     <string name="required">مطلوب*</string>
     <string name="contact_us">اتصل بنا</string>
     <string name="your_name_text">اسمك</string>
-    <string name="subject_text">الموضوع (اختياري)</string>
+    <string name="subject_text">الموضوع</string>
     <string name="submit_text">إرسال</string>
     <string name="letter_text">الرسالة</string>
     <string name="back_text">رجوع</string>
@@ -52,11 +52,11 @@
     <string name="update_ads_text">تحديث الإعلان</string>
     <string name="my_ads_text">إعلاناتي</string>
     <string name="modify_text">تعديل</string>
-    <string name="advertiser_name_text">اسم المعلن</string>
-    <string name="demo_advertiser_name_text">سالم سي السالم الشيخ سالم</string>
+    <string name="client_name_text">اسم المعلن</string>
+    <string name="demo_client_name_text">عبدالعزيز عبدالله ربيع عوض</string>
     <string name="last_activity_text">آخر تواجد</string>
     <string name="phone_number_text">رقم الموبايل</string>
-    <string name="demo_phone_text">009991112223334</string>
+    <string name="demo_phone_text">+970592639219</string>
     <string name="demo_telephone_text">08012345645</string>
     <string name="demo_whatsapp_text">009991112223334</string>
     <string name="demo_loaction_text">اليمن - العاصمة صنعاء - حي السادة - شارع الثورة</string>
@@ -74,5 +74,9 @@
     <string name="didnT_receive_tap_to_send_message">لم تستقبله ؟ انقر لإرساله مجددا.</string>
     <string name="enter_code_message">إدخال رمز نحن فقط راسلناك.</string>
     <string name="verify_code">تحقق</string>
+    <string name="demo_gender_text">الذكر</string>
+    <string name="demo_my_info_text">معلوماتي</string>
+    <string name="feedback_complaints_text">تعليق والشكاوى</string>
+    <string name="language_text">اللغات</string>
 
 </resources>

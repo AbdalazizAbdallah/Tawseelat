@@ -158,6 +158,7 @@ public class VerifySignUpFragment extends Fragment {
                             // Update UI
 
                             Toast.makeText(requireContext(), "isSuccessful", Toast.LENGTH_SHORT).show();
+
                             countDownTimer.onFinish();
                         } else {
                             // Sign in failed, display a message and update the UI

@@ -13,7 +13,7 @@
     <string name="required">Required*</string>
     <string name="contact_us">Contact Us</string>
     <string name="your_name_text">Your name</string>
-    <string name="subject_text">Subject (optional)</string>
+    <string name="subject_text">Subject</string>
     <string name="submit_text">Submit</string>
     <string name="letter_text">Letter</string>
     <string name="back_text">back</string>
@@ -56,11 +56,11 @@
     <string name="my_ads_text">My ads</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="modify_text">modify</string>
-    <string name="advertiser_name_text">Advertiser Name</string>
-    <string name="demo_advertiser_name_text">سالم سي السالم الشيخ سالم</string>
+    <string name="client_name_text">Advertiser Name</string>
+    <string name="demo_client_name_text">abdalaziz abdallah rabee awad</string>
     <string name="last_activity_text">last activity</string>
     <string name="phone_number_text">phone number</string>
-    <string name="demo_phone_text">009991112223334</string>
+    <string name="demo_phone_text">+970592639219</string>
     <string name="demo_telephone_text">08012345645</string>
     <string name="demo_whatsapp_text">009991112223334</string>
     <string name="demo_loaction_text">اليمن - العاصمة صنعاء - حي السادة - شارع الثورة</string>
@@ -79,5 +79,13 @@
     <string name="didnT_receive_tap_to_send_message" tools:ignore="StringEscaping">Didn\'t receive it? Tap to send again.</string>
     <string name="enter_code_message">Enter the code we just texted you.</string>
     <string name="verify_code">Verify Code</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="demo_dob_text" translatable="false">30/1/2000</string>
+    <string name="demo_id_name_text" translatable="false">412251837</string>
+    <string name="demo_gender_text">male</string>
+    <string name="demo_email_text" translatable="false">abdalazizabdalalluh3@gmail.com</string>
+    <string name="demo_my_info_text">My Information</string>
+    <string name="feedback_complaints_text">Feedback and Complaints</string>
+    <string name="language_text">languages</string>
 
 </resources>
