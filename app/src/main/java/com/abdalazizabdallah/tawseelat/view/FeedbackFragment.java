@@ -67,17 +67,14 @@ public class FeedbackFragment extends Fragment {
 
             } else {
                 Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
-                emailIntent.setDataAndType(Uri.parse("mailto:"), "message/rfc822");
+                emailIntent.setData(Uri.parse("mailto:"));
                 emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{OUR_EMAIL});
-                emailIntent.putExtra(Intent.EXTRA_SUBJECT, name + "-" + subject);
+                emailIntent.putExtra(Intent.EXTRA_SUBJECT, subject + "-" + name);
                 emailIntent.putExtra(Intent.EXTRA_TEXT, letter);
 
                 try {
                     if (emailIntent.resolveActivity(requireActivity().getPackageManager()) != null) {
                         startActivity(Intent.createChooser(emailIntent, "choose Email client please"));
-                    } else {
-                        Toast.makeText(getContext(), "No Email client found!!",
-                                Toast.LENGTH_SHORT).show();
                     }
                 } catch (android.content.ActivityNotFoundException ex) {
                     Toast.makeText(getContext(), "No Email client found!!",

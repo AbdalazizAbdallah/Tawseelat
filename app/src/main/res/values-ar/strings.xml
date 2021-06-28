@@ -79,4 +79,10 @@
     <string name="feedback_complaints_text">تعليق والشكاوى</string>
     <string name="language_text">اللغات</string>
 
+
+    <string-array name="languages_array">
+        <item>انجليزي</item>
+        <item>عربي</item>
+    </string-array>
+
 </resources>

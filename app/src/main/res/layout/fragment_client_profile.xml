@@ -43,23 +43,26 @@
                 android:orientation="vertical">
 
                 <TextView
-                    style="@style/MyStyleTextView"
+                    style="@style/MyStyleTextButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/d6dp"
-                    android:background="@color/my_purple_light"
                     android:text="@string/demo_my_info_text"
-                    android:textAppearance="?textAppearanceHeadline6"
-                    android:textColor="@color/my_purple_Dark"
-                    android:textStyle="bold"
-                    app:drawableEndCompat="@null" />
+                    app:drawableEndCompat="@drawable/img_edit" />
+
+                <!--                <com.google.android.material.button.MaterialButton-->
+                <!--                    android:id="@+id/my_info_button"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    app:icon="@drawable/img_edit"-->
+                <!--                    android:text="@string/demo_my_info_text"-->
+                <!--                    style="@style/MyStyleTextButton"-->
+                <!--                    />-->
 
                 <TextView
                     android:id="@+id/name_textview"
                     style="@style/MyStyleTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/d6dp"
                     android:text="@string/demo_client_name_text"
                     app:drawableEndCompat="@null"
                     app:drawableStartCompat="@drawable/ic_user" />
@@ -75,10 +78,9 @@
                     style="@style/MyStyleTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/d6dp"
                     android:text="@string/demo_email_text"
                     app:drawableEndCompat="@null"
-                    app:drawableStartCompat="@drawable/img_email" />
+                    app:drawableStartCompat="@drawable/ic_email" />
 
                 <View
                     android:layout_width="match_parent"
@@ -91,7 +93,6 @@
                     style="@style/MyStyleTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/d6dp"
                     android:text="@string/demo_phone_text"
                     app:drawableEndCompat="@null"
                     app:drawableStartCompat="@drawable/ic_phone_call" />
@@ -108,7 +109,6 @@
                     style="@style/MyStyleTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/d6dp"
                     android:text="@string/demo_id_name_text"
                     app:drawableEndCompat="@null"
                     app:drawableStartCompat="@drawable/ic_id"
@@ -117,7 +117,6 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
-                    android:layout_margin="@dimen/d6dp"
                     android:background="?android:attr/listDivider" />
 
 
@@ -126,7 +125,6 @@
                     style="@style/MyStyleTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/d6dp"
                     android:text="@string/demo_dob_text"
                     app:drawableEndCompat="@null"
                     app:drawableStartCompat="@drawable/ic_calendar" />
@@ -142,7 +140,6 @@
                     style="@style/MyStyleTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/d6dp"
                     android:text="@string/demo_gender_text"
                     app:drawableEndCompat="@null"
                     app:drawableStartCompat="@drawable/ic_gender" />
@@ -156,23 +153,19 @@
 
                 <TextView
                     android:id="@+id/feedback_textview"
-                    style="@style/MyStyleTextView"
+                    style="@style/MyStyleTextButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/d6dp"
-                    android:background="@drawable/bg_layer_list_text_view"
                     android:text="@string/feedback_complaints_text"
                     app:drawableStartCompat="@drawable/ic_feedback" />
 
                 <TextView
                     android:id="@+id/language_textview"
-                    style="@style/MyStyleTextView"
+                    style="@style/MyStyleTextButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/d6dp"
-                    android:background="@drawable/bg_layer_list_text_view"
                     android:text="@string/language_text"
-                    app:drawableStartCompat="@drawable/ic_feedback" />
+                    app:drawableStartCompat="@drawable/ic_translate" />
 
             </LinearLayout>
 

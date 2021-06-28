@@ -21,6 +21,5 @@
     <fragment
         android:id="@+id/feedbackFragment2"
         android:name="com.abdalazizabdallah.tawseelat.view.FeedbackFragment"
-        android:label="@string/feedback_complaints_text"
         tools:layout="@layout/fragment_feedback" />
 </navigation>

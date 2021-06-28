@@ -88,4 +88,9 @@
     <string name="feedback_complaints_text">Feedback and Complaints</string>
     <string name="language_text">languages</string>
 
+    <string-array name="languages_array">
+        <item>English</item>
+        <item>Arabic</item>
+    </string-array>
+
 </resources>
