@@ -43,6 +43,7 @@ public class SignUpFragment extends Fragment {
 
         fragmentSignUpBinding.fragmentSignUpLogin.setOnClickListener(v -> navController.navigateUp());
         fragmentSignUpBinding.fragmentSignUpCreateAccount.setOnClickListener(v ->
+                //TODO : CREATE ACCOUNT IN SIGN UP FRAGMENT
                 navController.navigate(SignUpFragmentDirections.actionSignUpFragmentToVerifySignUpFragment())
         );
 

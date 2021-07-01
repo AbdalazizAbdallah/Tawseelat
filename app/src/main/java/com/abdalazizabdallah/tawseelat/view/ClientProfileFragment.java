@@ -1,7 +1,6 @@
 package com.abdalazizabdallah.tawseelat.view;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +17,7 @@ import com.abdalazizabdallah.tawseelat.heplers.LocaleHelper;
 import com.abdalazizabdallah.tawseelat.heplers.PreferenceHelper;
 
 
-public class ClientProfileFragment extends Fragment implements View.OnClickListener {
+public class ClientProfileFragment extends Fragment implements View.OnClickListener, OnChangeLanguageListener {
 
 
     private static final String TAG = "ClientProfileFragment";
@@ -48,42 +47,39 @@ public class ClientProfileFragment extends Fragment implements View.OnClickListe
 
         fragmentClientProfileBinding.feedbackTextview.setOnClickListener(this);
         fragmentClientProfileBinding.languageTextview.setOnClickListener(this);
+        fragmentClientProfileBinding.changePasswordTextview.setOnClickListener(this);
+
 
     }
 
     @Override
     public void onClick(View v) {
         if (fragmentClientProfileBinding.languageTextview.getId() == v.getId()) {
+            navController.navigate(ClientProfileFragmentDirections.
+                    actionClientProfileFragmentToListLanguageDialogFragment(this));
 
-            Log.e(TAG, "onClick: fragmentClientProfileBinding ", null);
+        } else if (fragmentClientProfileBinding.feedbackTextview.getId() == v.getId()) {
+            navController.navigate(ClientProfileFragmentDirections.actionClientProfileFragmentToFeedbackFragment2());
+        } else if (fragmentClientProfileBinding.changePasswordTextview.getId() == v.getId()) {
+            navController.navigate(ClientProfileFragmentDirections.actionClientProfileFragmentToChangePasswordFragment());
+        }
+    }
 
-            ListLanguageDialogFragment listLanguageDialogFragment = new ListLanguageDialogFragment(new ListLanguageDialogFragment.OnChangeLanguageListener() {
-                @Override
-                public void onSetChangeLanguageListener(String language) {
+    @Override
+    public void onSetChangeLanguageListener(String language) {
+        String persistedLanguageData = PreferenceHelper.getPersistedLanguageData(getContext(), "");
 
-                    String persistedLanguageData = PreferenceHelper.getPersistedLanguageData(getContext(), "");
+        if (!persistedLanguageData.equals(language)) {
+            PreferenceHelper.persistLanguage(getContext(), language);
+            requireActivity().recreate();
 
-                    if (!persistedLanguageData.equals(language)) {
-                        PreferenceHelper.persistLanguage(getContext(), language);
-                        requireActivity().recreate();
-
-                        //  Context contextChange = localeHelper.changeLanguageInRuntime(getContext());
+            //  Context contextChange = localeHelper.changeLanguageInRuntime(getContext());
 
 //                        requireActivity().getBaseContext().getResources().updateConfiguration(
 //                                contextChange.getResources().getConfiguration(),
 //                                requireActivity().getResources().getDisplayMetrics());
-
-
-                    }
-                }
-            });
-
-            listLanguageDialogFragment.show(getParentFragmentManager(), "listLanguageDialogFragment");
-
-
-        } else if (fragmentClientProfileBinding.feedbackTextview.getId() == v.getId()) {
-            navController.navigate(ClientProfileFragmentDirections.actionClientProfileFragmentToFeedbackFragment2());
         }
     }
+
 
 }

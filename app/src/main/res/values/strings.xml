@@ -48,13 +48,14 @@
     <string name="region_text">Region</string>
     <string name="city_text">City</string>
     <string name="update_data_account_text">update data account</string>
-    <string name="update_password_account_text">change password account</string>
-    <string name="current_password_text">current password</string>
-    <string name="new_password_text">New password</string>
-    <string name="confirm_new_password_text">Confrim new password</string>
+    <string name="update_password_text">Change Password</string>
+    <string name="current_password_text">Current Password</string>
+    <string name="new_password_text">New Password</string>
+    <string name="confirm_new_password_text">Confirm New Password</string>
     <string name="update_ads_text">Update ads</string>
     <string name="my_ads_text">My ads</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
+
     <string name="modify_text">modify</string>
     <string name="client_name_text">Advertiser Name</string>
     <string name="demo_client_name_text">abdalaziz abdallah rabee awad</string>
@@ -73,13 +74,13 @@
     <string name="advertiser_profile_text">advertiser profile</string>
     <string name="login_as_employee">Login as employee</string>
     <string name="country_code_text">Country Code</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
     <string name="verification_code_text">Verification Code</string>
     <string name="check_email_message">please check your Email.</string>
     <string name="didnT_receive_tap_to_send_message" tools:ignore="StringEscaping">Didn\'t receive it? Tap to send again.</string>
     <string name="enter_code_message">Enter the code we just texted you.</string>
     <string name="verify_code">Verify Code</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
     <string name="demo_dob_text" translatable="false">30/1/2000</string>
     <string name="demo_id_name_text" translatable="false">412251837</string>
     <string name="demo_gender_text">male</string>
@@ -92,5 +93,7 @@
         <item>English</item>
         <item>Arabic</item>
     </string-array>
+
+    <string name="not_matching">please make sure your new password matching</string>
 
 </resources>

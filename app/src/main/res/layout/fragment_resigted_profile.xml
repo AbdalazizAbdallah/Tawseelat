@@ -511,7 +511,7 @@
                     android:background="@drawable/bg_shape_textview"
                     android:drawablePadding="@dimen/d5dp"
                     android:padding="@dimen/d6dp"
-                    android:text="@string/update_password_account_text"
+                    android:text="@string/update_password_text"
                     android:textAppearance="?attr/textAppearanceHeadline6"
                     app:drawableStartCompat="@drawable/img_pass_lock"
                     app:drawableTint="@color/my_light_red_color" />

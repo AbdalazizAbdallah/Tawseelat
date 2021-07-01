@@ -45,7 +45,7 @@
     <string name="region_text">المنطقة</string>
     <string name="city_text">المدينة</string>
     <string name="update_data_account_text">تحديث بيانات الحساب</string>
-    <string name="update_password_account_text">تحديث كلمة المرور</string>
+    <string name="update_password_text">تحديث كلمة المرور</string>
     <string name="current_password_text">كلمة المرور الحالية</string>
     <string name="new_password_text">كلمة المرور الجديدة</string>
     <string name="confirm_new_password_text">إعادة كتابة كلمة المرور</string>
@@ -84,5 +84,6 @@
         <item>انجليزي</item>
         <item>عربي</item>
     </string-array>
+    <string name="not_matching">رجاءا تأكد من تطابق كلمة المرور الجديدة</string>
 
 </resources>

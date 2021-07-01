@@ -11,7 +11,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -72,17 +71,21 @@ public class LoginFragment extends Fragment implements TextWatcher, CountryCodeP
         });
 
         fragmentLoginBinding.fragmentLoginLoginButton.setOnClickListener(v -> {
-            if (fragmentLoginBinding.fragmentLoginCcp.isValidFullNumber()) {
-                Log.e(TAG, fragmentLoginBinding.fragmentLoginCcp.getFormattedFullNumber()
-                        + "\n number is Valid ", null);
-                Toast.makeText(getContext(), fragmentLoginBinding.fragmentLoginCcp.getFormattedFullNumber()
-                        + "\n number is Valid ", Toast.LENGTH_SHORT).show();
-            } else {
-                Log.e(TAG, fragmentLoginBinding.fragmentLoginCcp.getFormattedFullNumber()
-                        + "\n number is not Valid ", null);
-                Toast.makeText(getContext(), fragmentLoginBinding.fragmentLoginCcp.getFormattedFullNumber() +
-                        "number is not Valid ", Toast.LENGTH_SHORT).show();
-            }
+            //TODO : LOGIN TO ACCOUNT
+
+//            if (fragmentLoginBinding.fragmentLoginCcp.isValidFullNumber()) {
+//                Log.e(TAG, fragmentLoginBinding.fragmentLoginCcp.getFormattedFullNumber()
+//                        + "\n number is Valid ", null);
+//                Toast.makeText(getContext(), fragmentLoginBinding.fragmentLoginCcp.getFormattedFullNumber()
+//                        + "\n number is Valid ", Toast.LENGTH_SHORT).show();
+//            } else {
+//                Log.e(TAG, fragmentLoginBinding.fragmentLoginCcp.getFormattedFullNumber()
+//                        + "\n number is not Valid ", null);
+//                Toast.makeText(getContext(), fragmentLoginBinding.fragmentLoginCcp.getFormattedFullNumber() +
+//                        "number is not Valid ", Toast.LENGTH_SHORT).show();
+//            }
+
+
         });
 
     }

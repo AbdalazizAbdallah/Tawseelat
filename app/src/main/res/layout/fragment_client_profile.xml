@@ -33,6 +33,7 @@
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:fadeScrollbars="true"
             android:scrollbarAlwaysDrawVerticalTrack="true"
             android:scrollbars="vertical"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
@@ -167,8 +168,15 @@
                     android:text="@string/language_text"
                     app:drawableStartCompat="@drawable/ic_translate" />
 
-            </LinearLayout>
+                <TextView
+                    android:id="@+id/change_password_textview"
+                    style="@style/MyStyleTextButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/update_password_text"
+                    app:drawableStartCompat="@drawable/ic_padlock" />
 
+            </LinearLayout>
 
         </androidx.core.widget.NestedScrollView>
 
