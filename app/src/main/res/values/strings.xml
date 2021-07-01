@@ -94,6 +94,14 @@
         <item>Arabic</item>
     </string-array>
 
+    <string-array name="gender_array">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+
     <string name="not_matching">please make sure your new password matching</string>
+    <string name="your_id_text">Your ID</string>
+    <string name="gender_text">gender</string>
+    <string name="select_dob">Select your DOB</string>
 
 </resources>

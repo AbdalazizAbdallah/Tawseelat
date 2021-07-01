@@ -73,6 +73,12 @@ public class LoginFragment extends Fragment implements TextWatcher, CountryCodeP
         fragmentLoginBinding.fragmentLoginLoginButton.setOnClickListener(v -> {
             //TODO : LOGIN TO ACCOUNT
 
+            if (fragmentLoginBinding.fragmentLoginCheckBoxLoginAsEmployee.isChecked()) {
+                //TODO : NAVIGATE TO MAIN EMPLOYEE'S FRAGMENT
+            } else {
+                //TODO : NAVIGATE TO MAIN CLIENT'S FRAGMENT
+            }
+
 //            if (fragmentLoginBinding.fragmentLoginCcp.isValidFullNumber()) {
 //                Log.e(TAG, fragmentLoginBinding.fragmentLoginCcp.getFormattedFullNumber()
 //                        + "\n number is Valid ", null);

@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:bind="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".view.UpdateInfoAccountFragment">
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <com.google.android.material.appbar.AppBarLayout
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <include
-                layout="@layout/static_tool_bar"
-                bind:headerText="@{@string/update_data_account_text}" />
-
-        </com.google.android.material.appbar.AppBarLayout>
+            android:layout_height="?actionBarSize"
+            android:background="@color/white" />
 
         <androidx.core.widget.NestedScrollView
+            android:id="@+id/nestedScrollView2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:fadeScrollbars="true"
             android:scrollbarAlwaysDrawVerticalTrack="true"
             android:scrollbars="vertical"
             app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
@@ -45,18 +46,20 @@
                     android:layout_marginBottom="@dimen/d35dp"
                     app:srcCompat="@drawable/img_decorator" />
 
-
                 <com.google.android.material.textfield.TextInputLayout
                     style="@style/MyStyleTextInputLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/your_name_text"
-                    app:startIconDrawable="@drawable/img_n_letter"
-                    app:startIconTint="@color/my_red_color">
+                    app:startIconDrawable="@drawable/ic_user"
+                    app:startIconTint="@color/my_purple_Dark">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/name_editText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:cursorVisible="false"
+                        android:focusable="false"
                         android:inputType="text" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -64,43 +67,16 @@
                     style="@style/MyStyleTextInputLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/telephone_number_text"
-                    app:startIconDrawable="@drawable/img_mobile"
-                    app:startIconTint="@color/my_red_color">
+                    android:hint="@string/email_text"
+                    app:startIconDrawable="@drawable/ic_email"
+                    app:startIconTint="@color/my_purple_Dark">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/email_editText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="text" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/MyStyleTextInputLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/whatsup_phone_number_text"
-                    app:startIconDrawable="@drawable/img_whatsapp"
-                    app:startIconTint="@color/my_red_color">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="text" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/MyStyleTextInputLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/email_or_phone_text"
-                    app:startIconDrawable="@drawable/img_email"
-                    app:startIconTint="@color/my_red_color">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:cursorVisible="false"
+                        android:focusable="false"
                         android:inputType="textEmailAddress" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -110,46 +86,15 @@
                     style="@style/MyStyleTextInputLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:enabled="false"
-                    android:hint="@string/country_text"
-                    app:startIconDrawable="@drawable/img_location"
-                    app:startIconTint="@color/my_red_color">
+                    android:hint="@string/telephone_number_text"
+                    app:startIconDrawable="@drawable/ic_phone_call"
+                    app:startIconTint="@color/my_purple_Dark">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/phone_editText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="text" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/MyStyleTextInputLayoutDropdown"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/region_text"
-                    app:startIconDrawable="@drawable/img_location"
-                    app:startIconTint="@color/my_red_color">
-
-                    <com.google.android.material.textfield.MaterialAutoCompleteTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="none" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/MyStyleTextInputLayoutDropdown"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/city_text"
-                    app:startIconDrawable="@drawable/img_location"
-                    app:startIconTint="@color/my_red_color">
-
-                    <com.google.android.material.textfield.MaterialAutoCompleteTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="none" />
+                        android:inputType="number" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -158,17 +103,51 @@
                     style="@style/MyStyleTextInputLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/description_text"
-                    app:startIconDrawable="@drawable/img_letter"
-                    app:startIconTint="@color/my_red_color">
+                    android:hint="@string/your_id_text"
+                    app:startIconDrawable="@drawable/ic_id"
+                    app:startIconTint="@null">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/id_editText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="top"
-                        android:inputType="text|textMultiLine"
-                        android:lines="7" />
+                        android:inputType="text" />
                 </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/MyStyleTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/demo_dob_text"
+                    app:startIconDrawable="@drawable/ic_calendar"
+                    app:startIconTint="@color/my_purple_Dark">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/dob_editText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:cursorVisible="false"
+                        android:focusable="false"
+                        android:inputType="none" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/MyStyleTextInputLayoutDropdown"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/gender_text"
+                    app:startIconDrawable="@drawable/ic_gender"
+                    app:startIconTint="@color/my_purple_Dark">
+
+                    <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                        android:id="@+id/gender_dropDown"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="none" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
 
 
                 <com.google.android.material.button.MaterialButton
@@ -179,7 +158,8 @@
                     android:text="@string/submit_text" />
 
             </LinearLayout>
+
         </androidx.core.widget.NestedScrollView>
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </LinearLayout>
 </layout>

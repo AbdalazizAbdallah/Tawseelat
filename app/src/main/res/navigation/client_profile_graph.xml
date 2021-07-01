@@ -22,7 +22,18 @@
             app:destination="@id/listLanguageDialogFragment" />
         <action
             android:id="@+id/action_clientProfileFragment_to_changePasswordFragment"
-            app:destination="@id/changePasswordFragment" />
+            app:destination="@id/changePasswordFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/action_clientProfileFragment_to_updateInfoAccountFragment"
+            app:destination="@id/updateInfoAccountFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/feedbackFragment2"
@@ -40,4 +51,8 @@
         android:id="@+id/changePasswordFragment"
         android:name="com.abdalazizabdallah.tawseelat.view.ChangePasswordFragment"
         tools:layout="@layout/fragment_change_password" />
+    <fragment
+        android:id="@+id/updateInfoAccountFragment"
+        android:name="com.abdalazizabdallah.tawseelat.view.UpdateInfoAccountFragment"
+        tools:layout="@layout/fragment_update_account"></fragment>
 </navigation>

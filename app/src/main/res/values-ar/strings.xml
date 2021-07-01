@@ -84,6 +84,15 @@
         <item>انجليزي</item>
         <item>عربي</item>
     </string-array>
+
+    <string-array name="gender_array">
+        <item>ذكر</item>
+        <item>أنثي</item>
+    </string-array>
+
     <string name="not_matching">رجاءا تأكد من تطابق كلمة المرور الجديدة</string>
+    <string name="your_id_text">رقم هويتك</string>
+    <string name="gender_text">الجنس</string>
+    <string name="select_dob">Select your DOB</string>
 
 </resources>
