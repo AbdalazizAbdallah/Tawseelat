@@ -49,6 +49,7 @@ public class ClientProfileFragment extends Fragment implements View.OnClickListe
         fragmentClientProfileBinding.languageTextview.setOnClickListener(this);
         fragmentClientProfileBinding.changePasswordTextview.setOnClickListener(this);
         fragmentClientProfileBinding.myInfo.setOnClickListener(this);
+        fragmentClientProfileBinding.myTripsTextview.setOnClickListener(this);
 
 
     }
@@ -65,6 +66,8 @@ public class ClientProfileFragment extends Fragment implements View.OnClickListe
             navController.navigate(ClientProfileFragmentDirections.actionClientProfileFragmentToChangePasswordFragment());
         } else if (fragmentClientProfileBinding.myInfo.getId() == v.getId()) {
             navController.navigate(ClientProfileFragmentDirections.actionClientProfileFragmentToUpdateInfoAccountFragment());
+        } else if (fragmentClientProfileBinding.myTripsTextview.getId() == v.getId()) {
+            navController.navigate(ClientProfileFragmentDirections.actionClientProfileFragmentToTripsFragment());
         }
     }
 

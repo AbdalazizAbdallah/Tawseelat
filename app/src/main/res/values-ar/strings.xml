@@ -52,7 +52,7 @@
     <string name="update_ads_text">تحديث الإعلان</string>
     <string name="my_ads_text">إعلاناتي</string>
     <string name="modify_text">تعديل</string>
-    <string name="client_name_text">اسم المعلن</string>
+    <string name="client_name_text">اسم العميل</string>
     <string name="demo_client_name_text">عبدالعزيز عبدالله ربيع عوض</string>
     <string name="last_activity_text">آخر تواجد</string>
     <string name="phone_number_text">رقم الموبايل</string>
@@ -94,5 +94,17 @@
     <string name="your_id_text">رقم هويتك</string>
     <string name="gender_text">الجنس</string>
     <string name="select_dob">Select your DOB</string>
+    <string name="my_trips_text">مشاويري</string>
+    <string name="demo_source_place_text">غزة - النصر - برج الملش</string>
+    <string name="demo_destination_place_text">غزة - مستشفى الشفاء</string>
+    <string name="finished_date_text">تاريخ الانتهاء</string>
+    <string name="accepted_date_text">تاريخ القبول</string>
+    <string name="employee_name_text">اسم الموظف</string>
+    <string name="demo_employee_name_text">محمد أحمد</string>
+    <string name="company_name_text">اشم الشركة</string>
+    <string name="demo_company_name_text">تاكسيات اصايل</string>
+    <string name="demo_nearest_place_text">مثلجات كاظم</string>
+    <string name="nearest_place_text">مكان الأقرب</string>
+    <string name="no_trips_for_you_yet_text">لا توجد لديك مشاوير بعد !</string>
 
 </resources>

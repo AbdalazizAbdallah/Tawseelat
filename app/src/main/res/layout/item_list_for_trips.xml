@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/d10dp"
+        app:cardBackgroundColor="@color/my_purple_light"
+        app:cardCornerRadius="@dimen/d10dp"
+        app:cardElevation="@dimen/d0dp"
+        app:contentPadding="@dimen/d5dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!--       source and destination Text view layout-->
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/source_and_destination_linear"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/d5dp"
+                android:textDirection="locale"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/stepper_linear_layout"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/sourceTrip_textView"
+                    style="@style/MyStyleTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/d0dp"
+                    android:text="@string/demo_source_place_text"
+                    android:textColor="@color/black"
+                    android:textDirection="locale" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_margin="@dimen/d6dp"
+                    android:layout_marginStart="@dimen/d10dp"
+                    android:background="?android:attr/listDivider" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/destinationTrip_textView"
+                    style="@style/MyStyleTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/d0dp"
+                    android:text="@string/demo_destination_place_text"
+                    android:textColor="@color/black"
+                    android:textDirection="locale" />
+                <!--             finished date and More button    -->
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <!--       stepper linear layout-->
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/stepper_linear_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/d10dp"
+                android:orientation="vertical"
+                android:padding="@dimen/d6dp"
+                app:layout_constraintBottom_toBottomOf="@+id/source_and_destination_linear"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/source_and_destination_linear">
+
+                <View
+                    android:layout_width="@dimen/d15dp"
+                    android:layout_height="@dimen/d15dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/stepper_source_layerlist_bg" />
+
+                <View
+                    android:layout_width="2dp"
+                    android:layout_height="@dimen/d35dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/d6dp"
+                    android:background="@color/my_purple_Dark" />
+
+                <View
+                    android:layout_width="@dimen/d15dp"
+                    android:layout_height="@dimen/d15dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/stepper_destination_shape_bg" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/linearLayoutCompat4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="@+id/source_and_destination_linear"
+                app:layout_constraintStart_toStartOf="@+id/source_and_destination_linear"
+                app:layout_constraintTop_toBottomOf="@+id/source_and_destination_linear">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/finishedDateTextView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="@dimen/d6dp"
+                    android:text="@string/finished_date_text"
+                    android:textDirection="locale"
+                    android:textSize="@dimen/f10sp" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/finishedDate2"
+                    android:layout_width="@dimen/d0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="10"
+                    android:text="@string/demo_date_time_text"
+                    android:textSize="@dimen/f10sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/more_button"
+                    style="@style/MyStyleSecondaryButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="@dimen/d6dp"
+                    android:layout_weight="1"
+                    android:padding="@dimen/d5dp"
+                    android:textColor="@color/my_purple_Dark"
+                    app:icon="@drawable/ic_baseline_keyboard_arrow_down_24"
+                    app:iconGravity="textEnd"
+                    app:iconTint="@color/my_purple_Dark" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/details_constraint_layout"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat4"
+                tools:visibility="visible">
+
+
+                <View
+                    android:id="@+id/view3"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_margin="@dimen/d6dp"
+                    android:background="?android:attr/listDivider"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!--                client name  -->
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/nameClientTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/d5dp"
+                    android:text="@string/client_name_text"
+                    android:textColor="@color/my_purple_Dark"
+                    android:textDirection="locale"
+                    android:textSize="@dimen/f16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/barrier4"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view3" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/clientName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/d5dp"
+                    android:text="@string/demo_client_name_text"
+                    android:textColor="@color/my_purple_Dark"
+                    android:textDirection="locale"
+                    android:textSize="@dimen/f14sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/nameClientTextView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/barrier4"
+                    app:layout_constraintTop_toTopOf="@+id/nameClientTextView" />
+
+                <!--                Employee name  -->
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/nameEmployeeTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/d5dp"
+                    android:text="@string/employee_name_text"
+                    android:textColor="@color/my_purple_Dark"
+                    android:textDirection="locale"
+                    android:textSize="@dimen/f16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/barrier4"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/nameClientTextView" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/employeeName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/d5dp"
+                    android:text="@string/demo_employee_name_text"
+                    android:textColor="@color/my_purple_Dark"
+                    android:textDirection="locale"
+                    android:textSize="@dimen/f14sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/nameEmployeeTextView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/barrier4"
+                    app:layout_constraintTop_toTopOf="@+id/nameEmployeeTextView" />
+
+                <!--                Company name  -->
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/nameCompanyTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/d5dp"
+                    android:text="@string/company_name_text"
+                    android:textColor="@color/my_purple_Dark"
+                    android:textDirection="locale"
+                    android:textSize="@dimen/f16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/barrier4"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/nameEmployeeTextView" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/companyName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/d5dp"
+                    android:text="@string/demo_company_name_text"
+                    android:textColor="@color/my_purple_Dark"
+                    android:textDirection="locale"
+                    android:textSize="@dimen/f14sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/nameCompanyTextView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/barrier4"
+                    app:layout_constraintTop_toTopOf="@+id/nameCompanyTextView" />
+
+                <!--                Accepted name  -->
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/acceptedDateTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/d5dp"
+                    android:text="@string/accepted_date_text"
+                    android:textColor="@color/my_purple_Dark"
+                    android:textDirection="locale"
+                    android:textSize="@dimen/f16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/barrier4"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/nameCompanyTextView" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/acceptedDate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/d5dp"
+                    android:text="@string/demo_date_time_text"
+                    android:textColor="@color/my_purple_Dark"
+                    android:textDirection="locale"
+                    android:textSize="@dimen/f14sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/acceptedDateTextView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/barrier4"
+                    app:layout_constraintTop_toTopOf="@+id/acceptedDateTextView" />
+
+                <!--                Finished name  -->
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/finishedDateTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/d5dp"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/finished_date_text"
+                    android:textColor="@color/my_purple_Dark"
+                    android:textDirection="locale"
+                    android:textSize="@dimen/f16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/barrier4"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/acceptedDateTextView" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/finishedDate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/d5dp"
+                    android:text="@string/demo_date_time_text"
+                    android:textColor="@color/my_purple_Dark"
+                    android:textDirection="locale"
+                    android:textSize="@dimen/f14sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/finishedDateTextView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/barrier4"
+                    app:layout_constraintTop_toTopOf="@+id/finishedDateTextView" />
+
+                <!--                Nearest place name  -->
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/nearestPlaceTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/d5dp"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/nearest_place_text"
+                    android:textColor="@color/my_purple_Dark"
+                    android:textDirection="locale"
+                    android:textSize="@dimen/f16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/barrier4"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/finishedDateTextView" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/nearestPlace"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/d5dp"
+                    android:text="@string/demo_nearest_place_text"
+                    android:textColor="@color/my_purple_Dark"
+                    android:textDirection="locale"
+                    android:textSize="@dimen/f14sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/nearestPlaceTextView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/barrier4"
+                    app:layout_constraintTop_toTopOf="@+id/nearestPlaceTextView" />
+
+
+                <androidx.constraintlayout.widget.Barrier
+                    android:id="@+id/barrier4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:barrierDirection="start" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

@@ -57,7 +57,7 @@
 
 
     <string name="modify_text">modify</string>
-    <string name="client_name_text">Advertiser Name</string>
+    <string name="client_name_text">Client Name</string>
     <string name="demo_client_name_text">abdalaziz abdallah rabee awad</string>
     <string name="last_activity_text">last activity</string>
     <string name="phone_number_text">phone number</string>
@@ -103,5 +103,18 @@
     <string name="your_id_text">Your ID</string>
     <string name="gender_text">gender</string>
     <string name="select_dob">Select your DOB</string>
+    <string name="my_trips_text">My trips</string>
+    <string name="demo_source_place_text">Gaza - Alnaser street - Malash tower</string>
+    <string name="demo_destination_place_text">Gaza - Asha Hospital</string>
+    <string name="demo_date_time_text" translatable="false">30/1/2020 - 10:20:59 AM</string>
+    <string name="finished_date_text">Finished date : </string>
+    <string name="accepted_date_text">Accepted date : </string>
+    <string name="employee_name_text">Employee Name : </string>
+    <string name="demo_employee_name_text">Mohammed Ahmed</string>
+    <string name="company_name_text">Company name</string>
+    <string name="demo_company_name_text">Asayle Texies</string>
+    <string name="demo_nearest_place_text">Kazem Ices</string>
+    <string name="nearest_place_text">nearest place</string>
+    <string name="no_trips_for_you_yet_text">No trips for you yet !</string>
 
 </resources>

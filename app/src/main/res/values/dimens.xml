@@ -22,4 +22,10 @@
     <dimen name="d200dp">200dp</dimen>
     <dimen name="d0dp">0dp</dimen>
     <dimen name="d1dp">1dp</dimen>
+    <dimen name="d15dp">15dp</dimen>
+    <dimen name="d8dp">8dp</dimen>
+    <dimen name="d4dp">4dp</dimen>
+    <dimen name="f10sp">10sp</dimen>
+    <dimen name="f8sp">8sp</dimen>
+    <dimen name="f14sp">14sp</dimen>
 </resources>

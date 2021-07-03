@@ -34,6 +34,9 @@
             app:exitAnim="@android:anim/fade_out"
             app:popEnterAnim="@android:anim/fade_in"
             app:popExitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/action_clientProfileFragment_to_tripsFragment"
+            app:destination="@id/tripsFragment" />
     </fragment>
     <fragment
         android:id="@+id/feedbackFragment2"
@@ -54,5 +57,10 @@
     <fragment
         android:id="@+id/updateInfoAccountFragment"
         android:name="com.abdalazizabdallah.tawseelat.view.UpdateInfoAccountFragment"
-        tools:layout="@layout/fragment_update_account"></fragment>
+        tools:layout="@layout/fragment_update_account" />
+    <fragment
+        android:id="@+id/tripsFragment"
+        android:name="com.abdalazizabdallah.tawseelat.view.TripsFragment"
+        android:label="@string/my_trips_text"
+        tools:layout="@layout/fragment_trips" />
 </navigation>
