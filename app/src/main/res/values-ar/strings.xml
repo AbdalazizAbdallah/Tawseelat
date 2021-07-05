@@ -97,14 +97,17 @@
     <string name="my_trips_text">مشاويري</string>
     <string name="demo_source_place_text">غزة - النصر - برج الملش</string>
     <string name="demo_destination_place_text">غزة - مستشفى الشفاء</string>
-    <string name="finished_date_text">تاريخ الانتهاء</string>
-    <string name="accepted_date_text">تاريخ القبول</string>
-    <string name="employee_name_text">اسم الموظف</string>
+    <string name="finished_date_text">تاريخ الانتهاء : </string>
+    <string name="accepted_date_text">تاريخ القبول : </string>
+    <string name="employee_name_text">اسم الموظف : </string>
     <string name="demo_employee_name_text">محمد أحمد</string>
-    <string name="company_name_text">اشم الشركة</string>
+    <string name="company_name_text">اسم الشركة : </string>
     <string name="demo_company_name_text">تاكسيات اصايل</string>
     <string name="demo_nearest_place_text">مثلجات كاظم</string>
-    <string name="nearest_place_text">مكان الأقرب</string>
-    <string name="no_trips_for_you_yet_text">لا توجد لديك مشاوير بعد !</string>
+    <string name="nearest_place_text">مكان الأقرب : </string>
+    <string name="no_trips_for_you_yet_text">لا توجد لديك مشاوير !</string>
+    <string name="details_text">التفاصيل</string>
+    <string name="message_no_trips">ليس لديك أي مشاوير حتى الآن. عندما تفعل ستظهر هنا.</string>
+    <string name="make_trip_now">قم بمشوار الآن</string>
 
 </resources>

@@ -36,7 +36,11 @@
             app:popExitAnim="@android:anim/slide_out_right" />
         <action
             android:id="@+id/action_clientProfileFragment_to_tripsFragment"
-            app:destination="@id/tripsFragment" />
+            app:destination="@id/tripsFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/feedbackFragment2"

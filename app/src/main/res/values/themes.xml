@@ -72,17 +72,16 @@
         <item name="android:textDirection">locale</item>
         <item name="android:textColor">@color/my_purple_Dark</item>
         <item name="drawableTint">@color/my_purple_Dark</item>
+        <item name="android:drawablePadding">@dimen/d5dp</item>
     </style>
 
     <style name="MyStyleTextButton" parent="MyStyleTextView">
-        <item name="android:drawablePadding">@dimen/d5dp</item>
         <item name="android:textAppearance">?textAppearanceHeadline6</item>
         <item name="android:background">@drawable/bg_layer_list_text_view</item>
         <item name="android:textColor">@color/my_purple_Dark</item>
         <item name="android:focusable">true</item>
         <item name="android:clickable">true</item>
         <item name="drawableEndCompat">@drawable/ic_baseline_keyboard_arrow_right_24</item>
-
     </style>
 
 </resources>

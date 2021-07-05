@@ -43,6 +43,7 @@ public class ListTripsRecyclerAdapter extends RecyclerView.Adapter<ListTripsRecy
     @Override
     public void onBindViewHolder(@NonNull ListTripsRecyclerAdapterViewHolder holder, int position) {
         holder.bind(myTrips.get(position));
+
     }
 
     @Override
@@ -55,10 +56,8 @@ public class ListTripsRecyclerAdapter extends RecyclerView.Adapter<ListTripsRecy
         ItemListForTripsBinding itemListForTripsBinding;
 
         public ListTripsRecyclerAdapterViewHolder(@NonNull ItemListForTripsBinding itemListForTripsBinding) {
-            // itemView is esstional item to design Layout
             super(itemListForTripsBinding.getRoot());
-            // because the layout is imageView
-            // when the layout e.g. linear you must use findViewById
+
             this.itemListForTripsBinding = itemListForTripsBinding;
 
             itemListForTripsBinding.moreButton.setOnClickListener(new View.OnClickListener() {
@@ -70,7 +69,7 @@ public class ListTripsRecyclerAdapter extends RecyclerView.Adapter<ListTripsRecy
                         }
                         itemListForTripsBinding.detailsConstraintLayout.setVisibility(View.VISIBLE);
                         itemListForTripsBinding.finishedDate2.setVisibility(View.INVISIBLE);
-                        itemListForTripsBinding.finishedDateTextView2.setVisibility(View.INVISIBLE);
+                        itemListForTripsBinding.finishedDateTextView2.setText(context.getString(R.string.details_text));
 
                         itemListForTripsBinding.moreButton.setIcon(
                                 AppCompatResources.getDrawable(context, R.drawable.ic_baseline_keyboard_arrow_up_24));
@@ -81,7 +80,7 @@ public class ListTripsRecyclerAdapter extends RecyclerView.Adapter<ListTripsRecy
                         }
                         itemListForTripsBinding.detailsConstraintLayout.setVisibility(View.GONE);
                         itemListForTripsBinding.finishedDate2.setVisibility(View.VISIBLE);
-                        itemListForTripsBinding.finishedDateTextView2.setVisibility(View.VISIBLE);
+                        itemListForTripsBinding.finishedDateTextView2.setText(context.getString(R.string.finished_date_text));
 
                         itemListForTripsBinding.moreButton.setIcon(
                                 AppCompatResources.getDrawable(context, R.drawable.ic_baseline_keyboard_arrow_down_24));

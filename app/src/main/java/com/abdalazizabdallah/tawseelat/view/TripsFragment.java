@@ -54,15 +54,24 @@ public class TripsFragment extends Fragment {
         NavigationUI.setupWithNavController(
                 fragmentTripsBinding.toolbar, navController, appBarConfiguration);
 
-        List<TripsRequestsHistory> list = getList();
-        Log.e(TAG, "onViewCreated: " + list.size(), null);
-        for (int i = 0; i < list.size(); i++) {
-            Log.e(TAG, list.get(i).toString(), null);
-        }
 
+        fragmentTripsBinding.makeTripNow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO : to navigate client main for request
+            }
+        });
+
+//        List<TripsRequestsHistory> list = getList();
+//        Log.e(TAG, "onViewCreated: " + list.size(), null);
+//        for (int i = 0; i < list.size(); i++) {
+//            Log.e(TAG, list.get(i).toString(), null);
+//        }
+
+        List<TripsRequestsHistory> list = null;
 
         if (list != null) {
-            fragmentTripsBinding.noTrips.setVisibility(View.GONE);
+            fragmentTripsBinding.linearLayoutNoResultFound.setVisibility(View.GONE);
             fragmentTripsBinding.recyclerView.setVisibility(View.VISIBLE);
 
             ListTripsRecyclerAdapter listTripsRecyclerAdapter = new ListTripsRecyclerAdapter(list, requireContext());
@@ -71,8 +80,10 @@ public class TripsFragment extends Fragment {
             //TODO : Get list of TripsRequestsHistory from Api
             fragmentTripsBinding.recyclerView.setLayoutManager(linearLayoutManager);
             fragmentTripsBinding.recyclerView.setAdapter(listTripsRecyclerAdapter);
+            fragmentTripsBinding.recyclerView.setItemViewCacheSize(5);
         } else {
-            fragmentTripsBinding.noTrips.setVisibility(View.VISIBLE);
+            Log.e(TAG, "onViewCreated: ", null);
+            fragmentTripsBinding.linearLayoutNoResultFound.setVisibility(View.VISIBLE);
             fragmentTripsBinding.recyclerView.setVisibility(View.GONE);
         }
 
@@ -102,7 +113,7 @@ public class TripsFragment extends Fragment {
         historyList.add(tripsRequestsHistory);
         historyList.add(tripsRequestsHistory);
         historyList.add(tripsRequestsHistory);
-        historyList.add(tripsRequestsHistory);
+
 
         return historyList;
     }

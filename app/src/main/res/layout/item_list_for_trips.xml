@@ -116,7 +116,9 @@
                     android:id="@+id/finishedDate2"
                     android:layout_width="@dimen/d0dp"
                     android:layout_height="wrap_content"
+                    android:paddingStart="@dimen/d6dp"
                     android:layout_weight="10"
+                    android:textDirection="locale"
                     android:text="@string/demo_date_time_text"
                     android:textSize="@dimen/f10sp" />
 
