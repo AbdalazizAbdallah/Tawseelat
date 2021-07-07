@@ -3,14 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/home"
+        android:id="@+id/client_main_graph"
         android:icon="@drawable/img_home"
         android:title="@string/home_text"
         app:iconTint="@color/my_red_color"
         app:showAsAction="ifRoom" />
 
     <item
-        android:id="@+id/Profile"
+        android:id="@+id/client_profile_graph"
         android:icon="@drawable/ic_user"
         android:title="@string/profile_text"
         app:iconTint="@color/my_red_color"

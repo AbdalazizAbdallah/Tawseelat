@@ -3,14 +3,19 @@ package com.abdalazizabdallah.tawseelat;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.AutoCompleteTextView;
+import android.view.View;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+import androidx.navigation.NavController;
+import androidx.navigation.NavDestination;
+import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.ui.NavigationUI;
 
+import com.abdalazizabdallah.tawseelat.databinding.ActivityMainBinding;
 import com.abdalazizabdallah.tawseelat.heplers.LocaleHelper;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.Locale;
 
@@ -18,10 +23,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     private static final String TAG = "MainActivity";
-    BottomNavigationView bottomNavigationView;
-    FloatingActionButton floatingActionButton;
-
-    AutoCompleteTextView autoCompleteTextView;
+    NavController navController;
+    ActivityMainBinding activityMainBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,9 +37,26 @@ public class MainActivity extends AppCompatActivity {
 //        config.locale = locale;
 //        getBaseContext().getResources().updateConfiguration(config,
 //                getBaseContext().getResources().getDisplayMetrics());
+        activityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
+        navController = navHostFragment.getNavController();
+
+        NavigationUI.setupWithNavController(activityMainBinding.bottomNav, navController);
 
 
-        DataBindingUtil.setContentView(this, R.layout.activity_main);
+        navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
+            @Override
+            public void onDestinationChanged(@NonNull NavController controller,
+                                             @NonNull NavDestination destination, @Nullable Bundle arguments) {
+                if (destination.getId() == R.id.clientMainFragment
+                        || destination.getId() == R.id.clientProfileFragment
+                ) {
+                    activityMainBinding.bottomNav.setVisibility(View.VISIBLE);
+                } else {
+                    activityMainBinding.bottomNav.setVisibility(View.GONE);
+                }
+            }
+        });
 
 
     }
@@ -46,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
         Log.e(TAG, "attachBaseContext: ", null);
 
         Log.e(TAG, "attachBaseContext: BEFORE SUPER " + Locale.getDefault().toString(), null);
-        Context context = LocaleHelper.getInstance().changeLanguageInRuntime(newBase);
+        Context context = LocaleHelper.getInstance(newBase).changeLanguageInRuntime();
 
         super.attachBaseContext(context);
 

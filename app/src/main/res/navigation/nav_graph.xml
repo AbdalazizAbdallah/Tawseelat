@@ -19,10 +19,27 @@
             app:popExitAnim="@android:anim/slide_out_right"
             app:popUpTo="@id/splashScreenFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splashScreenFragment_to_client_main_graph"
+            app:destination="@id/client_main_graph"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/slide_out_right"
+            app:popUpTo="@id/splashScreenFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 
     <include
         android:id="@+id/login_flow_nav"
         app:graph="@navigation/login_flow_nav_graph" />
+
+    <include
+        android:id="@+id/client_main_graph"
+        app:graph="@navigation/client_main_graph" />
+
+    <include
+        android:id="@+id/client_profile_graph"
+        app:graph="@navigation/client_profile_graph" />
 
 </navigation>

@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">توصيلات</string>
-    <string name="introduce_app_text">تطبيق المنصة الأولى في اليمن لنشر اعلاناتك</string>
-    <string name="login_as_visitor_text">دخول كزائر</string>
-    <string name="login_to_my_account">الدخول إلي حسابي</string>
     <string name="login">تسجيل الدخول</string>
     <string name="login_underline">&lt;u&gt;تسجيل الدخول&lt;/u&gt;</string>
     <string name="email_or_phone_text">البريد إلكتروني/ رقم جوال</string>
@@ -17,58 +14,20 @@
     <string name="subject_text">الموضوع</string>
     <string name="submit_text">إرسال</string>
     <string name="letter_text">الرسالة</string>
-    <string name="back_text">رجوع</string>
-    <string name="post_ads_text">نشر إعلان</string>
     <string name="telephone_number_text">رقم الهاتف</string>
-    <string name="whatsup_phone_number_text">رقم واتساب</string>
-    <string name="allow_show_email_text">إظهار البريد الاكتروني على صفحة الاعلان</string>
-    <string name="image_ads_text">صور الاعلان</string>
-    <string name="catgory_text">التصنيفات</string>
-    <string name="location_text">العنوان</string>
-    <string name="price_text">السعر</string>
-    <string name="real_yamen_text">ريال يمني</string>
-    <string name="website_post_text">موقع الاعلان</string>
-    <string name="description_text">الوصف</string>
-    <string name="main_page_text">الصفحة الرئيسة</string>
-    <string name="search_about_ads_text">ابحث عن اعلان</string>
-    <string name="time_text">منذ شهر</string>
-    <string name="ads_headline_text">مجمعات خشبية للأطفال والرحلات عنا بس</string>
-    <string name="price_text_with_suffix">ر.ل %.3f</string>
-    <string name="price_text_with_suffix_example"> ر.ل 300.000</string>
     <string name="my_profile_text">ملفي الشخصي</string>
-    <string name="opps_text">أووبس …</string>
-    <string name="description_unregister_user">يجب تسجيل الدخول الى الحساب او انشاء حساب لرؤية  ملفك الشخصي، سعداء بتواجدك معنا</string>
     <string name="notifications_text">التنبيهات</string>
-    <string name="title_item_notification">عنوان الاشعار سيكون هنا باي نص كان</string>
-    <string name="body_item_notification">"هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق. "</string>
-    <string name="country_text">الدولة</string>
-    <string name="region_text">المنطقة</string>
-    <string name="city_text">المدينة</string>
     <string name="update_data_account_text">تحديث بيانات الحساب</string>
     <string name="update_password_text">تحديث كلمة المرور</string>
     <string name="current_password_text">كلمة المرور الحالية</string>
     <string name="new_password_text">كلمة المرور الجديدة</string>
     <string name="confirm_new_password_text">إعادة كتابة كلمة المرور</string>
-    <string name="update_ads_text">تحديث الإعلان</string>
-    <string name="my_ads_text">إعلاناتي</string>
-    <string name="modify_text">تعديل</string>
     <string name="client_name_text">اسم العميل</string>
     <string name="demo_client_name_text">عبدالعزيز عبدالله ربيع عوض</string>
-    <string name="last_activity_text">آخر تواجد</string>
     <string name="phone_number_text">رقم الموبايل</string>
     <string name="demo_phone_text">+970592639219</string>
-    <string name="demo_telephone_text">08012345645</string>
-    <string name="demo_whatsapp_text">009991112223334</string>
-    <string name="demo_loaction_text">اليمن - العاصمة صنعاء - حي السادة - شارع الثورة</string>
-    <string name="demo_website_text">EXAMPLE@EXAMPLE.COM</string>
-    <string name="website_text">الموقع الالكتروني</string>
-    <string name="demo_bio_text">هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق. إذا كنت تحتاج إلى عدد أكبر من الفقرات يتيح لك مولد النص العربى.</string>
-    <string name="bio_text">نبذة</string>
-    <string name="latest_ads_text">أحدث الإعلانات</string>
-    <string name="delete_account_text">حذف الحساب</string>
-    <string name="advertiser_profile_text">ملف المعلن</string>
+
     <string name="login_as_employee">التسجيل كموظف</string>
-    <string name="verification_code_text">رمز التحقق</string>
     <string name="country_code_text">رمز الدولة</string>
     <string name="check_email_message">رجاءا افحص البريد الخاص بك.</string>
     <string name="didnT_receive_tap_to_send_message">لم تستقبله ؟ انقر لإرساله مجددا.</string>
@@ -109,5 +68,13 @@
     <string name="details_text">التفاصيل</string>
     <string name="message_no_trips">ليس لديك أي مشاوير حتى الآن. عندما تفعل ستظهر هنا.</string>
     <string name="make_trip_now">قم بمشوار الآن</string>
+    <string name="logout_text">تسجيل خروج</string>
+    <string name="message_logout">انت الان مسجل خروج</string>
+    <string name="number_not_valid">الرقم غير صالح</string>
+    <string name="incorrect_phone_or_password">غير صحيح الرقم او كلمة المرور</string>
+    <string name="incorrect_email_or_password">غير صحيح البريد او كلمة المرور</string>
+    <string name="email_not_valid">البريد غير صالح</string>
+    <string name="check_your_internet">افحص الشبكة الخاصة بك</string>
+    <string name="my_search_hint">بحث</string>
 
 </resources>

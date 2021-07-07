@@ -1,6 +1,7 @@
 package com.abdalazizabdallah.tawseelat.view;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,8 +14,8 @@ import androidx.navigation.Navigation;
 
 import com.abdalazizabdallah.tawseelat.R;
 import com.abdalazizabdallah.tawseelat.databinding.FragmentClientProfileBinding;
-import com.abdalazizabdallah.tawseelat.heplers.LocaleHelper;
 import com.abdalazizabdallah.tawseelat.heplers.PreferenceHelper;
+import com.abdalazizabdallah.tawseelat.heplers.PublicHelperMethods;
 
 
 public class ClientProfileFragment extends Fragment implements View.OnClickListener, OnChangeLanguageListener {
@@ -23,16 +24,15 @@ public class ClientProfileFragment extends Fragment implements View.OnClickListe
     private static final String TAG = "ClientProfileFragment";
     private FragmentClientProfileBinding fragmentClientProfileBinding;
     private NavController navController;
-    private LocaleHelper localeHelper;
-
+    private PreferenceHelper preferenceHelper;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        localeHelper = LocaleHelper.getInstance();
+        preferenceHelper = PreferenceHelper.getInstance(getContext());
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         fragmentClientProfileBinding = FragmentClientProfileBinding.inflate(inflater, container, false);
@@ -50,6 +50,7 @@ public class ClientProfileFragment extends Fragment implements View.OnClickListe
         fragmentClientProfileBinding.changePasswordTextview.setOnClickListener(this);
         fragmentClientProfileBinding.myInfo.setOnClickListener(this);
         fragmentClientProfileBinding.myTripsTextview.setOnClickListener(this);
+        fragmentClientProfileBinding.logoutTextview.setOnClickListener(this);
 
 
     }
@@ -68,22 +69,23 @@ public class ClientProfileFragment extends Fragment implements View.OnClickListe
             navController.navigate(ClientProfileFragmentDirections.actionClientProfileFragmentToUpdateInfoAccountFragment());
         } else if (fragmentClientProfileBinding.myTripsTextview.getId() == v.getId()) {
             navController.navigate(ClientProfileFragmentDirections.actionClientProfileFragmentToTripsFragment());
+        } else if (fragmentClientProfileBinding.logoutTextview.getId() == v.getId()) {
+            //TODO : remove login Key and Navigate to login fragment
+            preferenceHelper.removeLoginKey();
+            navController.navigate(R.id.login_flow_nav);
+            Log.e(TAG, "onClick: " + preferenceHelper.getLoginKey(), null);
+            PublicHelperMethods.showMessageSnackbar(requireActivity().findViewById(android.R.id.content), getString(R.string.message_logout));
         }
     }
 
     @Override
     public void onSetChangeLanguageListener(String language) {
-        String persistedLanguageData = PreferenceHelper.getPersistedLanguageData(getContext(), "");
+        String persistedLanguageData = preferenceHelper.getPersistedLanguageData("");
 
         if (!persistedLanguageData.equals(language)) {
-            PreferenceHelper.persistLanguage(getContext(), language);
+            preferenceHelper.persistLanguage(language);
             requireActivity().recreate();
 
-            //  Context contextChange = localeHelper.changeLanguageInRuntime(getContext());
-
-//                        requireActivity().getBaseContext().getResources().updateConfiguration(
-//                                contextChange.getResources().getConfiguration(),
-//                                requireActivity().getResources().getDisplayMetrics());
         }
     }
 

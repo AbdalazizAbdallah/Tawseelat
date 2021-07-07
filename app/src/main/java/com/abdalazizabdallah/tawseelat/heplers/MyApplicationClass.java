@@ -9,8 +9,8 @@ public class MyApplicationClass extends Application {
 
     @Override
     protected void attachBaseContext(Context base) {
-        localeHelper = LocaleHelper.getInstance();
-        Context context = localeHelper.changeLanguageInRuntime(base);
+        localeHelper = LocaleHelper.getInstance(base);
+        Context context = localeHelper.changeLanguageInRuntime();
         super.attachBaseContext(context);
     }
 

@@ -13,14 +13,17 @@ public class LocaleHelper {
 
     private static final String TAG = "LocaleHelper";
     private static LocaleHelper LocaleHelper;
+    private final PreferenceHelper preferenceHelper;
+    private final Context context;
 
-    private LocaleHelper() {
-
+    private LocaleHelper(Context context) {
+        preferenceHelper = PreferenceHelper.getInstance(context);
+        this.context = context;
     }
 
-    public static LocaleHelper getInstance() {
+    public static LocaleHelper getInstance(Context context) {
         if (LocaleHelper == null) {
-            LocaleHelper = new LocaleHelper();
+            LocaleHelper = new LocaleHelper(context);
         }
         return LocaleHelper;
     }
@@ -57,10 +60,10 @@ public class LocaleHelper {
         return context;
     }
 
-    public Context changeLanguageInRuntime(Context context) {
+    public Context changeLanguageInRuntime() {
 
-        String languageToLoad = PreferenceHelper.getPersistedLanguageData(
-                context, Locale.getDefault().getLanguage());
+        String languageToLoad = preferenceHelper.getPersistedLanguageData(
+                Locale.getDefault().getLanguage());
 
         Log.e(TAG, "changeLanguageInRuntime: " + languageToLoad, null);
 

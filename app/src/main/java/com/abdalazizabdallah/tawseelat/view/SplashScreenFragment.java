@@ -18,6 +18,7 @@ import androidx.navigation.Navigation;
 
 import com.abdalazizabdallah.tawseelat.R;
 import com.abdalazizabdallah.tawseelat.databinding.FragmentSplashScreenBinding;
+import com.abdalazizabdallah.tawseelat.heplers.PreferenceHelper;
 
 import java.lang.ref.WeakReference;
 
@@ -31,11 +32,13 @@ public class SplashScreenFragment extends Fragment {
     private MyHandle myHandle;
     private NavController navController;
     private FragmentSplashScreenBinding fragmentSplashScreenBinding;
+    private PreferenceHelper preferenceHelper;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         currentTime = System.currentTimeMillis();
+        preferenceHelper = PreferenceHelper.getInstance(getContext());
 
         if (savedInstanceState != null) {
             remainingTime = savedInstanceState.getLong(REMAINING_TIME);
@@ -44,7 +47,7 @@ public class SplashScreenFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         fragmentSplashScreenBinding = FragmentSplashScreenBinding.inflate(getLayoutInflater(), container, false);
@@ -97,8 +100,14 @@ public class SplashScreenFragment extends Fragment {
         public void handleMessage(@NonNull Message msg) {
             SplashScreenFragment splashScreenFragment = splashScreenFragmentWeakReference.get();
             if (splashScreenFragment != null && splashScreenFragment.isRunning) {
-                splashScreenFragment.navController.navigate(SplashScreenFragmentDirections
-                        .actionSplashScreenFragmentToLoginFlowNav());
+                Log.e(TAG, "handleMessage: " + splashScreenFragment.preferenceHelper.getLoginKey(), null);
+                if (splashScreenFragment.preferenceHelper.getLoginKey() == null) {
+                    splashScreenFragment.navController.navigate(SplashScreenFragmentDirections
+                            .actionSplashScreenFragmentToLoginFlowNav());
+                } else {
+                    // TODO : navigate to client's main fragment
+                    splashScreenFragment.navController.navigate(SplashScreenFragmentDirections.actionSplashScreenFragmentToClientMainGraph());
+                }
             }
         }
     }

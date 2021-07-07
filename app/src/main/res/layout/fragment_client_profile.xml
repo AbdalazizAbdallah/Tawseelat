@@ -184,6 +184,15 @@
                     android:text="@string/language_text"
                     app:drawableStartCompat="@drawable/ic_translate" />
 
+                <TextView
+                    android:id="@+id/logout_textview"
+                    style="@style/MyStyleTextButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/logout_text"
+                    app:drawableStartCompat="@drawable/ic_logout" />
+
+
             </LinearLayout>
 
         </androidx.core.widget.NestedScrollView>
