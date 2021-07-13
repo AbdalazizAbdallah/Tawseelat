@@ -27,9 +27,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:indeterminate="true"
-                android:visibility="visible"
+                android:visibility="gone"
                 app:hideAnimationBehavior="outward"
-                app:indicatorColor="@color/my_purple_Dark"
+                app:indicatorColor="@color/teal_700"
                 app:showAnimationBehavior="outward"
                 app:trackColor="@color/my_purple_light"
                 tools:visibility="visible" />

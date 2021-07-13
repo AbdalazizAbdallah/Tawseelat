@@ -6,7 +6,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,11 +13,9 @@ import androidx.fragment.app.Fragment;
 
 import com.abdalazizabdallah.tawseelat.R;
 import com.abdalazizabdallah.tawseelat.databinding.FragmentVerifySignUpBinding;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+import com.abdalazizabdallah.tawseelat.heplers.PublicHelper;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.FirebaseTooManyRequestsException;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthSettings;
@@ -42,6 +39,7 @@ public class VerifySignUpFragment extends Fragment {
     ///-------------------------------
     private boolean isAllowed = false;
     private CountDownTimer countDownTimer;
+    private boolean countDownTimeFinish = false;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -53,7 +51,7 @@ public class VerifySignUpFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         fragmentVerifySignUpBinding = FragmentVerifySignUpBinding.inflate(inflater, container, false);
@@ -67,30 +65,29 @@ public class VerifySignUpFragment extends Fragment {
 
         countDown();
 
-        fragmentVerifySignUpBinding.verifyCode.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        fragmentVerifySignUpBinding.verifyCode.setOnClickListener(v -> {
+            VerifySignUpFragment.this.code = fragmentVerifySignUpBinding.pinView.getText().toString();
 
+            if (!PublicHelper.isEmptyFields(VerifySignUpFragment.this.code)) {
                 fragmentVerifySignUpBinding.parentProgressCircular.setVisibility(View.VISIBLE);
                 fragmentVerifySignUpBinding.progressCircular.setVisibility(View.VISIBLE);
                 fragmentVerifySignUpBinding.progressCircular.show();
 
-
-                VerifySignUpFragment.this.code = fragmentVerifySignUpBinding.pinView.getText().toString();
                 credential = PhoneAuthProvider.getCredential(mVerificationId, code);
                 signInWithPhoneAuthCredential(credential);
-
+            } else {
+                PublicHelper.showMessageSnackbar(requireActivity().findViewById(android.R.id.content),
+                        "Code is " + getString(R.string.required)
+                );
             }
+
         });
 
-        fragmentVerifySignUpBinding.resendCode.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (isAllowed) {
-                    isAllowed = false;
-                    sendCode();
-                    countDown();
-                }
+        fragmentVerifySignUpBinding.resendCode.setOnClickListener(v -> {
+            if (isAllowed) {
+                isAllowed = false;
+                sendCode();
+                countDown();
             }
         });
 
@@ -99,7 +96,7 @@ public class VerifySignUpFragment extends Fragment {
     private void makeMCallbacks() {
         mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
             @Override
-            public void onVerificationCompleted(PhoneAuthCredential credential) {
+            public void onVerificationCompleted(@NonNull PhoneAuthCredential credential) {
                 // This callback will be invoked in two situations:
                 // 1 - Instant verification. In some cases the phone number can be instantly
                 //     verified without needing to send or enter a verification code.
@@ -112,7 +109,7 @@ public class VerifySignUpFragment extends Fragment {
             }
 
             @Override
-            public void onVerificationFailed(FirebaseException e) {
+            public void onVerificationFailed(@NonNull FirebaseException e) {
                 // This callback is invoked in an invalid request for verification is made,
                 // for instance if the the phone number format is not valid.
                 Log.w(TAG, "onVerificationFailed", e);
@@ -148,32 +145,32 @@ public class VerifySignUpFragment extends Fragment {
 
     private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
         mAuth.signInWithCredential(credential)
-                .addOnCompleteListener(requireActivity(), new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.d(TAG, "signInWithCredential:success");
-                            FirebaseUser user = task.getResult().getUser();
-                            // Update UI
+                .addOnCompleteListener(requireActivity(), task -> {
+                    if (task.isSuccessful()) {
+                        // Sign in success, update UI with the signed-in user's information
+                        Log.d(TAG, "signInWithCredential:success");
+                        FirebaseUser user = task.getResult().getUser();
+                        // Update UI
+                        PublicHelper.showMessageSnackbar(requireActivity().findViewById(android.R.id.content),
+                                "Successful"
+                        );
 
-                            Toast.makeText(requireContext(), "isSuccessful", Toast.LENGTH_SHORT).show();
+                        countDownTimeFinish = true;
+                    } else {
+                        // Sign in failed, display a message and update the UI
+                        Log.w(TAG, "signInWithCredential:failure", task.getException());
+                        if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
+                            // The verification code entered was invalid
 
-                            countDownTimer.onFinish();
-                        } else {
-                            // Sign in failed, display a message and update the UI
-                            Log.w(TAG, "signInWithCredential:failure", task.getException());
-                            if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
-                                // The verification code entered was invalid
+                            PublicHelper.showMessageSnackbar(requireActivity().findViewById(android.R.id.content),
+                                    "failure"
+                            );
 
-                                Toast.makeText(requireContext(), "failure", Toast.LENGTH_SHORT).show();
-
-                            }
                         }
-                        fragmentVerifySignUpBinding.progressCircular.hide();
-                        fragmentVerifySignUpBinding.progressCircular.setVisibility(View.GONE);
-                        fragmentVerifySignUpBinding.parentProgressCircular.setVisibility(View.GONE);
                     }
+                    fragmentVerifySignUpBinding.progressCircular.hide();
+                    fragmentVerifySignUpBinding.progressCircular.setVisibility(View.GONE);
+                    fragmentVerifySignUpBinding.parentProgressCircular.setVisibility(View.GONE);
                 });
     }
 
@@ -198,9 +195,14 @@ public class VerifySignUpFragment extends Fragment {
     private void countDown() {
         countDownTimer = new CountDownTimer(60000, 1000) {
             public void onTick(long millisUntilFinished) {
-                fragmentVerifySignUpBinding.resendCode.setText(
-                        getString(R.string.didnT_receive_tap_to_send_message) + " " +
-                                millisUntilFinished / 1000);
+
+                String s = getString(R.string.didnT_receive_tap_to_send_message) + " " +
+                        (millisUntilFinished / 1000);
+                fragmentVerifySignUpBinding.resendCode.setText(s);
+
+                if (countDownTimeFinish) {
+                    onFinish();
+                }
             }
 
             public void onFinish() {
@@ -208,6 +210,7 @@ public class VerifySignUpFragment extends Fragment {
                         getString(R.string.didnT_receive_tap_to_send_message));
 
                 isAllowed = true;
+                countDownTimer.cancel();
             }
         }.start();
     }

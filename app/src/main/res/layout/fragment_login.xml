@@ -7,17 +7,35 @@
     <data>
 
         <import type="android.text.Html" />
+        <import type="java.util.Locale" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:padding="@dimen/d20dp">
 
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
             app:elevation="@dimen/d0dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/language_button"
+                style="@style/MyStyleSecondaryButton"
+                android:layout_width="@dimen/d50dp"
+                android:layout_height="@dimen/d35dp"
+                android:insetLeft="@dimen/d0dp"
+                android:insetTop="@dimen/d0dp"
+                android:insetRight="@dimen/d0dp"
+                android:insetBottom="@dimen/d0dp"
+                android:maxLength="2"
+                android:padding="@dimen/d0dp"
+                android:text="@{Locale.getDefault().getLanguage()}"
+                android:textAllCaps="true"
+                android:textColor="@color/my_purple_Dark"
+                tools:text="en" />
 
             <include layout="@layout/static_brand_layout" />
 
@@ -35,10 +53,10 @@
                 android:id="@+id/linearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/d20dp"
                 android:orientation="vertical">
 
-                <com.google.android.material.textview.MaterialTextView
+
+            <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/materialTextView2"
                     style="@style/MyStyleTextViewHeadline"
                     android:layout_width="match_parent"

@@ -6,10 +6,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="my_dark_red_color">#9D192A</color>
     <color name="my_light_red_color">#E32A41</color>
-    <color name="my_black_color">#141414</color>
     <color name="my_grey_color">#707070</color>
     <color name="my_light_grey_color">#F3F3F3</color>
-    <color name="my_transparent_light_grey_color">#CCE8E2DF</color>
     <color name="my_red_color">#ea1e37</color>
     <color name="my_purple_light">#26FAD6EA</color>
     <color name="my_purple_Dark">#BE2079</color>

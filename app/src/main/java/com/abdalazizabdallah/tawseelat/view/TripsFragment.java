@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.abdalazizabdallah.tawseelat.R;
 import com.abdalazizabdallah.tawseelat.databinding.FragmentTripsBinding;
+import com.abdalazizabdallah.tawseelat.model.ListTripsRecyclerAdapter;
 import com.abdalazizabdallah.tawseelat.model.TripsRequestsHistory;
 
 import java.util.ArrayList;
@@ -36,7 +37,7 @@ public class TripsFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         fragmentTripsBinding = FragmentTripsBinding.inflate(inflater, container, false);
@@ -55,20 +56,17 @@ public class TripsFragment extends Fragment {
                 fragmentTripsBinding.toolbar, navController, appBarConfiguration);
 
 
-        fragmentTripsBinding.makeTripNow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //TODO : to navigate client main for request
-            }
+        fragmentTripsBinding.makeTripNow.setOnClickListener(v -> {
+            //TODO : to navigate client main for request
         });
 
-//        List<TripsRequestsHistory> list = getList();
+        List<TripsRequestsHistory> list = getList();
 //        Log.e(TAG, "onViewCreated: " + list.size(), null);
 //        for (int i = 0; i < list.size(); i++) {
 //            Log.e(TAG, list.get(i).toString(), null);
 //        }
 
-        List<TripsRequestsHistory> list = null;
+        //List<TripsRequestsHistory> list = null;
 
         if (list != null) {
             fragmentTripsBinding.linearLayoutNoResultFound.setVisibility(View.GONE);

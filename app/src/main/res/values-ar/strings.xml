@@ -9,14 +9,12 @@
     <string name="create_account">إنشاء حساب</string>
     <string name="create_account_underline">&lt;u&gt; إنشاء حساب &lt;/u&gt;</string>
     <string name="required">مطلوب*</string>
-    <string name="contact_us">اتصل بنا</string>
     <string name="your_name_text">اسمك</string>
     <string name="subject_text">الموضوع</string>
     <string name="submit_text">إرسال</string>
     <string name="letter_text">الرسالة</string>
     <string name="telephone_number_text">رقم الهاتف</string>
     <string name="my_profile_text">ملفي الشخصي</string>
-    <string name="notifications_text">التنبيهات</string>
     <string name="update_data_account_text">تحديث بيانات الحساب</string>
     <string name="update_password_text">تحديث كلمة المرور</string>
     <string name="current_password_text">كلمة المرور الحالية</string>
@@ -24,7 +22,6 @@
     <string name="confirm_new_password_text">إعادة كتابة كلمة المرور</string>
     <string name="client_name_text">اسم العميل</string>
     <string name="demo_client_name_text">عبدالعزيز عبدالله ربيع عوض</string>
-    <string name="phone_number_text">رقم الموبايل</string>
     <string name="demo_phone_text">+970592639219</string>
 
     <string name="login_as_employee">التسجيل كموظف</string>
@@ -75,6 +72,14 @@
     <string name="incorrect_email_or_password">غير صحيح البريد او كلمة المرور</string>
     <string name="email_not_valid">البريد غير صالح</string>
     <string name="check_your_internet">افحص الشبكة الخاصة بك</string>
-    <string name="my_search_hint">بحث</string>
+    <string name="home_text">الرئيسية</string>
+    <string name="demo_city_text">مدينة غزة</string>
+    <string name="taxis_text">تاكسيات</string>
+    <string name="all_text">الكل</string>
+    <string name="delivery_text">ديلفيري</string>
+    <string name="cities_text">المدن</string>
+    <string name="search_text">بحث</string>
+    <string name="retry_text">حاول مجددا</string>
+    <string name="message_disconnect">لا يمكن الاتصال بالإنترنت!</string>
 
 </resources>

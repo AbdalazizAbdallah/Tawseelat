@@ -2,8 +2,16 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph.xml"
+    android:id="@+id/nav_graph"
     app:startDestination="@id/splashScreenFragment">
+
+    <action
+        android:id="@+id/action_to_listLanguageDialogFragment"
+        app:destination="@id/listLanguageDialogFragment">
+        <argument
+            android:name="OnChangeLanguageListener"
+            app:argType="com.abdalazizabdallah.tawseelat.view.OnChangeLanguageListener" />
+    </action>
 
     <fragment
         android:id="@+id/splashScreenFragment"
@@ -29,6 +37,15 @@
             app:popUpTo="@id/splashScreenFragment"
             app:popUpToInclusive="true" />
     </fragment>
+
+    <dialog
+        android:id="@+id/listLanguageDialogFragment"
+        android:name="com.abdalazizabdallah.tawseelat.view.ListLanguageDialogFragment"
+        android:label="ListLanguageDialogFragment">
+        <argument
+            android:name="OnChangeLanguageListener"
+            app:argType="com.abdalazizabdallah.tawseelat.view.OnChangeLanguageListener" />
+    </dialog>
 
     <include
         android:id="@+id/login_flow_nav"

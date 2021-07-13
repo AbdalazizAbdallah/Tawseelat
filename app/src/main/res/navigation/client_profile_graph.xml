@@ -5,6 +5,7 @@
     android:id="@+id/client_profile_graph"
     app:startDestination="@id/clientProfileFragment">
 
+
     <fragment
         android:id="@+id/clientProfileFragment"
         android:name="com.abdalazizabdallah.tawseelat.view.ClientProfileFragment"
@@ -17,9 +18,6 @@
             app:exitAnim="@android:anim/fade_out"
             app:popEnterAnim="@android:anim/fade_in"
             app:popExitAnim="@android:anim/slide_out_right" />
-        <action
-            android:id="@+id/action_clientProfileFragment_to_listLanguageDialogFragment"
-            app:destination="@id/listLanguageDialogFragment" />
         <action
             android:id="@+id/action_clientProfileFragment_to_changePasswordFragment"
             app:destination="@id/changePasswordFragment"
@@ -46,14 +44,7 @@
         android:id="@+id/feedbackFragment2"
         android:name="com.abdalazizabdallah.tawseelat.view.FeedbackFragment"
         tools:layout="@layout/fragment_feedback" />
-    <dialog
-        android:id="@+id/listLanguageDialogFragment"
-        android:name="com.abdalazizabdallah.tawseelat.view.ListLanguageDialogFragment"
-        android:label="ListLanguageDialogFragment">
-        <argument
-            android:name="OnChangeLanguageListener"
-            app:argType="com.abdalazizabdallah.tawseelat.view.OnChangeLanguageListener" />
-    </dialog>
+
     <fragment
         android:id="@+id/changePasswordFragment"
         android:name="com.abdalazizabdallah.tawseelat.view.ChangePasswordFragment"

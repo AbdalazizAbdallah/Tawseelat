@@ -1,6 +1,5 @@
 package com.abdalazizabdallah.tawseelat.view;
 
-import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -17,17 +16,18 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.NavDirections;
+import androidx.navigation.NavOptions;
 import androidx.navigation.Navigation;
 
+import com.abdalazizabdallah.tawseelat.NavGraphDirections;
 import com.abdalazizabdallah.tawseelat.R;
 import com.abdalazizabdallah.tawseelat.databinding.FragmentLoginBinding;
 import com.abdalazizabdallah.tawseelat.heplers.PreferenceHelper;
-import com.abdalazizabdallah.tawseelat.heplers.PublicHelperMethods;
+import com.abdalazizabdallah.tawseelat.heplers.PublicHelper;
 import com.hbb20.CountryCodePicker;
 
 
-@SuppressLint("RestrictedApi")
-public class LoginFragment extends Fragment implements TextWatcher, CountryCodePicker.DialogEventsListener, View.OnClickListener, View.OnFocusChangeListener {
+public class LoginFragment extends Fragment implements TextWatcher, CountryCodePicker.DialogEventsListener, View.OnClickListener, View.OnFocusChangeListener, OnChangeLanguageListener {
 
     private FragmentLoginBinding fragmentLoginBinding;
     private NavController navController;
@@ -60,7 +60,6 @@ public class LoginFragment extends Fragment implements TextWatcher, CountryCodeP
 
         Log.e(TAG, "onViewCreated: " + fragmentLoginBinding.ccp.getDefaultCountryNameCode(), null);
 
-        fragmentLoginBinding.emailOrPhoneEditText.addTextChangedListener(this);
 
         fragmentLoginBinding.ccp.setDialogEventsListener(this);
         fragmentLoginBinding.countryCodeEditText.setOnClickListener(v ->
@@ -70,11 +69,21 @@ public class LoginFragment extends Fragment implements TextWatcher, CountryCodeP
         fragmentLoginBinding.createAccount.setOnClickListener(this);
         fragmentLoginBinding.loginButton.setOnClickListener(this);
 
+        fragmentLoginBinding.emailOrPhoneEditText.addTextChangedListener(this);
+
         fragmentLoginBinding.emailOrPhoneEditText.setOnFocusChangeListener(this);
         fragmentLoginBinding.password.setOnFocusChangeListener(this);
 
+        fragmentLoginBinding.languageButton.setOnClickListener(this);
+
+
     }
 
+
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
 
     @Override
     public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -134,6 +143,8 @@ public class LoginFragment extends Fragment implements TextWatcher, CountryCodeP
             navController.navigate(navDirections);
         } else if (v.getId() == fragmentLoginBinding.loginButton.getId()) {
             login();
+        } else if (v.getId() == fragmentLoginBinding.languageButton.getId()) {
+            navController.navigate(NavGraphDirections.actionToListLanguageDialogFragment(this));
         }
     }
 
@@ -144,12 +155,12 @@ public class LoginFragment extends Fragment implements TextWatcher, CountryCodeP
         String password = String.valueOf(fragmentLoginBinding.password.getText());
 
 
-        if (!PublicHelperMethods.isConnectionInternetSuccessfully(requireContext())) {
-            PublicHelperMethods.showMessageSnackbar(requireActivity().findViewById(android.R.id.content),
+        if (!PublicHelper.isConnectionInternetSuccessfully(requireContext())) {
+            PublicHelper.showMessageSnackbar(requireActivity().findViewById(android.R.id.content),
                     getString(R.string.check_your_internet));
         } else {
             // check any fields are empty or not
-            if (!PublicHelperMethods.isEmptyFields(emailOrPhoneEditText, password)) {
+            if (!PublicHelper.isEmptyFields(emailOrPhoneEditText, password)) {
                 if (TextUtils.isDigitsOnly(fragmentLoginBinding.emailOrPhoneEditText.getText())) {
                     //TODO : LOGIN TO ACCOUNT AS PHONE NUMBER
                     if (fragmentLoginBinding.ccp.isValidFullNumber()) {
@@ -164,11 +175,11 @@ public class LoginFragment extends Fragment implements TextWatcher, CountryCodeP
                             }
                             preferenceHelper.persistLoginKey(fragmentLoginBinding.ccp.getFullNumberWithPlus());
                         } else {
-                            PublicHelperMethods.showMessageSnackbar(requireActivity().findViewById(android.R.id.content),
+                            PublicHelper.showMessageSnackbar(requireActivity().findViewById(android.R.id.content),
                                     getString(R.string.incorrect_phone_or_password));
                         }
                     } else {
-                        PublicHelperMethods.showMessageSnackbar(requireActivity().findViewById(android.R.id.content),
+                        PublicHelper.showMessageSnackbar(requireActivity().findViewById(android.R.id.content),
                                 fragmentLoginBinding.ccp.getFormattedFullNumber()
                                         + getString(R.string.number_not_valid));
                     }
@@ -189,20 +200,28 @@ public class LoginFragment extends Fragment implements TextWatcher, CountryCodeP
                                 //TODO : NAVIGATE TO MAIN CLIENT'S FRAGMENT
                             }
                             // demo
-                            navController.navigate(R.id.client_main_graph);
+
+                            NavOptions navOptions = new NavOptions.Builder()
+                                    .setPopUpTo(R.id.loginFragment, true)
+                                    .setEnterAnim(android.R.anim.slide_in_left)
+                                    .setExitAnim(android.R.anim.fade_out)
+                                    .setPopEnterAnim(android.R.anim.fade_in)
+                                    .setPopExitAnim(android.R.anim.slide_out_right).build();
+
+                            navController.navigate(R.id.client_main_graph, null, navOptions);
                             preferenceHelper.persistLoginKey(emailOrPhoneEditText);
                         } else {
-                            PublicHelperMethods.showMessageSnackbar(requireActivity().findViewById(android.R.id.content), getString(R.string.incorrect_email_or_password));
+                            PublicHelper.showMessageSnackbar(requireActivity().findViewById(android.R.id.content), getString(R.string.incorrect_email_or_password));
                         }
                     } else {
-                        PublicHelperMethods.showMessageSnackbar(requireActivity().findViewById(android.R.id.content), getString(R.string.email_not_valid));
+                        PublicHelper.showMessageSnackbar(requireActivity().findViewById(android.R.id.content), getString(R.string.email_not_valid));
                     }
                 }
             } else {//else for condition empty
                 fragmentLoginBinding.emailOrPhoneLayout.setError(
-                        PublicHelperMethods.isEmptyFields(emailOrPhoneEditText) ? getString(R.string.required) : null);
+                        PublicHelper.isEmptyFields(emailOrPhoneEditText) ? getString(R.string.required) : null);
                 fragmentLoginBinding.passwordLayout.setError(
-                        PublicHelperMethods.isEmptyFields(password) ? getString(R.string.required) : null);
+                        PublicHelper.isEmptyFields(password) ? getString(R.string.required) : null);
             }
         }
     }
@@ -213,7 +232,7 @@ public class LoginFragment extends Fragment implements TextWatcher, CountryCodeP
             if (hasFocus) {
                 fragmentLoginBinding.passwordLayout.setError(null);
             } else {
-                if (!PublicHelperMethods.isEmptyFields(fragmentLoginBinding.password.getText().toString())) {
+                if (!PublicHelper.isEmptyFields(fragmentLoginBinding.password.getText().toString())) {
                     fragmentLoginBinding.emailOrPhoneLayout.setError(null);
                 } else {
                     fragmentLoginBinding.passwordLayout.setError(getString(R.string.required));
@@ -224,7 +243,7 @@ public class LoginFragment extends Fragment implements TextWatcher, CountryCodeP
             if (hasFocus) {
                 fragmentLoginBinding.emailOrPhoneLayout.setError(null);
             } else {
-                if (!PublicHelperMethods.isEmptyFields(fragmentLoginBinding.emailOrPhoneEditText.getText().toString())) {
+                if (!PublicHelper.isEmptyFields(fragmentLoginBinding.emailOrPhoneEditText.getText().toString())) {
                     fragmentLoginBinding.emailOrPhoneLayout.setError(null);
                 } else {
                     fragmentLoginBinding.emailOrPhoneLayout.setError(getString(R.string.required));
@@ -233,5 +252,15 @@ public class LoginFragment extends Fragment implements TextWatcher, CountryCodeP
             }
         }
 
+    }
+
+    @Override
+    public void onSetChangeLanguageListener(String language) {
+        String persistedLanguageData = preferenceHelper.getPersistedLanguageData("");
+
+        if (!persistedLanguageData.equals(language)) {
+            preferenceHelper.persistLanguage(language);
+            requireActivity().recreate();
+        }
     }
 }

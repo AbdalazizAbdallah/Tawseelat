@@ -4,36 +4,56 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".view.ClientMainFragment">
 
+
+    <data>
+
+
+    </data>
+
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appBarLayout"
+            android:layout_height="wrap_content"
             android:layout_width="match_parent"
-            android:layout_height="?actionBarSize">
+            android:background="@color/white"
+            app:elevation="@dimen/d0dp">
 
             <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="?actionBarSize"
+                android:background="@color/my_purple_Dark"
+                app:menu="@menu/menu_for_client_main">
 
-                <EditText
-                    style="@style/Widget.AppCompat.EditText"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/d10dp"
-                    android:background="@drawable/bg_shape_search_edit_text"
-                    android:drawableStart="@drawable/img_search"
-                    android:drawablePadding="@dimen/d5dp"
-                    android:hint="@string/my_search_hint"
-                    android:importantForAutofill="no"
-                    android:inputType="text"
-                    app:drawableTint="@color/my_purple_Dark" />
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/brand2" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/app_name"
+                        android:textAppearance="?textAppearanceHeadline5"
+                        android:textColor="@color/white" />
+
+
+                </LinearLayout>
 
             </androidx.appcompat.widget.Toolbar>
-
         </com.google.android.material.appbar.AppBarLayout>
-
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/main_fragment_recycleView"
@@ -41,7 +61,7 @@
             android:layout_height="wrap_content"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            tools:listitem="@layout/list_item" />
+            tools:listitem="@layout/item_list_for_transport" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

@@ -8,15 +8,12 @@
     <string name="create_account">Create Account</string>
     <string name="create_account_underline">&lt;u&gt;Create Account&lt;/u&gt;</string>
     <string name="required">Required*</string>
-    <string name="contact_us">Contact Us</string>
     <string name="your_name_text">Your name</string>
     <string name="subject_text">Subject</string>
     <string name="submit_text">Submit</string>
     <string name="letter_text">Letter</string>
     <string name="telephone_number_text">Phone number</string>
-    <string name="home_text" translatable="false">Home</string>
-    <string name="profile_text" translatable="false">Profile</string>
-    <string name="notifications_text">notifications</string>
+    <string name="home_text">Home</string>
     <string name="filter_text" translatable="false">filter</string>
     <string name="my_profile_text">My profile</string>
     <string name="update_data_account_text">update data account</string>
@@ -27,7 +24,6 @@
 
     <string name="client_name_text">Client Name</string>
     <string name="demo_client_name_text">abdalaziz abdallah rabee awad</string>
-    <string name="phone_number_text">phone number</string>
     <string name="demo_phone_text">+970592639219</string>
 
     <string name="login_as_employee">Login as employee</string>
@@ -84,6 +80,12 @@
     <string name="incorrect_email_or_password">Incorrect email address or password</string>
     <string name="email_not_valid">Email not valid</string>
     <string name="check_your_internet">Check your internet</string>
-    <string name="my_search_hint">Search</string>
-
+    <string name="demo_city_text">Gaza City</string>
+    <string name="taxis_text">Taxis</string>
+    <string name="all_text">All</string>
+    <string name="delivery_text">Delivery</string>
+    <string name="cities_text">Cities</string>
+    <string name="search_text">Search</string>
+    <string name="message_disconnect">Could not connect to the internet !</string>
+    <string name="retry_text">Retry</string>
 </resources>

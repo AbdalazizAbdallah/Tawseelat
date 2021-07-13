@@ -106,7 +106,8 @@ public class SplashScreenFragment extends Fragment {
                             .actionSplashScreenFragmentToLoginFlowNav());
                 } else {
                     // TODO : navigate to client's main fragment
-                    splashScreenFragment.navController.navigate(SplashScreenFragmentDirections.actionSplashScreenFragmentToClientMainGraph());
+                    splashScreenFragment.navController.navigate(SplashScreenFragmentDirections
+                            .actionSplashScreenFragmentToClientMainGraph());
                 }
             }
         }

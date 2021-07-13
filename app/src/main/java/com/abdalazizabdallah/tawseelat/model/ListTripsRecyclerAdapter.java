@@ -1,4 +1,4 @@
-package com.abdalazizabdallah.tawseelat.view;
+package com.abdalazizabdallah.tawseelat.model;
 
 import android.content.Context;
 import android.os.Build;
@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.abdalazizabdallah.tawseelat.R;
 import com.abdalazizabdallah.tawseelat.databinding.ItemListForTripsBinding;
-import com.abdalazizabdallah.tawseelat.model.TripsRequestsHistory;
 
 import java.util.List;
 
@@ -60,32 +59,29 @@ public class ListTripsRecyclerAdapter extends RecyclerView.Adapter<ListTripsRecy
 
             this.itemListForTripsBinding = itemListForTripsBinding;
 
-            itemListForTripsBinding.moreButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (itemListForTripsBinding.detailsConstraintLayout.getVisibility() == View.GONE) {
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                            TransitionManager.beginDelayedTransition(itemListForTripsBinding.detailsConstraintLayout, new AutoTransition());
-                        }
-                        itemListForTripsBinding.detailsConstraintLayout.setVisibility(View.VISIBLE);
-                        itemListForTripsBinding.finishedDate2.setVisibility(View.INVISIBLE);
-                        itemListForTripsBinding.finishedDateTextView2.setText(context.getString(R.string.details_text));
-
-                        itemListForTripsBinding.moreButton.setIcon(
-                                AppCompatResources.getDrawable(context, R.drawable.ic_baseline_keyboard_arrow_up_24));
-
-                    } else {
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                            TransitionManager.beginDelayedTransition(itemListForTripsBinding.detailsConstraintLayout, new AutoTransition());
-                        }
-                        itemListForTripsBinding.detailsConstraintLayout.setVisibility(View.GONE);
-                        itemListForTripsBinding.finishedDate2.setVisibility(View.VISIBLE);
-                        itemListForTripsBinding.finishedDateTextView2.setText(context.getString(R.string.finished_date_text));
-
-                        itemListForTripsBinding.moreButton.setIcon(
-                                AppCompatResources.getDrawable(context, R.drawable.ic_baseline_keyboard_arrow_down_24));
-
+            itemListForTripsBinding.moreButton.setOnClickListener(v -> {
+                if (itemListForTripsBinding.detailsConstraintLayout.getVisibility() == View.GONE) {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                        TransitionManager.beginDelayedTransition(itemListForTripsBinding.detailsConstraintLayout, new AutoTransition());
                     }
+                    itemListForTripsBinding.detailsConstraintLayout.setVisibility(View.VISIBLE);
+                    itemListForTripsBinding.finishedDate2.setVisibility(View.INVISIBLE);
+                    itemListForTripsBinding.finishedDateTextView2.setText(context.getString(R.string.details_text));
+
+                    itemListForTripsBinding.moreButton.setIcon(
+                            AppCompatResources.getDrawable(context, R.drawable.ic_baseline_keyboard_arrow_up_24));
+
+                } else {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                        TransitionManager.beginDelayedTransition(itemListForTripsBinding.detailsConstraintLayout, new AutoTransition());
+                    }
+                    itemListForTripsBinding.detailsConstraintLayout.setVisibility(View.GONE);
+                    itemListForTripsBinding.finishedDate2.setVisibility(View.VISIBLE);
+                    itemListForTripsBinding.finishedDateTextView2.setText(context.getString(R.string.finished_date_text));
+
+                    itemListForTripsBinding.moreButton.setIcon(
+                            AppCompatResources.getDrawable(context, R.drawable.ic_baseline_keyboard_arrow_down_24));
+
                 }
             });
         }

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item
+        android:id="@+id/search_item"
+        android:icon="@drawable/img_search"
+        android:title="@string/search_text"
+        app:iconTint="@color/white"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/filter_item"
+        android:icon="@drawable/ic_baseline_filter_list_24"
+        android:title="@string/filter_text"
+        app:iconTint="@color/white"
+        app:showAsAction="ifRoom">
+
+        <menu>
+            <item
+                android:id="@+id/all_filter"
+                android:title="@string/all_text" />
+            <item
+                android:id="@+id/cities_filter"
+                android:title="@string/cities_text" />
+            <item
+                android:id="@+id/taxis_filter"
+                android:title="@string/taxis_text" />
+            <item
+                android:id="@+id/delivery_filter"
+                android:title="@string/delivery_text" />
+        </menu>
+
+    </item>
+
+
+</menu>

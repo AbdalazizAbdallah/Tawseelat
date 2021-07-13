@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/login_flow_nav"
     app:startDestination="@id/loginFragment">
+
     <fragment
         android:id="@+id/signUpFragment"
         android:name="com.abdalazizabdallah.tawseelat.view.SignUpFragment"
@@ -15,11 +16,13 @@
             app:popUpTo="@id/signUpFragment"
             app:popUpToInclusive="true" />
     </fragment>
+
     <fragment
         android:id="@+id/verifySignUpFragment"
         android:name="com.abdalazizabdallah.tawseelat.view.VerifySignUpFragment"
         android:label="fragment_verify_sign_up"
-        tools:layout="@layout/fragment_verify_sign_up"></fragment>
+        tools:layout="@layout/fragment_verify_sign_up" />
+
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.abdalazizabdallah.tawseelat.view.LoginFragment"
