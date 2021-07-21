@@ -201,7 +201,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/d5dp"
-                    android:hint="@string/enter_personal_picture_text"
+                    android:hint="@string/enter_personal_image_text"
                     app:startIconDrawable="@drawable/ic_baseline_image_24"
                     app:startIconTint="@color/my_purple_Dark">
 

@@ -209,15 +209,20 @@ public class SignUpAsEmployeeFragment extends Fragment implements View.OnClickLi
                         // TODO: STORE IN CLIENT OBJECT
                         int i = path.lastIndexOf("/");
                         String substring = path.substring(i + 1);
+                        Log.e(TAG, "registerForActivityResultGetContent: " + idViewPicker, null);
                         if (idViewPicker == fragmentSignUpAsEmployeeBinding.drivingLicenseEditText.getId()) {
 
                             fragmentSignUpAsEmployeeBinding.drivingLicenseEditText.setText(substring);
+
                         } else if (idViewPicker == fragmentSignUpAsEmployeeBinding.vehicleLicenseEditText.getId()) {
 
                             fragmentSignUpAsEmployeeBinding.vehicleLicenseEditText.setText(substring);
-                        } else if (idViewPicker == fragmentSignUpAsEmployeeBinding.idEditText.getId()) {
+
+                        } else if (idViewPicker == fragmentSignUpAsEmployeeBinding.idImageEditText.getId()) {
 
                             fragmentSignUpAsEmployeeBinding.idEditText.setText(substring);
+                            Log.e(TAG, "registerForActivityResultGetContent: fragmentSignUpAsEmployeeBinding", null);
+
                         } else if (idViewPicker == fragmentSignUpAsEmployeeBinding.personalPictureEditText.getId()) {
 
                             fragmentSignUpAsEmployeeBinding.personalPictureEditText.setText(substring);

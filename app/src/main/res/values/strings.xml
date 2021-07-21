@@ -104,9 +104,9 @@
     <string name="switch_between_workspace_text">Switch workspace</string>
     <string name="message_not_employee">Opps! You are not Employee</string>
     <string name="sign_up_as_employee">Sign up as Employee</string>
-    <string name="enter_id_text">Enter ID picture</string>
-    <string name="enter_vehicle_license_text">Enter Vehicle license picture</string>
-    <string name="enter_driving_license_text">Enter Driving license picture</string>
+    <string name="enter_id_text">ID image</string>
+    <string name="enter_vehicle_license_text">Vehicle license image</string>
+    <string name="enter_driving_license_text">Driving license image</string>
 
     <string name="enter_front_of_id_text">Enter the front interface of the ID</string>
     <string name="enter_front_of_vehicle_license_text">Enter the front interface of the Vehicle license</string>
@@ -117,7 +117,7 @@
     <string name="welcome_message">Welcome to signing in Tawseelat</string>
     <string name="welcome_message2">Glad you joined us. Thx ^_^</string>
 
-    <string name="enter_personal_picture_text">Personal Picture</string>
+    <string name="enter_personal_image_text">Personal image</string>
     <string name="enter_front_personal_picture_text">Enter your personal picture with white background</string>
 
     <string name="message_ready_account">An email will be sent to notify you that your account is ready in the next 72 hours.</string>
