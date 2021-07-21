@@ -2,49 +2,44 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".view.UpdateInfoAccountFragment">
+    tools:context=".view.SignUpAsEmployeeFragment">
 
-    <LinearLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
             android:layout_width="match_parent"
-            android:layout_height="?actionBarSize"
-            android:background="@color/white" />
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            app:elevation="@dimen/d0dp">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:background="@color/white" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
 
         <androidx.core.widget.NestedScrollView
             android:id="@+id/nestedScrollView2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fadeScrollbars="true"
+            android:fillViewport="true"
             android:scrollbarAlwaysDrawVerticalTrack="true"
             android:scrollbars="vertical"
             app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
-            <LinearLayout
+            <androidx.appcompat.widget.LinearLayoutCompat
                 android:id="@+id/linearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/d20dp"
                 android:orientation="vertical">
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/materialTextView2"
-                    style="@style/MyStyleTextViewHeadline"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/update_data_account_text" />
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/appCompatImageView3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/d6dp"
-                    android:layout_marginBottom="@dimen/d35dp"
-                    app:srcCompat="@drawable/img_decorator" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     style="@style/MyStyleTextInputLayout"
@@ -149,6 +144,7 @@
                 </LinearLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/id_textInputLayout"
                     style="@style/MyStyleTextInputLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -164,6 +160,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/dob_textInputLayout"
                     style="@style/MyStyleTextInputLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -182,6 +179,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/gender_textInputLayout"
                     style="@style/MyStyleTextInputLayoutDropdown"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -197,18 +195,105 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/personal_picture_textInputLayout"
+                    style="@style/MyStyleTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/d5dp"
+                    android:hint="@string/enter_personal_picture_text"
+                    app:startIconDrawable="@drawable/ic_baseline_image_24"
+                    app:startIconTint="@color/my_purple_Dark">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/personal_picture_editText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:cursorVisible="false"
+                        android:focusable="false"
+                        android:inputType="none" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/id_image_textInputLayout"
+                    style="@style/MyStyleTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/d5dp"
+                    android:hint="@string/enter_id_text"
+                    app:startIconDrawable="@drawable/ic_baseline_image_24"
+                    app:startIconTint="@color/my_purple_Dark">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/id_image_editText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:cursorVisible="false"
+                        android:focusable="false"
+                        android:inputType="none" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/vehicle_license_textInputLayout"
+                    style="@style/MyStyleTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/d5dp"
+                    android:hint="@string/enter_vehicle_license_text"
+                    app:startIconDrawable="@drawable/ic_baseline_image_24"
+                    app:startIconTint="@color/my_purple_Dark">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/vehicle_license_editText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:cursorVisible="false"
+                        android:focusable="false"
+                        android:inputType="none" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/driving_license_textInputLayout"
+                    style="@style/MyStyleTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/d5dp"
+                    android:hint="@string/enter_driving_license_text"
+                    app:startIconDrawable="@drawable/ic_baseline_image_24"
+                    app:startIconTint="@color/my_purple_Dark">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/driving_license_editText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:cursorVisible="false"
+                        android:focusable="false"
+                        android:inputType="none" />
+
+                </com.google.android.material.textfield.TextInputLayout>
 
 
                 <com.google.android.material.button.MaterialButton
-                    style="@style/MyStylePrimaryButton"
-                    android:layout_width="match_parent"
+                    android:id="@+id/submit_button"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/d20dp"
-                    android:text="@string/submit_text" />
-
-            </LinearLayout>
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/d10dp"
+                    android:drawableEnd="@drawable/ic_baseline_arrow_forward_24"
+                    android:drawableTint="@color/white"
+                    android:gravity="center"
+                    android:text="@string/submit_text"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/f18sp"
+                    tools:targetApi="m" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
         </androidx.core.widget.NestedScrollView>
 
-    </LinearLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

@@ -1,5 +1,7 @@
 package com.abdalazizabdallah.tawseelat.view;
 
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,17 +18,11 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.abdalazizabdallah.tawseelat.R;
 import com.abdalazizabdallah.tawseelat.databinding.FragmentUpdateAccountBinding;
-import com.google.android.material.datepicker.CalendarConstraints;
-import com.google.android.material.datepicker.DateValidatorPointBackward;
-import com.google.android.material.datepicker.MaterialDatePicker;
+import com.abdalazizabdallah.tawseelat.heplers.PublicHelper;
 import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
+import com.hbb20.CountryCodePicker;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
-
-public class UpdateInfoAccountFragment extends Fragment {
+public class UpdateInfoAccountFragment extends Fragment implements CountryCodePicker.DialogEventsListener {
 
 
     private FragmentUpdateAccountBinding fragmentUpdateAccountBinding;
@@ -61,41 +57,46 @@ public class UpdateInfoAccountFragment extends Fragment {
         );
         fragmentUpdateAccountBinding.genderDropDown.setAdapter(adapter);
 
-        fragmentUpdateAccountBinding.dobEditText.setOnClickListener(v -> showTimePicker());
+        fragmentUpdateAccountBinding.ccp.registerCarrierNumberEditText(
+                fragmentUpdateAccountBinding.phoneEditText);
 
+        fragmentUpdateAccountBinding.ccp.setDialogEventsListener(this);
+        fragmentUpdateAccountBinding.countryCodeEditText.setOnClickListener(v ->
+                fragmentUpdateAccountBinding.ccp.launchCountrySelectionDialog());
+
+        fragmentUpdateAccountBinding.countryCodeEditText.setText(
+                fragmentUpdateAccountBinding.ccp.getSelectedCountryCodeWithPlus());
+
+
+        fragmentUpdateAccountBinding.dobEditText.setOnClickListener(v -> PublicHelper.showTimePicker(
+                new MaterialPickerOnPositiveButtonClickListener<Long>() {
+                    @Override
+                    public void onPositiveButtonClick(Long selection) {
+                        fragmentUpdateAccountBinding.dobEditText.setText(
+                                PublicHelper.formatDate(selection)
+                        );
+                    }
+                }, getParentFragmentManager(), requireContext()
+        ));
 
         //TODO : UPDATE ACCOUNT FETCH DATA FROM DATABASE
     }
 
-    private String formatDate(long currentTime) {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
-        return simpleDateFormat.format(new Date(currentTime));
+    @Override
+    public void onCcpDialogOpen(Dialog dialog) {
+
     }
 
-    private void showTimePicker() {
-
-        Calendar instance = Calendar.getInstance(Locale.getDefault());
-        long timeInMillis = instance.getTimeInMillis();
-
-        CalendarConstraints calendarConstraints = new CalendarConstraints.Builder().
-                setValidator(DateValidatorPointBackward.now()).build();
-
-        MaterialDatePicker<Long> longBuilder =
-                MaterialDatePicker.Builder.datePicker()
-                        .setTitleText(getString(R.string.select_dob))
-                        .setCalendarConstraints(calendarConstraints)
-                        .setSelection(timeInMillis)
-                        .build();
-
-        longBuilder.addOnPositiveButtonClickListener(new MaterialPickerOnPositiveButtonClickListener<Long>() {
-            @Override
-            public void onPositiveButtonClick(Long selection) {
-                fragmentUpdateAccountBinding.dobEditText.setText(
-                        formatDate(selection)
-                );
-            }
-        });
-        longBuilder.show(getParentFragmentManager(), "MaterialDatePicker");
+    @Override
+    public void onCcpDialogDismiss(DialogInterface dialogInterface) {
+        fragmentUpdateAccountBinding.countryCodeEditText.setText(
+                fragmentUpdateAccountBinding.ccp.getSelectedCountryCodeWithPlus());
     }
+
+    @Override
+    public void onCcpDialogCancel(DialogInterface dialogInterface) {
+
+    }
+
 
 }

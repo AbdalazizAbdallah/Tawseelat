@@ -144,7 +144,7 @@ public class LoginFragment extends Fragment implements TextWatcher, CountryCodeP
         } else if (v.getId() == fragmentLoginBinding.loginButton.getId()) {
             login();
         } else if (v.getId() == fragmentLoginBinding.languageButton.getId()) {
-            navController.navigate(NavGraphDirections.actionToListLanguageDialogFragment(this));
+            navController.navigate(NavGraphDirections.actionGlobalToListLanguageDialogFragment(this));
         }
     }
 
@@ -233,7 +233,7 @@ public class LoginFragment extends Fragment implements TextWatcher, CountryCodeP
                 fragmentLoginBinding.passwordLayout.setError(null);
             } else {
                 if (!PublicHelper.isEmptyFields(fragmentLoginBinding.password.getText().toString())) {
-                    fragmentLoginBinding.emailOrPhoneLayout.setError(null);
+                    fragmentLoginBinding.passwordLayout.setError(null);
                 } else {
                     fragmentLoginBinding.passwordLayout.setError(getString(R.string.required));
                 }

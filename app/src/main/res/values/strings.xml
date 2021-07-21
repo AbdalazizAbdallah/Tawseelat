@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <string name="app_name">Tawseelat</string>
     <string name="login">Login</string>
     <string name="login_underline">&lt;u&gt;login&lt;/u&gt;</string>
@@ -23,14 +23,14 @@
     <string name="confirm_new_password_text">Confirm New Password</string>
 
     <string name="client_name_text">Client Name</string>
-    <string name="demo_client_name_text">abdalaziz abdallah rabee awad</string>
+    <string name="demo_client_name_text">abdalaziz abdallah rabaee awad</string>
     <string name="demo_phone_text">+970592639219</string>
 
     <string name="login_as_employee">Login as employee</string>
     <string name="country_code_text">Country Code</string>
 
     <string name="check_email_message">please check your Email.</string>
-    <string name="didnT_receive_tap_to_send_message" tools:ignore="StringEscaping">Didn\'t receive it? Tap to send again.</string>
+    <string name="didnT_receive_tap_to_send_message">Did not receive it? Tap to send again.</string>
     <string name="enter_code_message">Enter the code we just texted you.</string>
     <string name="verify_code">Verify Code</string>
 
@@ -47,9 +47,20 @@
         <item>Arabic</item>
     </string-array>
 
+    <string-array name="workspace_array">
+        <item>Employee Workspace</item>
+        <item>Manager Workspace</item>
+    </string-array>
+
     <string-array name="gender_array">
         <item>Male</item>
         <item>Female</item>
+    </string-array>
+
+    <string-array name="step_array">
+        <item>Welcome</item>
+        <item>Personal Information</item>
+        <item>Personal Licenses</item>
     </string-array>
 
     <string name="not_matching">please make sure your new password matching</string>
@@ -88,4 +99,30 @@
     <string name="search_text">Search</string>
     <string name="message_disconnect">Could not connect to the internet !</string>
     <string name="retry_text">Retry</string>
+    <string name="message_for_permission">you need to accept %s permission to continue</string>
+
+    <string name="switch_between_workspace_text">Switch workspace</string>
+    <string name="message_not_employee">Opps! You are not Employee</string>
+    <string name="sign_up_as_employee">Sign up as Employee</string>
+    <string name="enter_id_text">Enter ID picture</string>
+    <string name="enter_vehicle_license_text">Enter Vehicle license picture</string>
+    <string name="enter_driving_license_text">Enter Driving license picture</string>
+
+    <string name="enter_front_of_id_text">Enter the front interface of the ID</string>
+    <string name="enter_front_of_vehicle_license_text">Enter the front interface of the Vehicle license</string>
+    <string name="enter_front_of_driving_license_text">Enter the front interface of the Driving license</string>
+
+    <string name="next_text">Next</string>
+
+    <string name="welcome_message">Welcome to signing in Tawseelat</string>
+    <string name="welcome_message2">Glad you joined us. Thx ^_^</string>
+
+    <string name="enter_personal_picture_text">Personal Picture</string>
+    <string name="enter_front_personal_picture_text">Enter your personal picture with white background</string>
+
+    <string name="message_ready_account">An email will be sent to notify you that your account is ready in the next 72 hours.</string>
+
+    <string name="check_email_message_in_72_hour">please check your Email in the next 72 hours</string>
+    <string name="load_license_text">Load License</string>
+    <string name="join_us_text">Join us</string>
 </resources>

@@ -1,9 +1,10 @@
 package com.abdalazizabdallah.tawseelat.heplers;
 
-import android.app.Application;
 import android.content.Context;
 
-public class MyApplicationClass extends Application {
+import androidx.multidex.MultiDexApplication;
+
+public class MyApplicationClass extends MultiDexApplication {
 
     LocaleHelper localeHelper;
 

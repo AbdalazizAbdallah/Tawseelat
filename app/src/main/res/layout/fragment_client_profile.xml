@@ -161,6 +161,14 @@
                     app:drawableStartCompat="@drawable/ic_destination" />
 
                 <TextView
+                    android:id="@+id/switch_between_workspace_textview"
+                    style="@style/MyStyleTextButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/switch_between_workspace_text"
+                    app:drawableStartCompat="@drawable/ic_swap" />
+
+                <TextView
                     android:id="@+id/change_password_textview"
                     style="@style/MyStyleTextButton"
                     android:layout_width="match_parent"
@@ -196,10 +204,6 @@
             </LinearLayout>
 
         </androidx.core.widget.NestedScrollView>
-
-        <!--        <include-->
-        <!--            layout="@layout/static_bottom_app_bar_and_fab"-->
-        <!--            app:nullBackground="@{null}" />-->
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

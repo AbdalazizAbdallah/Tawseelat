@@ -9,7 +9,6 @@
     <fragment
         android:id="@+id/clientProfileFragment"
         android:name="com.abdalazizabdallah.tawseelat.view.ClientProfileFragment"
-        android:label="fragment_client_profile"
         tools:layout="@layout/fragment_client_profile">
         <action
             android:id="@+id/action_clientProfileFragment_to_feedbackFragment2"
@@ -39,6 +38,16 @@
             app:exitAnim="@android:anim/fade_out"
             app:popEnterAnim="@android:anim/fade_in"
             app:popExitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/action_clientProfileFragment_to_signUpAsEmployeeFragment"
+            app:destination="@id/welcomeFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/action_clientProfileFragment_to_listSwitchOptionDialogFragment"
+            app:destination="@id/listSwitchOptionDialogFragment" />
     </fragment>
     <fragment
         android:id="@+id/feedbackFragment2"
@@ -58,4 +67,63 @@
         android:name="com.abdalazizabdallah.tawseelat.view.TripsFragment"
         android:label="@string/my_trips_text"
         tools:layout="@layout/fragment_trips" />
+    <fragment
+        android:id="@+id/signUpAsEmployeeFragment"
+        android:name="com.abdalazizabdallah.tawseelat.view.SignUpAsEmployeeFragment"
+        android:label="@string/sign_up_as_employee"
+        tools:layout="@layout/fragment_sign_up_as_employee">
+
+        <action
+            android:id="@+id/action_signUpAsEmployeeFragment_to_messageInfoEmployeeFragment"
+            app:destination="@id/messageInfoEmployeeFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/slide_out_right"
+            app:popUpTo="@id/clientProfileFragment"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_signUpAsEmployeeFragment_to_showLicensesFragmentDialog"
+            app:destination="@id/showLicensesFragmentDialog" />
+
+    </fragment>
+    <dialog
+        android:id="@+id/listSwitchOptionDialogFragment"
+        android:name="com.abdalazizabdallah.tawseelat.view.ListSwitchOptionDialogFragment"
+        android:label="ListSwitchOptionDialogFragment" />
+    <fragment
+        android:id="@+id/messageInfoEmployeeFragment"
+        android:name="com.abdalazizabdallah.tawseelat.view.MessageInfoEmployeeFragment"
+        android:label="fragment_message_info_employee"
+        tools:layout="@layout/fragment_message_info_employee" />
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="com.abdalazizabdallah.tawseelat.view.WelcomeFragment"
+        android:label="fragment_welcome"
+        tools:layout="@layout/fragment_welcome">
+        <action
+            android:id="@+id/action_welcomeFragment_to_signUpAsEmployeeFragment"
+            app:destination="@id/signUpAsEmployeeFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/slide_out_right"
+            app:popUpTo="@id/welcomeFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <dialog
+        android:id="@+id/showLicensesFragmentDialog"
+        android:name="com.abdalazizabdallah.tawseelat.view.ShowLicensesFragmentDialog"
+        android:label="fragment_show_license_dialog"
+        tools:layout="@layout/fragment_show_license_dialog">
+        <argument
+            android:name="Message"
+            app:argType="string" />
+        <argument
+            android:name="srcImageBitmap"
+            app:argType="android.graphics.Bitmap" />
+        <argument
+            android:name="OnClickMyButtonDialogListener"
+            app:argType="com.abdalazizabdallah.tawseelat.view.OnClickMyButtonDialogListener" />
+    </dialog>
 </navigation>

@@ -1,21 +1,29 @@
 package com.abdalazizabdallah.tawseelat.model;
 
+import java.util.List;
+
 public class CompanyTransportation {
 
     private String companyId;
     private CompanyInfo companyInfo;
-    //private List<Employee> employeeList;
+    private List<Employee> employeeList;
     private String managerId;
 
-    public CompanyTransportation(String companyId, CompanyInfo companyInfo, String managerId) {
+    public CompanyTransportation(String companyId, CompanyInfo companyInfo) {
         this.companyId = companyId;
         this.companyInfo = companyInfo;
-        this.managerId = managerId;
     }
 
-    public CompanyTransportation(String companyId, String managerId) {
+    public CompanyTransportation(String companyId) {
         this.companyId = companyId;
-        this.managerId = managerId;
+    }
+
+    public List<Employee> getEmployeeList() {
+        return employeeList;
+    }
+
+    public void setEmployeeList(List<Employee> employeeList) {
+        this.employeeList = employeeList;
     }
 
     public CompanyTransportation(CompanyInfo companyInfo) {

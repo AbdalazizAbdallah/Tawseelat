@@ -27,10 +27,12 @@ public class ClientProfileFragment extends Fragment implements View.OnClickListe
     private FragmentClientProfileBinding fragmentClientProfileBinding;
     private NavController navController;
     private PreferenceHelper preferenceHelper;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         preferenceHelper = PreferenceHelper.getInstance(getContext());
+
     }
 
     @Override
@@ -53,6 +55,7 @@ public class ClientProfileFragment extends Fragment implements View.OnClickListe
         fragmentClientProfileBinding.myInfo.setOnClickListener(this);
         fragmentClientProfileBinding.myTripsTextview.setOnClickListener(this);
         fragmentClientProfileBinding.logoutTextview.setOnClickListener(this);
+        fragmentClientProfileBinding.switchBetweenWorkspaceTextview.setOnClickListener(this);
 
 
     }
@@ -60,9 +63,7 @@ public class ClientProfileFragment extends Fragment implements View.OnClickListe
     @Override
     public void onClick(View v) {
         if (fragmentClientProfileBinding.languageTextview.getId() == v.getId()) {
-
-            navController.navigate(NavGraphDirections.actionToListLanguageDialogFragment(this));
-
+            navController.navigate(NavGraphDirections.actionGlobalToListLanguageDialogFragment(this));
         } else if (fragmentClientProfileBinding.feedbackTextview.getId() == v.getId()) {
             navController.navigate(ClientProfileFragmentDirections.actionClientProfileFragmentToFeedbackFragment2());
         } else if (fragmentClientProfileBinding.changePasswordTextview.getId() == v.getId()) {
@@ -84,7 +85,38 @@ public class ClientProfileFragment extends Fragment implements View.OnClickListe
             navController.navigate(R.id.login_flow_nav, null, navOptions);
             Log.e(TAG, "onClick: " + preferenceHelper.getLoginKey(), null);
             PublicHelper.showMessageSnackbar(requireActivity().findViewById(android.R.id.content), getString(R.string.message_logout));
+        } else if (fragmentClientProfileBinding.switchBetweenWorkspaceTextview.getId() == v.getId()) {
+            //TODO : Check the Client is Employee or not
+            if (!isClientEmployee(preferenceHelper.getLoginKey())) {
+
+                PublicHelper.showMessageSnackbarWithButton(requireActivity().findViewById(android.R.id.content)
+                        , getString(R.string.message_not_employee)
+                        , R.string.sign_up_as_employee
+                        , new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                navController.navigate(ClientProfileFragmentDirections.actionClientProfileFragmentToSignUpAsEmployeeFragment());
+                            }
+                        }
+                );
+                //TODO : Check the Client is Manager to show option to navigate Manager WorkSpace or not
+            } else if (!isClientManager(preferenceHelper.getLoginKey())) {
+                //TODO : navigate to Maps employee WorkSpace direct
+                navController.navigate(NavGraphDirections.actionGlobalMapsFragment());
+            } else {
+                //TODO : show option navigate to Manager WorkSpace or employee WorkSpace
+                navController.navigate(ClientProfileFragmentDirections.actionClientProfileFragmentToListSwitchOptionDialogFragment());
+            }
+
         }
+    }
+
+    private boolean isClientManager(String loginKey) {
+        return false;// TODO Check isClientManager
+    }
+
+    private boolean isClientEmployee(String loginKey) {
+        return false;// TODO Check isClientEmployee
     }
 
     @Override

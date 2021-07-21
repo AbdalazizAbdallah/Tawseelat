@@ -1,36 +1,34 @@
 package com.abdalazizabdallah.tawseelat.heplers;
 
+import android.Manifest;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 
+import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.FragmentManager;
+
+import com.abdalazizabdallah.tawseelat.R;
+import com.google.android.material.datepicker.CalendarConstraints;
+import com.google.android.material.datepicker.DateValidatorPointBackward;
+import com.google.android.material.datepicker.MaterialDatePicker;
+import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 public class PublicHelper {
 
     private static final String TAG = "PublicHelper";
-
-    private static boolean isNetworkAvailable(Context context) {
-        ConnectivityManager connectivityManager = ((ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE));
-        return connectivityManager.getActiveNetworkInfo() != null
-                && connectivityManager.getActiveNetworkInfo().isConnected();
-    }
-//    private static boolean isInternetAvailable() {
-//        try {
-//            InetAddress address = InetAddress.getByName("www.google.com");
-//            return !address.equals("");
-//        } catch (UnknownHostException e) {
-//            // Log error
-//        }
-//        return false;
-//    }
-
 
     private static boolean isInternet() {
 
@@ -77,6 +75,13 @@ public class PublicHelper {
                 BaseTransientBottomBar.LENGTH_SHORT).show();
     }
 
+    public static void showMessageSnackbarWithButton(View view, String string, int resIdForTextButton, View.OnClickListener onClickListener) {
+        Snackbar.make(view,
+                string,
+                BaseTransientBottomBar.LENGTH_SHORT)
+                .setAction(resIdForTextButton, onClickListener)
+                .show();
+    }
 
     public static boolean isEmptyFields(String... strings) {
         for (String s : strings) {
@@ -85,6 +90,38 @@ public class PublicHelper {
             }
         }
         return false;
+    }
+
+    public static boolean isLocationPermissionGranted(Context context) {
+        return ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION)
+                == PackageManager.PERMISSION_GRANTED;
+    }
+
+
+    public static String formatDate(long currentTime) {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+        return simpleDateFormat.format(new Date(currentTime));
+    }
+
+    public static void showTimePicker(MaterialPickerOnPositiveButtonClickListener<Long> materialPickerOnPositiveButtonClickListener,
+                                      FragmentManager fragmentManager, Context context
+    ) {
+
+        Calendar instance = Calendar.getInstance(Locale.getDefault());
+        long timeInMillis = instance.getTimeInMillis();
+
+        CalendarConstraints calendarConstraints = new CalendarConstraints.Builder().
+                setValidator(DateValidatorPointBackward.now()).build();
+
+        MaterialDatePicker<Long> longBuilder =
+                MaterialDatePicker.Builder.datePicker()
+                        .setTitleText(context.getString(R.string.select_dob))
+                        .setCalendarConstraints(calendarConstraints)
+                        .setSelection(timeInMillis)
+                        .build();
+
+        longBuilder.addOnPositiveButtonClickListener(materialPickerOnPositiveButtonClickListener);
+        longBuilder.show(fragmentManager, "MaterialDatePicker");
     }
 
 }

@@ -6,11 +6,22 @@
     app:startDestination="@id/splashScreenFragment">
 
     <action
-        android:id="@+id/action_to_listLanguageDialogFragment"
+        android:id="@+id/action_global_to_listLanguageDialogFragment"
         app:destination="@id/listLanguageDialogFragment">
         <argument
             android:name="OnChangeLanguageListener"
             app:argType="com.abdalazizabdallah.tawseelat.view.OnChangeLanguageListener" />
+    </action>
+
+    <action
+        android:id="@+id/action_global_to_messageFragmentDialog"
+        app:destination="@id/messageFragmentDialog">
+        <argument
+            android:name="OnClickMyButtonDialogListener"
+            app:argType="com.abdalazizabdallah.tawseelat.view.OnClickMyButtonDialogListener" />
+        <argument
+            android:name="Message"
+            app:argType="string" />
     </action>
 
     <fragment
@@ -36,6 +47,7 @@
             app:popExitAnim="@android:anim/slide_out_right"
             app:popUpTo="@id/splashScreenFragment"
             app:popUpToInclusive="true" />
+
     </fragment>
 
     <dialog
@@ -58,5 +70,27 @@
     <include
         android:id="@+id/client_profile_graph"
         app:graph="@navigation/client_profile_graph" />
+
+    <dialog
+        android:id="@+id/messageFragmentDialog"
+        android:name="com.abdalazizabdallah.tawseelat.view.MessageFragmentDialog"
+        tools:layout="@layout/fragment_message_dialog">
+
+        <argument
+            android:name="Message"
+            app:argType="string" />
+        <argument
+            android:name="OnClickMyButtonDialogListener"
+            app:argType="com.abdalazizabdallah.tawseelat.view.OnClickMyButtonDialogListener" />
+    </dialog>
+
+    <fragment
+        android:id="@+id/mapsFragment"
+        android:name="com.abdalazizabdallah.tawseelat.MapsFragment"
+        android:label="fragment_maps"
+        tools:layout="@layout/fragment_maps" />
+    <action
+        android:id="@+id/action_global_mapsFragment"
+        app:destination="@id/mapsFragment" />
 
 </navigation>

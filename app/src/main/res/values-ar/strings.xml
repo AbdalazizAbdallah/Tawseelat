@@ -41,6 +41,17 @@
         <item>عربي</item>
     </string-array>
 
+    <string-array name="workspace_array">
+        <item>مساحة عمل الموطف</item>
+        <item>مساحة عمل الاداري</item>
+    </string-array>
+
+    <string-array name="step_array">
+        <item>أهلا</item>
+        <item>بيانات شخصية</item>
+        <item>شهادات شخصية</item>
+    </string-array>
+
     <string-array name="gender_array">
         <item>ذكر</item>
         <item>أنثي</item>
@@ -81,5 +92,24 @@
     <string name="search_text">بحث</string>
     <string name="retry_text">حاول مجددا</string>
     <string name="message_disconnect">لا يمكن الاتصال بالإنترنت!</string>
+    <string name="message_for_permission">تحتاج إلى قبول إذن الموقع للاستمرار</string>
+    <string name="switch_between_workspace_text">تبديل مساحة العمل</string>
+    <string name="message_not_employee">"أوبس! أنت لست موظف "</string>
+    <string name="sign_up_as_employee">التسجيل كموظف</string>
+    <string name="welcome_message">أهلا وسهلا بك في تطبيق توصيلات</string>
+    <string name="welcome_message2">سعداء لانضمامك الينا . شكرا ^_^ </string>
+    <string name="enter_id_text">ادخل صورة الهوية</string>
+    <string name="enter_vehicle_license_text">ادخل صورة رخصة المركبة</string>
+    <string name="enter_driving_license_text">ادخل صورة رخصة القيادة</string>
+    <string name="enter_front_of_id_text">ادخل الواجهة الأولى للهوية</string>
+    <string name="enter_front_of_vehicle_license_text">ادخل الواجهة الأولى لرخصة المركبة</string>
+    <string name="enter_front_of_driving_license_text">ادخل الواجهة الأولى لرخصة القيادة</string>
+    <string name="next_text">التالي</string>
+    <string name="enter_front_personal_picture_text">ادخل صورتك الشخصية مع خلفية بيضاء</string>
+    <string name="enter_personal_picture_text">صورة الشخصية</string>
+    <string name="message_ready_account">سيتم إرسال بريد الكتروني لإشعارك ان حسابك جاهز خلال 72 ساعة القادمة</string>
+    <string name="check_email_message_in_72_hour">رجاءا افحص البريد الخاص بك خلال 72 ساعة القادمة</string>
+    <string name="load_license_text">تحميل الرخصة</string>
+    <string name="join_us_text">انضم إلينا</string>
 
 </resources>
