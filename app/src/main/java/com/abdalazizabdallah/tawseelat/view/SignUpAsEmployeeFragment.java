@@ -220,7 +220,7 @@ public class SignUpAsEmployeeFragment extends Fragment implements View.OnClickLi
 
                         } else if (idViewPicker == fragmentSignUpAsEmployeeBinding.idImageEditText.getId()) {
 
-                            fragmentSignUpAsEmployeeBinding.idEditText.setText(substring);
+                            fragmentSignUpAsEmployeeBinding.idImageEditText.setText(substring);
                             Log.e(TAG, "registerForActivityResultGetContent: fragmentSignUpAsEmployeeBinding", null);
 
                         } else if (idViewPicker == fragmentSignUpAsEmployeeBinding.personalPictureEditText.getId()) {
