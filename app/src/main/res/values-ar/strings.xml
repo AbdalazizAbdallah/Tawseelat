@@ -92,7 +92,7 @@
     <string name="search_text">بحث</string>
     <string name="retry_text">حاول مجددا</string>
     <string name="message_disconnect">لا يمكن الاتصال بالإنترنت!</string>
-    <string name="message_for_permission">تحتاج إلى قبول إذن الموقع للاستمرار</string>
+    <string name="message_for_permission">تحتاج إلى قبول إذن للاستمرار</string>
     <string name="switch_between_workspace_text">تبديل مساحة العمل</string>
     <string name="message_not_employee">"أوبس! أنت لست موظف "</string>
     <string name="sign_up_as_employee">التسجيل كموظف</string>
@@ -111,5 +111,10 @@
     <string name="check_email_message_in_72_hour">رجاءا افحص البريد الخاص بك خلال 72 ساعة القادمة</string>
     <string name="load_license_text">تحميل الرخصة</string>
     <string name="join_us_text">انضم إلينا</string>
-
+    <string name="i_am_manager">I am Manager</string>
+    <string name="scan_qrcode_message">امسح رمز QR لكي تُوظف في شركتك المفضلة</string>
+    <string name="hire_employee_text">توظيف موظف</string>
+    <string name="please_wait">انتظر قليلا</string>
+    <string name="no_qr_code_message">"لا يوجد زمر QR في الصورة رجاء حاول مرة اخري "</string>
+    <string name="not_matching_qr_code">زمر QR غير مطابق رجاءا حاول مرة اخري</string>
 </resources>

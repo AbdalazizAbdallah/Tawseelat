@@ -102,7 +102,13 @@ public class ClientProfileFragment extends Fragment implements View.OnClickListe
                 //TODO : Check the Client is Manager to show option to navigate Manager WorkSpace or not
             } else if (!isClientManager(preferenceHelper.getLoginKey())) {
                 //TODO : navigate to Maps employee WorkSpace direct
-                navController.navigate(NavGraphDirections.actionGlobalMapsFragment());
+                // TODO : employee is ready but not hire with company
+                if (isEmployeeNotHire(preferenceHelper.getLoginKey())) {
+                    //TODO navigate to BarCode fragment
+                    navController.navigate(ClientProfileFragmentDirections.actionClientProfileFragmentToGeneratorQREmployeeFragment2());
+                } else {
+                    navController.navigate(NavGraphDirections.actionGlobalMapsFragment());
+                }
             } else {
                 //TODO : show option navigate to Manager WorkSpace or employee WorkSpace
                 navController.navigate(ClientProfileFragmentDirections.actionClientProfileFragmentToListSwitchOptionDialogFragment());
@@ -111,12 +117,16 @@ public class ClientProfileFragment extends Fragment implements View.OnClickListe
         }
     }
 
+    private boolean isEmployeeNotHire(String loginKey) {
+        return true;
+    }
+
     private boolean isClientManager(String loginKey) {
         return false;// TODO Check isClientManager
     }
 
     private boolean isClientEmployee(String loginKey) {
-        return false;// TODO Check isClientEmployee
+        return true;// TODO Check isClientEmployee
     }
 
     @Override

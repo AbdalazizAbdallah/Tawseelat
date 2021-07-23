@@ -92,5 +92,10 @@
     <action
         android:id="@+id/action_global_mapsFragment"
         app:destination="@id/mapsFragment" />
+    <fragment
+        android:id="@+id/scanQRCodeForHireEmployeeFragment"
+        android:name="com.abdalazizabdallah.tawseelat.view.ScanQRCodeForHireEmployeeFragment"
+        android:label="@string/hire_employee_text"
+        tools:layout="@layout/fragment_scan_q_r_code_for_hire_employee" />
 
 </navigation>

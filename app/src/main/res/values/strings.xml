@@ -99,7 +99,7 @@
     <string name="search_text">Search</string>
     <string name="message_disconnect">Could not connect to the internet !</string>
     <string name="retry_text">Retry</string>
-    <string name="message_for_permission">you need to accept %s permission to continue</string>
+    <string name="message_for_permission">you need to accept permission to continue</string>
 
     <string name="switch_between_workspace_text">Switch workspace</string>
     <string name="message_not_employee">Opps! You are not Employee</string>
@@ -125,4 +125,13 @@
     <string name="check_email_message_in_72_hour">please check your Email in the next 72 hours</string>
     <string name="load_license_text">Load License</string>
     <string name="join_us_text">Join us</string>
+    <string name="i_am_manager">I am Manager</string>
+    <string name="scan_qrcode_message">Scan the QR code to hire in your favorite company</string>
+
+    <string name="hire_employee_text">"Hire Employee</string>
+    <string name="please_wait">Please wait</string>
+    <string name="no_qr_code_message">No QR code in Image please try again</string>
+    <string name="not_matching_qr_code">
+        QR code not matching please try again
+    </string>
 </resources>

@@ -48,6 +48,9 @@
         <action
             android:id="@+id/action_clientProfileFragment_to_listSwitchOptionDialogFragment"
             app:destination="@id/listSwitchOptionDialogFragment" />
+        <action
+            android:id="@+id/action_clientProfileFragment_to_generatorQREmployeeFragment2"
+            app:destination="@id/generatorQREmployeeFragment2" />
     </fragment>
     <fragment
         android:id="@+id/feedbackFragment2"
@@ -126,4 +129,8 @@
             android:name="OnClickMyButtonDialogListener"
             app:argType="com.abdalazizabdallah.tawseelat.view.OnClickMyButtonDialogListener" />
     </dialog>
+    <fragment
+        android:id="@+id/generatorQREmployeeFragment2"
+        android:name="com.abdalazizabdallah.tawseelat.view.GeneratorQREmployeeFragment"
+        tools:layout="@layout/fragment_generator_q_r_employee" />
 </navigation>

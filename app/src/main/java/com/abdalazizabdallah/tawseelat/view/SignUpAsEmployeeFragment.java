@@ -1,13 +1,10 @@
 package com.abdalazizabdallah.tawseelat.view;
 
-import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.DialogInterface;
-import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -19,8 +16,6 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
@@ -28,10 +23,10 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.abdalazizabdallah.tawseelat.NavGraphDirections;
 import com.abdalazizabdallah.tawseelat.R;
 import com.abdalazizabdallah.tawseelat.databinding.FragmentSignUpAsEmployeeBinding;
 import com.abdalazizabdallah.tawseelat.heplers.ImageFilePath;
+import com.abdalazizabdallah.tawseelat.heplers.PermissionsHelper;
 import com.abdalazizabdallah.tawseelat.heplers.PublicHelper;
 import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
 import com.hbb20.CountryCodePicker;
@@ -52,9 +47,8 @@ public class SignUpAsEmployeeFragment extends Fragment implements View.OnClickLi
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         mGetContent = registerForActivityResultGetContent();
-        mRequestWriteExternal = registerForActivityResultRequestPermission();
+        mRequestWriteExternal = registerForActivityResultRequestPermissionWriteExternal();
 
     }
 
@@ -233,33 +227,7 @@ public class SignUpAsEmployeeFragment extends Fragment implements View.OnClickLi
                 });
     }
 
-    @SuppressLint("StringFormatInvalid")
-    private void openPickerImage() {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R) {
-            if (ContextCompat.checkSelfPermission(requireContext(),
-                    Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-
-                if (ActivityCompat.shouldShowRequestPermissionRationale(requireActivity(), Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
-                    navController.navigate(NavGraphDirections.actionGlobalToMessageFragmentDialog(new OnClickMyButtonDialogListener() {
-                        @Override
-                        public void onClickMyButtonDialogListener(DialogFragment dialogFragment) {
-                            mRequestWriteExternal.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE);
-                            dialogFragment.dismiss();
-                        }
-                    }, getString(R.string.message_for_permission, "STORAGE")));
-                } else {
-                    mRequestWriteExternal.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE);
-                }
-
-            } else {
-                showLicensesFragmentDialog();
-            }
-        } else {
-            showLicensesFragmentDialog();
-        }
-    }
-
-    private ActivityResultLauncher<String> registerForActivityResultRequestPermission() {
+    private ActivityResultLauncher<String> registerForActivityResultRequestPermissionWriteExternal() {
         return registerForActivityResult(new ActivityResultContracts.RequestPermission()
                 , isGranted -> {
                     if (isGranted) {
@@ -273,6 +241,15 @@ public class SignUpAsEmployeeFragment extends Fragment implements View.OnClickLi
 
     }
 
+    @SuppressLint({"StringFormatInvalid", "MissingPermission"})
+    private void openPickerImage() {
+        PermissionsHelper.checkPermissionStorageAndAction(requireActivity(), new PermissionsHelper.OnMyActionListener() {
+            @Override
+            public void onMyAction() {
+                showLicensesFragmentDialog();
+            }
+        }, mRequestWriteExternal);
+    }
 
     private void showLicensesFragmentDialog() {
         navController.navigate(SignUpAsEmployeeFragmentDirections.actionSignUpAsEmployeeFragmentToShowLicensesFragmentDialog(
@@ -286,7 +263,6 @@ public class SignUpAsEmployeeFragment extends Fragment implements View.OnClickLi
                 }
         ));
     }
-
 
     @Override
     public void onClick(View v) {
