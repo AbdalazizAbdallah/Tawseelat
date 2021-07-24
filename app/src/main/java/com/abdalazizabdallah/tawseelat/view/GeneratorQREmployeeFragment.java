@@ -24,6 +24,8 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.abdalazizabdallah.tawseelat.R;
 import com.abdalazizabdallah.tawseelat.databinding.FragmentGeneratorQREmployeeBinding;
+import com.abdalazizabdallah.tawseelat.heplers.PreferenceHelper;
+import com.bumptech.glide.Glide;
 
 import androidmads.library.qrgenearator.QRGContents;
 import androidmads.library.qrgenearator.QRGEncoder;
@@ -74,13 +76,18 @@ public class GeneratorQREmployeeFragment extends Fragment {
         int smallerDimension = Math.min(width, height);
         smallerDimension = smallerDimension * 3 / 4;
         Log.e(TAG, "onViewCreated: " + smallerDimension, null);
-        QRGEncoder qrgEncoder = new QRGEncoder("SqhDRzZKIsmE9ILqkV8FWkBwj8X2GXlm11pBrsbBxdX7LzyjkcWCezJdz5VSR2hB", null, QRGContents.Type.TEXT, smallerDimension);
+//        "SqhDRzZKIsmE9ILqkV8FWkBwj8X2GXlm11pBrsbBxdX7LzyjkcWCezJdz5VSR2hB"
+        String loginKey = PreferenceHelper.getInstance(requireContext()).getLoginKey();
+        QRGEncoder qrgEncoder = new QRGEncoder(loginKey, null, QRGContents.Type.TEXT, smallerDimension);
         qrgEncoder.setColorBlack(ResourcesCompat.getColor(getResources(), R.color.my_purple_Dark, null));
         try {
             // Getting QR-Code as Bitmap
             bitmap = qrgEncoder.getBitmap();
             // Setting Bitmap to ImageView
-            fragmentGeneratorQREmployeeBinding.qrImageView.setImageBitmap(bitmap);
+            Glide.with(requireContext())
+                    .load(bitmap)
+                    .into(fragmentGeneratorQREmployeeBinding.qrImageView);
+            //fragmentGeneratorQREmployeeBinding.qrImageView.setImageBitmap(bitmap);
         } catch (Exception e) {
             Log.v(TAG, e.toString());
         }
@@ -89,7 +96,10 @@ public class GeneratorQREmployeeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 // TODO : navigate to Create Company Transportation for Employee
+                navController.navigate(GeneratorQREmployeeFragmentDirections.actionGeneratorQREmployeeFragment2ToCreateCompanyTransportationFragment());
             }
         });
+
+
     }
 }

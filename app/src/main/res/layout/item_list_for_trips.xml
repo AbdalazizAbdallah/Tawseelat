@@ -29,7 +29,7 @@
                 android:padding="@dimen/d5dp"
                 android:textDirection="locale"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/stepper_linear_layout"
+                app:layout_constraintStart_toEndOf="@id/stepper_linear_layout"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <com.google.android.material.textview.MaterialTextView
@@ -69,9 +69,9 @@
                 android:layout_margin="@dimen/d10dp"
                 android:orientation="vertical"
                 android:padding="@dimen/d6dp"
-                app:layout_constraintBottom_toBottomOf="@+id/source_and_destination_linear"
+                app:layout_constraintBottom_toBottomOf="@id/source_and_destination_linear"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/source_and_destination_linear">
+                app:layout_constraintTop_toTopOf="@id/source_and_destination_linear">
 
                 <View
                     android:layout_width="@dimen/d15dp"
@@ -99,9 +99,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="@+id/source_and_destination_linear"
-                app:layout_constraintStart_toStartOf="@+id/source_and_destination_linear"
-                app:layout_constraintTop_toBottomOf="@+id/source_and_destination_linear">
+                app:layout_constraintEnd_toEndOf="@id/source_and_destination_linear"
+                app:layout_constraintStart_toStartOf="@id/source_and_destination_linear"
+                app:layout_constraintTop_toBottomOf="@id/source_and_destination_linear">
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/finishedDateTextView2"
@@ -144,7 +144,7 @@
                 android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat4"
+                app:layout_constraintTop_toBottomOf="@id/linearLayoutCompat4"
                 tools:visibility="visible">
 
 
@@ -161,16 +161,29 @@
                 <!--                client name  -->
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/nameClientTextView"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/d5dp"
                     android:text="@string/client_name_text"
                     android:textColor="@color/my_purple_Dark"
                     android:textDirection="locale"
                     android:textSize="@dimen/f16sp"
-                    app:layout_constraintEnd_toEndOf="@+id/barrier4"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/view3" />
+                    app:layout_constraintTop_toBottomOf="@id/view3" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/doubleDotsTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/d5dp"
+                    android:gravity="start"
+                    android:text="@string/double_dots_text"
+                    android:textColor="@color/my_purple_Dark"
+                    android:textDirection="locale"
+                    android:textSize="@dimen/f16sp"
+                    app:layout_constraintEnd_toEndOf="@id/barrier4"
+                    app:layout_constraintStart_toEndOf="@id/nameClientTextView"
+                    app:layout_constraintTop_toBottomOf="@id/view3" />
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/clientName"
@@ -181,10 +194,10 @@
                     android:textColor="@color/my_purple_Dark"
                     android:textDirection="locale"
                     android:textSize="@dimen/f14sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/nameClientTextView"
+                    app:layout_constraintBottom_toBottomOf="@id/nameClientTextView"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/barrier4"
-                    app:layout_constraintTop_toTopOf="@+id/nameClientTextView" />
+                    app:layout_constraintStart_toEndOf="@id/barrier4"
+                    app:layout_constraintTop_toTopOf="@id/nameClientTextView" />
 
                 <!--                Employee name  -->
                 <com.google.android.material.textview.MaterialTextView
@@ -196,9 +209,22 @@
                     android:textColor="@color/my_purple_Dark"
                     android:textDirection="locale"
                     android:textSize="@dimen/f16sp"
-                    app:layout_constraintEnd_toEndOf="@+id/barrier4"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/nameClientTextView" />
+                    app:layout_constraintTop_toBottomOf="@id/nameClientTextView" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/doubleDotsTextView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/d5dp"
+                    android:gravity="start"
+                    android:text="@string/double_dots_text"
+                    android:textColor="@color/my_purple_Dark"
+                    android:textDirection="locale"
+                    android:textSize="@dimen/f16sp"
+                    app:layout_constraintEnd_toEndOf="@id/barrier4"
+                    app:layout_constraintStart_toEndOf="@id/nameEmployeeTextView"
+                    app:layout_constraintTop_toBottomOf="@id/nameClientTextView" />
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/employeeName"
@@ -209,24 +235,38 @@
                     android:textColor="@color/my_purple_Dark"
                     android:textDirection="locale"
                     android:textSize="@dimen/f14sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/nameEmployeeTextView"
+                    app:layout_constraintBottom_toBottomOf="@id/nameEmployeeTextView"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/barrier4"
-                    app:layout_constraintTop_toTopOf="@+id/nameEmployeeTextView" />
+                    app:layout_constraintStart_toEndOf="@id/barrier4"
+                    app:layout_constraintTop_toTopOf="@id/nameEmployeeTextView" />
 
                 <!--                Company name  -->
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/nameCompanyTextView"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/d5dp"
                     android:text="@string/company_name_text"
                     android:textColor="@color/my_purple_Dark"
                     android:textDirection="locale"
                     android:textSize="@dimen/f16sp"
-                    app:layout_constraintEnd_toEndOf="@+id/barrier4"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/nameEmployeeTextView" />
+                    app:layout_constraintTop_toBottomOf="@id/nameEmployeeTextView" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/doubleDotsTextView3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/d5dp"
+                    android:gravity="start"
+                    android:text="@string/double_dots_text"
+                    android:textColor="@color/my_purple_Dark"
+                    android:textDirection="locale"
+                    android:textSize="@dimen/f16sp"
+                    app:layout_constraintEnd_toEndOf="@id/barrier4"
+                    app:layout_constraintStart_toEndOf="@id/nameCompanyTextView"
+                    app:layout_constraintTop_toBottomOf="@id/nameEmployeeTextView" />
+
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/companyName"
@@ -237,10 +277,10 @@
                     android:textColor="@color/my_purple_Dark"
                     android:textDirection="locale"
                     android:textSize="@dimen/f14sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/nameCompanyTextView"
+                    app:layout_constraintBottom_toBottomOf="@id/nameCompanyTextView"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/barrier4"
-                    app:layout_constraintTop_toTopOf="@+id/nameCompanyTextView" />
+                    app:layout_constraintStart_toEndOf="@id/barrier4"
+                    app:layout_constraintTop_toTopOf="@id/nameCompanyTextView" />
 
                 <!--                Accepted name  -->
                 <com.google.android.material.textview.MaterialTextView
@@ -252,9 +292,23 @@
                     android:textColor="@color/my_purple_Dark"
                     android:textDirection="locale"
                     android:textSize="@dimen/f16sp"
-                    app:layout_constraintEnd_toEndOf="@+id/barrier4"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/nameCompanyTextView" />
+                    app:layout_constraintTop_toBottomOf="@id/nameCompanyTextView" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/doubleDotsTextView4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/d5dp"
+                    android:gravity="start"
+                    android:text="@string/double_dots_text"
+                    android:textColor="@color/my_purple_Dark"
+                    android:textDirection="locale"
+                    android:textSize="@dimen/f16sp"
+                    app:layout_constraintEnd_toEndOf="@id/barrier4"
+                    app:layout_constraintStart_toEndOf="@id/acceptedDateTextView"
+                    app:layout_constraintTop_toBottomOf="@id/nameCompanyTextView" />
+
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/acceptedDate"
@@ -265,10 +319,10 @@
                     android:textColor="@color/my_purple_Dark"
                     android:textDirection="locale"
                     android:textSize="@dimen/f14sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/acceptedDateTextView"
+                    app:layout_constraintBottom_toBottomOf="@id/acceptedDateTextView"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/barrier4"
-                    app:layout_constraintTop_toTopOf="@+id/acceptedDateTextView" />
+                    app:layout_constraintStart_toEndOf="@id/barrier4"
+                    app:layout_constraintTop_toTopOf="@id/acceptedDateTextView" />
 
                 <!--                Finished name  -->
                 <com.google.android.material.textview.MaterialTextView
@@ -281,9 +335,23 @@
                     android:textColor="@color/my_purple_Dark"
                     android:textDirection="locale"
                     android:textSize="@dimen/f16sp"
-                    app:layout_constraintEnd_toEndOf="@+id/barrier4"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/acceptedDateTextView" />
+                    app:layout_constraintTop_toBottomOf="@id/acceptedDateTextView" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/doubleDotsTextView5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/d5dp"
+                    android:gravity="start"
+                    android:text="@string/double_dots_text"
+                    android:textColor="@color/my_purple_Dark"
+                    android:textDirection="locale"
+                    android:textSize="@dimen/f16sp"
+                    app:layout_constraintEnd_toEndOf="@id/barrier4"
+                    app:layout_constraintStart_toEndOf="@id/finishedDateTextView"
+                    app:layout_constraintTop_toBottomOf="@id/acceptedDateTextView" />
+
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/finishedDate"
@@ -294,10 +362,10 @@
                     android:textColor="@color/my_purple_Dark"
                     android:textDirection="locale"
                     android:textSize="@dimen/f14sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/finishedDateTextView"
+                    app:layout_constraintBottom_toBottomOf="@id/finishedDateTextView"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/barrier4"
-                    app:layout_constraintTop_toTopOf="@+id/finishedDateTextView" />
+                    app:layout_constraintStart_toEndOf="@id/barrier4"
+                    app:layout_constraintTop_toTopOf="@id/finishedDateTextView" />
 
                 <!--                Nearest place name  -->
                 <com.google.android.material.textview.MaterialTextView
@@ -310,9 +378,23 @@
                     android:textColor="@color/my_purple_Dark"
                     android:textDirection="locale"
                     android:textSize="@dimen/f16sp"
-                    app:layout_constraintEnd_toEndOf="@+id/barrier4"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/finishedDateTextView" />
+                    app:layout_constraintTop_toBottomOf="@id/finishedDateTextView" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/doubleDotsTextView6"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/d5dp"
+                    android:gravity="start"
+                    android:text="@string/double_dots_text"
+                    android:textColor="@color/my_purple_Dark"
+                    android:textDirection="locale"
+                    android:textSize="@dimen/f16sp"
+                    app:layout_constraintEnd_toEndOf="@id/barrier4"
+                    app:layout_constraintStart_toEndOf="@id/nearestPlaceTextView"
+                    app:layout_constraintTop_toBottomOf="@id/finishedDateTextView" />
+
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/nearestPlace"
@@ -323,10 +405,10 @@
                     android:textColor="@color/my_purple_Dark"
                     android:textDirection="locale"
                     android:textSize="@dimen/f14sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/nearestPlaceTextView"
+                    app:layout_constraintBottom_toBottomOf="@id/nearestPlaceTextView"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/barrier4"
-                    app:layout_constraintTop_toTopOf="@+id/nearestPlaceTextView" />
+                    app:layout_constraintStart_toEndOf="@id/barrier4"
+                    app:layout_constraintTop_toTopOf="@id/nearestPlaceTextView" />
 
 
                 <androidx.constraintlayout.widget.Barrier

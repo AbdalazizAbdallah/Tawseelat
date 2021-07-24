@@ -50,7 +50,11 @@
             app:destination="@id/listSwitchOptionDialogFragment" />
         <action
             android:id="@+id/action_clientProfileFragment_to_generatorQREmployeeFragment2"
-            app:destination="@id/generatorQREmployeeFragment2" />
+            app:destination="@id/generatorQREmployeeFragment2"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/feedbackFragment2"
@@ -132,5 +136,39 @@
     <fragment
         android:id="@+id/generatorQREmployeeFragment2"
         android:name="com.abdalazizabdallah.tawseelat.view.GeneratorQREmployeeFragment"
-        tools:layout="@layout/fragment_generator_q_r_employee" />
+        tools:layout="@layout/fragment_generator_q_r_employee">
+        <action
+            android:id="@+id/action_generatorQREmployeeFragment2_to_createCompanyTransportationFragment"
+            app:destination="@id/createCompanyTransportationFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/createCompanyTransportationFragment"
+        android:name="com.abdalazizabdallah.tawseelat.view.CreateCompanyTransportationFragment"
+        tools:layout="@layout/fragment_create_company_transportation">
+        <action
+            android:id="@+id/action_createCompanyTransportationFragment_to_congratulationCreateCompanyFragment"
+            app:destination="@id/congratulationCreateCompanyDialog" />
+    </fragment>
+    <dialog
+        android:id="@+id/congratulationCreateCompanyDialog"
+        android:name="com.abdalazizabdallah.tawseelat.view.CongratulationCreateCompanyDialog"
+        tools:layout="@layout/fragment_congratulation_create_company">
+        <action
+            android:id="@+id/action_congratulationCreateCompanyDialog_to_verifyManagerIDFragment2"
+            app:destination="@id/verifyManagerIDFragment2"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/slide_out_right"
+            app:popUpTo="@id/generatorQREmployeeFragment2"
+            app:popUpToInclusive="true" />
+    </dialog>
+    <fragment
+        android:id="@+id/verifyManagerIDFragment2"
+        android:name="com.abdalazizabdallah.tawseelat.view.VerifyManagerIDFragment"
+        tools:layout="@layout/fragment_verify_manager_i_d" />
 </navigation>

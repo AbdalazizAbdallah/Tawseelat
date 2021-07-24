@@ -52,6 +52,12 @@
         <item>شهادات شخصية</item>
     </string-array>
 
+
+    <string-array name="type_transportation_array">
+        <item>تاكسيات</item>
+        <item>ديلفري</item>
+    </string-array>
+
     <string-array name="gender_array">
         <item>ذكر</item>
         <item>أنثي</item>
@@ -64,14 +70,14 @@
     <string name="my_trips_text">مشاويري</string>
     <string name="demo_source_place_text">غزة - النصر - برج الملش</string>
     <string name="demo_destination_place_text">غزة - مستشفى الشفاء</string>
-    <string name="finished_date_text">تاريخ الانتهاء : </string>
-    <string name="accepted_date_text">تاريخ القبول : </string>
-    <string name="employee_name_text">اسم الموظف : </string>
+    <string name="finished_date_text">تاريخ الانتهاء  </string>
+    <string name="accepted_date_text">تاريخ القبول  </string>
+    <string name="employee_name_text">اسم الموظف  </string>
     <string name="demo_employee_name_text">محمد أحمد</string>
-    <string name="company_name_text">اسم الشركة : </string>
+    <string name="company_name_text">اسم الشركة  </string>
     <string name="demo_company_name_text">تاكسيات اصايل</string>
     <string name="demo_nearest_place_text">مثلجات كاظم</string>
-    <string name="nearest_place_text">مكان الأقرب : </string>
+    <string name="nearest_place_text">مكان الأقرب  </string>
     <string name="no_trips_for_you_yet_text">لا توجد لديك مشاوير !</string>
     <string name="details_text">التفاصيل</string>
     <string name="message_no_trips">ليس لديك أي مشاوير حتى الآن. عندما تفعل ستظهر هنا.</string>
@@ -117,4 +123,12 @@
     <string name="please_wait">انتظر قليلا</string>
     <string name="no_qr_code_message">"لا يوجد زمر QR في الصورة رجاء حاول مرة اخري "</string>
     <string name="not_matching_qr_code">زمر QR غير مطابق رجاءا حاول مرة اخري</string>
+    <string name="create_company_transportation_text">إنشاء شركة توصيلات</string>
+    <string name="location_company_text">موقع الشركة</string>
+    <string name="type_transportation_text">نوع التوصيلات</string>
+    <string name="create_company_text">إنشاء الشركة</string>
+    <string name="check_email_message_manager_id">الرجاء التحقق من البريد الإلكتروني الخاص بك ، أرسلنا معرف المدير لدخول في الشركة الخاصة بك.</string>
+    <string name="congratulation_message">تهانينا ، على إنشاء شركتكم في تطبيقنا لذا نعطيكم 10 وظائف لموظفيكم كهدية منا</string>
+    <string name="manager_id_text">معرف المدير</string>
+    <string name="verify_id">التحقق من المعرف</string>
 </resources>

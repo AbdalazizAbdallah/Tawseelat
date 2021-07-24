@@ -109,7 +109,7 @@ public class ClientProfileFragment extends Fragment implements View.OnClickListe
                 } else {
                     navController.navigate(NavGraphDirections.actionGlobalMapsFragment());
                 }
-            } else {
+            } else {//isEmployeeManager
                 //TODO : show option navigate to Manager WorkSpace or employee WorkSpace
                 navController.navigate(ClientProfileFragmentDirections.actionClientProfileFragmentToListSwitchOptionDialogFragment());
             }

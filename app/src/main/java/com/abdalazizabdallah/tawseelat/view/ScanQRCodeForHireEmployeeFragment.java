@@ -128,7 +128,7 @@ public class ScanQRCodeForHireEmployeeFragment extends Fragment {
                         // TODO decode QR code
 
                         ProgressDialog progressDialog = new ProgressDialog(requireContext());
-                        progressDialog.setMessage("loading");
+                        progressDialog.setMessage(getString(R.string.please_wait));
 
                         new CountDownTimer(5000, 1000) {
                             @Override

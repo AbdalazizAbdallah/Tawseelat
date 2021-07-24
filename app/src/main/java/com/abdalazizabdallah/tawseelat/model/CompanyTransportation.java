@@ -1,5 +1,6 @@
 package com.abdalazizabdallah.tawseelat.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CompanyTransportation {
@@ -8,10 +9,26 @@ public class CompanyTransportation {
     private CompanyInfo companyInfo;
     private List<Employee> employeeList;
     private String managerId;
+    private int maxNoEmployee;
 
     public CompanyTransportation(String companyId, CompanyInfo companyInfo) {
-        this.companyId = companyId;
-        this.companyInfo = companyInfo;
+        this.setCompanyId(companyId);
+        this.setCompanyInfo(companyInfo);
+        this.setEmployeeList(new ArrayList<>());
+    }
+
+    public CompanyTransportation(String companyId, CompanyInfo companyInfo, String managerId, int maxNoEmployee) {
+        this(companyId, companyInfo);
+        this.setManagerId(managerId);
+        this.setMaxNoEmployee(maxNoEmployee);
+    }
+
+    public int getMaxNoEmployee() {
+        return maxNoEmployee;
+    }
+
+    public void setMaxNoEmployee(int maxNoEmployee) {
+        this.maxNoEmployee = maxNoEmployee;
     }
 
     public CompanyTransportation(String companyId) {
