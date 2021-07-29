@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/manager_graph"
+    app:startDestination="@id/createCompanyTransportationFragment">
+
+    <fragment
+        android:id="@+id/createCompanyTransportationFragment"
+        android:name="com.abdalazizabdallah.tawseelat.view.CreateCompanyTransportationFragment"
+        tools:layout="@layout/fragment_create_company_transportation">
+        <action
+            android:id="@+id/action_createCompanyTransportationFragment_to_congratulationCreateCompanyFragment"
+            app:destination="@id/congratulationCreateCompanyDialog" />
+    </fragment>
+    <dialog
+        android:id="@+id/congratulationCreateCompanyDialog"
+        android:name="com.abdalazizabdallah.tawseelat.view.CongratulationCreateCompanyDialog"
+        tools:layout="@layout/fragment_congratulation_create_company" />
+</navigation>

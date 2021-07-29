@@ -16,7 +16,6 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -28,7 +27,6 @@ import com.abdalazizabdallah.tawseelat.databinding.FragmentSignUpAsEmployeeBindi
 import com.abdalazizabdallah.tawseelat.heplers.ImageFilePath;
 import com.abdalazizabdallah.tawseelat.heplers.PermissionsHelper;
 import com.abdalazizabdallah.tawseelat.heplers.PublicHelper;
-import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
 import com.hbb20.CountryCodePicker;
 
 
@@ -243,23 +241,16 @@ public class SignUpAsEmployeeFragment extends Fragment implements View.OnClickLi
 
     @SuppressLint({"StringFormatInvalid", "MissingPermission"})
     private void openPickerImage() {
-        PermissionsHelper.checkPermissionStorageAndAction(requireActivity(), new PermissionsHelper.OnMyActionListener() {
-            @Override
-            public void onMyAction() {
-                showLicensesFragmentDialog();
-            }
-        }, mRequestWriteExternal);
+        PermissionsHelper.checkPermissionStorageAndAction(requireActivity(),
+                () -> showLicensesFragmentDialog(), mRequestWriteExternal);
     }
 
     private void showLicensesFragmentDialog() {
         navController.navigate(SignUpAsEmployeeFragmentDirections.actionSignUpAsEmployeeFragmentToShowLicensesFragmentDialog(
                 globalMessage,
-                globalBitmap, new OnClickMyButtonDialogListener() {
-                    @Override
-                    public void onClickMyButtonDialogListener(DialogFragment dialogFragment) {
-                        dialogFragment.dismiss();
-                        mGetContent.launch("image/*");
-                    }
+                globalBitmap, (OnClickMyButtonDialogListener) dialogFragment -> {
+                    dialogFragment.dismiss();
+                    mGetContent.launch("image/*");
                 }
         ));
     }
@@ -294,14 +285,9 @@ public class SignUpAsEmployeeFragment extends Fragment implements View.OnClickLi
             openPickerImage();
         } else if (v.getId() == fragmentSignUpAsEmployeeBinding.dobEditText.getId()) {
             PublicHelper.showTimePicker(
-                    new MaterialPickerOnPositiveButtonClickListener<Long>() {
-                        @Override
-                        public void onPositiveButtonClick(Long selection) {
-                            fragmentSignUpAsEmployeeBinding.dobEditText.setText(
-                                    PublicHelper.formatDate(selection)
-                            );
-                        }
-                    }, getParentFragmentManager(), requireContext());
+                    selection -> fragmentSignUpAsEmployeeBinding.dobEditText.setText(
+                            PublicHelper.formatDate(selection)
+                    ), getParentFragmentManager(), requireContext());
         }
     }
 

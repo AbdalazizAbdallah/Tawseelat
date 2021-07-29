@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".view.ShowInfoEmployeesFragment">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:background="@color/white" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/d6dp"
+                android:visibility="gone"
+                tools:listitem="@layout/item_list_for_employee"
+                tools:visibility="visible" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/linear_layout_no_result_found"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/d15dp"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/make_trip_now"
+                    android:gravity="center"
+                    android:src="@drawable/no_result_found" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="@string/no_employees_for_you_yet_text"
+                    android:textColor="@color/my_purple_Dark"
+                    android:textSize="@dimen/f18sp" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/d16dp"
+                    android:gravity="center"
+                    android:text="@string/message_no_employees"
+                    android:textColor="@color/my_grey_color"
+                    android:textSize="@dimen/f18sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/hire_employee_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/d5dp"
+                    android:drawableEnd="@drawable/ic_baseline_arrow_forward_24"
+                    android:drawableTint="@color/white"
+                    android:gravity="center"
+                    android:text="@string/hire_employee_text"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/f18sp"
+                    tools:targetApi="m" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </FrameLayout>
+
+
+    </LinearLayout>
+</layout>

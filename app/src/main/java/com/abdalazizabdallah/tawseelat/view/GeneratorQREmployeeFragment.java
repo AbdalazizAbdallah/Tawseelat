@@ -18,6 +18,7 @@ import androidx.annotation.RequiresApi;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
+import androidx.navigation.NavOptions;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
@@ -41,9 +42,6 @@ public class GeneratorQREmployeeFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        WindowManager.LayoutParams layout = requireActivity().getWindow().getAttributes();
-        layout.screenBrightness = 1F;
-        requireActivity().getWindow().setAttributes(layout);
     }
 
     @Override
@@ -92,12 +90,16 @@ public class GeneratorQREmployeeFragment extends Fragment {
             Log.v(TAG, e.toString());
         }
 
-        fragmentGeneratorQREmployeeBinding.iAmManagerButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // TODO : navigate to Create Company Transportation for Employee
-                navController.navigate(GeneratorQREmployeeFragmentDirections.actionGeneratorQREmployeeFragment2ToCreateCompanyTransportationFragment());
-            }
+        fragmentGeneratorQREmployeeBinding.iAmManagerButton.setOnClickListener(v -> {
+            // TODO : navigate to Create Company Transportation for Employee
+            NavOptions navOptions = new NavOptions.Builder()
+                    .setPopUpTo(R.id.generatorQREmployeeFragment2, true)
+                    .setEnterAnim(android.R.anim.slide_in_left)
+                    .setExitAnim(android.R.anim.fade_out)
+                    .setPopEnterAnim(android.R.anim.fade_in)
+                    .setPopExitAnim(android.R.anim.slide_out_right).build();
+
+            navController.navigate(R.id.manager_graph, null, navOptions);
         });
 
 

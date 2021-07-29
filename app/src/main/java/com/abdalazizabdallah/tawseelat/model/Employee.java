@@ -6,10 +6,15 @@ public class Employee extends Client {
     private EmployeeCertifications employeeCertifications;
 
     public Employee(String idClientAccount, ClientInformation clientInformation,
-                    AccountPassword accountPassword, String emailClient, EmployeeCertifications employeeCertifications) {
+                    AccountPassword accountPassword, String emailClient,
+                    EmployeeCertifications employeeCertifications) {
         super(idClientAccount, clientInformation, accountPassword, emailClient);
 
         this.employeeCertifications = employeeCertifications;
+    }
+
+    public Employee() {
+        super();
     }
 
     public String getIdEmployee() {

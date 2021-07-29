@@ -4,17 +4,15 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.core.content.res.ResourcesCompat;
-import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.abdalazizabdallah.tawseelat.NavGraphDirections;
 import com.abdalazizabdallah.tawseelat.R;
 import com.abdalazizabdallah.tawseelat.databinding.ItemListForTransportBinding;
+import com.abdalazizabdallah.tawseelat.heplers.OnMyActionListener;
 
 import java.util.List;
 
@@ -22,9 +20,11 @@ public class ListTransportRecyclerAdapter extends RecyclerView.Adapter<ListTrans
 
     private static final String TAG = "ListTransportRecyclerAd";
     private final List<CompanyTransportation> companyTransportations;
+    private final OnMyActionListener onMyActionListener;
 
-    public ListTransportRecyclerAdapter(List<CompanyTransportation> companyTransportations) {
+    public ListTransportRecyclerAdapter(List<CompanyTransportation> companyTransportations, OnMyActionListener onMyActionListener) {
         this.companyTransportations = companyTransportations;
+        this.onMyActionListener = onMyActionListener;
     }
 
     @NonNull
@@ -63,12 +63,10 @@ public class ListTransportRecyclerAdapter extends RecyclerView.Adapter<ListTrans
 
             // because the layout is imageView
             // when the layout e.g. linear you must use findViewById
-            itemListForTransportBinding.getRoot().setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Log.e(TAG, "onClick: ", null);
-                    Navigation.findNavController(v).navigate(NavGraphDirections.actionGlobalMapsFragment());
-
+            itemListForTransportBinding.getRoot().setOnClickListener(v -> {
+                Log.e(TAG, "onClick: ", null);
+                if (onMyActionListener != null) {
+                    onMyActionListener.onMyAction();
                 }
             });
         }

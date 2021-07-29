@@ -133,7 +133,7 @@
     <string name="i_am_manager">I am Manager</string>
     <string name="scan_qrcode_message">Scan the QR code to hire in your favorite company</string>
 
-    <string name="hire_employee_text">"Hire Employee</string>
+    <string name="hire_employee_text">Hire Employee</string>
     <string name="please_wait">Please wait</string>
     <string name="no_qr_code_message">No QR code in Image please try again</string>
     <string name="not_matching_qr_code">QR code not matching please try again</string>
@@ -147,6 +147,19 @@
     <string name="check_email_message_manager_id">please check your Email, we sent Manager ID to login in your company.</string>
     <string name="manager_id_text">Manager ID</string>
     <string name="verify_id">verify id</string>
+    <string name="message_location_permission">Location permission is disabled</string>
+    <string name="request_location_text">Request location</string>
+    <string name="where_do_you_want_text">Where do you want to go?</string>
+    <string name="pick_source_text">Pick up source</string>
+    <string name="confirm_drop_off_text">Confirm Drop-off</string>
+    <string name="confirm_pick_up_text">Confirm Pick-up</string>
+    <string name="pick_up_launch_point_text">Pick up your launch point</string>
+    <string name="pick_up_distention_text">Pick up Distention</string>
+    <string name="go_text" translatable="false">GO</string>
+    <string name="confirm_text">Confirm</string>
+    <string name="show_employees_text">Show Employees</string>
+    <string name="no_employees_for_you_yet_text">No Employees for you yet , just you</string>
+    <string name="message_no_employees">You do not have any employment yet. Once you do the will appear here.</string>
 
 
 </resources>

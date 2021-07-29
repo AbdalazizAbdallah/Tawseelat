@@ -131,4 +131,16 @@
     <string name="congratulation_message">تهانينا ، على إنشاء شركتكم في تطبيقنا لذا نعطيكم 10 وظائف لموظفيكم كهدية منا</string>
     <string name="manager_id_text">معرف المدير</string>
     <string name="verify_id">التحقق من المعرف</string>
+    <string name="message_location_permission">إذن الموقع معطل</string>
+    <string name="request_location_text">طلب إذن الموقع</string>
+    <string name="where_do_you_want_text">أين تريد أن تذهب ؟</string>
+    <string name="pick_source_text">اختر الانطلاق</string>
+    <string name="confirm_drop_off_text">تأكيد نقطة الوصول</string>
+    <string name="confirm_pick_up_text">تأكيد نقطة الانطلاق</string>
+    <string name="pick_up_launch_point_text">اختر نقطة الانطلاق</string>
+    <string name="pick_up_distention_text">اختر نقطة الوصول</string>
+    <string name="confirm_text">تأكيد</string>
+    <string name="show_employees_text">عرض الموظفين</string>
+    <string name="no_employees_for_you_yet_text">لا موظفون من أجلك بعد ، فقط أنت</string>
+    <string name="message_no_employees">"ليس لديك أي عملية توظيف حتى الآن. عندما تفعل الوصية تظهر هنا. "</string>
 </resources>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group
+        android:id="@+id/group1"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/action_global_updateInfoAccountFragment"
+            android:icon="@drawable/img_edit"
+
+            android:title="@string/demo_my_info_text"
+            app:iconTint="@color/my_purple_Dark" />
+
+        <item
+            android:id="@+id/client_profile_graph"
+            android:icon="@drawable/ic_baseline_person_24"
+            android:title="@string/my_profile_text"
+            app:iconTint="@color/my_purple_Dark" />
+
+        <item
+            android:id="@+id/action_global_tripsFragment"
+            android:icon="@drawable/ic_destination"
+            android:title="@string/my_trips_text"
+            app:iconTint="@color/my_purple_Dark" />
+    </group>
+
+</menu>

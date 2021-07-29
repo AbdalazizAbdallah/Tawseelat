@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -32,9 +33,9 @@ public class MainActivity extends AppCompatActivity {
 
 
         activityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+
         navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
         navController = navHostFragment.getNavController();
-
         NavigationUI.setupWithNavController(activityMainBinding.bottomNav, navController);
 
 
@@ -45,6 +46,17 @@ public class MainActivity extends AppCompatActivity {
                 activityMainBinding.bottomNav.setVisibility(View.VISIBLE);
             } else {
                 activityMainBinding.bottomNav.setVisibility(View.GONE);
+            }
+
+            if (destination.getId() == R.id.scanQRCodeForHireEmployeeFragment
+                    || destination.getId() == R.id.generatorQREmployeeFragment2) {
+                WindowManager.LayoutParams layoutParams = getWindow().getAttributes();
+                layoutParams.screenBrightness = 1F;
+                getWindow().setAttributes(layoutParams);
+            } else {
+                WindowManager.LayoutParams layoutParams = getWindow().getAttributes();
+                layoutParams.screenBrightness = -1F;
+                getWindow().setAttributes(layoutParams);
             }
         });
 

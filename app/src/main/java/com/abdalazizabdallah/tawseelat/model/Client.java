@@ -9,6 +9,9 @@ public class Client {
     private String pathPicture;
     private String phoneNumber;
 
+    public Client() {
+
+    }
 
     public Client(String idClientAccount, ClientInformation clientInformation, AccountPassword accountPassword, String emailClient) {
         this.idClientAccount = idClientAccount;

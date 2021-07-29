@@ -26,19 +26,23 @@ public class MessageFragmentDialog extends DialogFragment {
         FragmentMessageDialogBinding fragmentDialogBinding = DataBindingUtil.bind(inflateView);
 
         String message = MessageFragmentDialogArgs.fromBundle(getArguments()).getMessage();
+        boolean isCancelable = MessageFragmentDialogArgs.fromBundle(getArguments()).getIsCancelable();
+
 
         fragmentDialogBinding.fragmentDialogTextViewMessage.setText(message);
 
-        fragmentDialogBinding.fragmentDialogButtonRetry.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onClickMyButtonDialogListener = MessageFragmentDialogArgs.fromBundle(getArguments()).getOnClickMyButtonDialogListener();
-                onClickMyButtonDialogListener.onClickMyButtonDialogListener(MessageFragmentDialog.this);
-            }
+        fragmentDialogBinding.fragmentDialogButtonRetry.setOnClickListener(v -> {
+            onClickMyButtonDialogListener = MessageFragmentDialogArgs.fromBundle(getArguments()).getOnClickMyButtonDialogListener();
+            onClickMyButtonDialogListener.onClickMyButtonDialogListener(MessageFragmentDialog.this);
         });
 
         AlertDialog alertDialog = new AlertDialog.Builder(getContext())
                 .setView(fragmentDialogBinding.getRoot()).create();
+
+        if (isCancelable) {
+            alertDialog.setCancelable(false);
+            alertDialog.setCanceledOnTouchOutside(false);
+        }
 
         return alertDialog;
     }

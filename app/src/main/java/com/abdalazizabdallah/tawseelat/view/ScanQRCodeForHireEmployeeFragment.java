@@ -12,14 +12,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -33,9 +31,6 @@ import com.abdalazizabdallah.tawseelat.heplers.PermissionsHelper;
 import com.abdalazizabdallah.tawseelat.heplers.PublicHelper;
 import com.budiyev.android.codescanner.CodeScanner;
 import com.budiyev.android.codescanner.DecodeCallback;
-import com.google.android.gms.tasks.OnCanceledListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.mlkit.vision.barcode.Barcode;
 import com.google.mlkit.vision.barcode.BarcodeScanner;
@@ -84,10 +79,6 @@ public class ScanQRCodeForHireEmployeeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         Log.e(TAG, "onViewCreated: ", null);
         super.onViewCreated(view, savedInstanceState);
-
-        WindowManager.LayoutParams layout = requireActivity().getWindow().getAttributes();
-        layout.screenBrightness = 1F;
-        requireActivity().getWindow().setAttributes(layout);
 
         navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
         AppBarConfiguration appBarConfiguration =
@@ -139,12 +130,7 @@ public class ScanQRCodeForHireEmployeeFragment extends Fragment {
                             @Override
                             public void onFinish() {
                                 progressDialog.dismiss();
-                                showMessageFragmentDialog(new OnClickMyButtonDialogListener() {
-                                    @Override
-                                    public void onClickMyButtonDialogListener(DialogFragment dialogFragment) {
-                                        dialogFragment.dismiss();
-                                    }
-                                }, result.getText() + "   //    " + result.getBarcodeFormat());
+                                showMessageFragmentDialog((OnClickMyButtonDialogListener) dialogFragment -> dialogFragment.dismiss(), result.getText() + "   //    " + result.getBarcodeFormat(), false);
                             }
                         }.start();
 
@@ -162,13 +148,10 @@ public class ScanQRCodeForHireEmployeeFragment extends Fragment {
                         Log.e(TAG, "requestPermission: isGranted Camera:" + true, null);
                         mCodeScanner.startPreview();
                     } else {
-                        showMessageFragmentDialog(new OnClickMyButtonDialogListener() {
-                            @Override
-                            public void onClickMyButtonDialogListener(DialogFragment dialogFragment) {
-                                mRequestPermissionCamera.launch(Manifest.permission.CAMERA);
-                                dialogFragment.dismiss();
-                            }
-                        }, getString(R.string.message_for_permission));
+                        showMessageFragmentDialog((OnClickMyButtonDialogListener) dialogFragment -> {
+                            mRequestPermissionCamera.launch(Manifest.permission.CAMERA);
+                            dialogFragment.dismiss();
+                        }, getString(R.string.message_for_permission), false);
                         Log.e(TAG, "requestPermission: Denied isGranted Camera:" + false, null);
                     }
                 });
@@ -181,13 +164,10 @@ public class ScanQRCodeForHireEmployeeFragment extends Fragment {
                         Log.e(TAG, "requestPermission: isGranted WriteExternal:" + true, null);
                         mGetContent.launch("image/*");
                     } else {
-                        showMessageFragmentDialog(new OnClickMyButtonDialogListener() {
-                            @Override
-                            public void onClickMyButtonDialogListener(DialogFragment dialogFragment) {
-                                mRequestPermissionWriteExternal.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE);
-                                dialogFragment.dismiss();
-                            }
-                        }, getString(R.string.message_for_permission));
+                        showMessageFragmentDialog((OnClickMyButtonDialogListener) dialogFragment -> {
+                            mRequestPermissionWriteExternal.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+                            dialogFragment.dismiss();
+                        }, getString(R.string.message_for_permission), false);
                         Log.e(TAG, "requestPermission: Denied isGranted WriteExternal:" + false, null);
                     }
                 });
@@ -214,29 +194,18 @@ public class ScanQRCodeForHireEmployeeFragment extends Fragment {
             if (image != null) {
                 Log.e(TAG, "handleWithUriImage: " + image.getFormat(), null);
                 Task<List<Barcode>> result = barcodeScanner.process(image)
-                        .addOnCanceledListener(new OnCanceledListener() {
-                            @Override
-                            public void onCanceled() {
-                                Log.e(TAG, "onCanceled: ", null);
-                            }
+                        .addOnCanceledListener(() -> Log.e(TAG, "onCanceled: ", null))
+                        .addOnSuccessListener(barcodes -> {
+                            // Task completed successfully
+                            isSuccessfulScanBarcode = true;
+                            successScanBarcode(barcodes);
                         })
-                        .addOnSuccessListener(new OnSuccessListener<List<Barcode>>() {
-                            @Override
-                            public void onSuccess(List<Barcode> barcodes) {
-                                // Task completed successfully
-                                isSuccessfulScanBarcode = true;
-                                successScanBarcode(barcodes);
-                            }
-                        })
-                        .addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                // Task failed with an exception
-                                // ...
-                                PublicHelper.showMessageSnackbar(requireActivity().findViewById(android.R.id.content)
-                                        , getString(R.string.no_qr_code_message)
-                                );
-                            }
+                        .addOnFailureListener(e -> {
+                            // Task failed with an exception
+                            // ...
+                            PublicHelper.showMessageSnackbar(requireActivity().findViewById(android.R.id.content)
+                                    , getString(R.string.no_qr_code_message)
+                            );
                         });
 
                 if (!isSuccessfulScanBarcode) {
@@ -248,9 +217,10 @@ public class ScanQRCodeForHireEmployeeFragment extends Fragment {
         }
     }
 
-    private void showMessageFragmentDialog(OnClickMyButtonDialogListener onClickMyButtonDialogListener, String message) {
+    private void showMessageFragmentDialog(OnClickMyButtonDialogListener onClickMyButtonDialogListener
+            , String message, boolean isCancelable) {
         navController.navigate(NavGraphDirections.actionGlobalToMessageFragmentDialog(
-                onClickMyButtonDialogListener, message));
+                onClickMyButtonDialogListener, message, isCancelable));
     }
 
     private void checkPermissionCameraAndStartPreviewScanner() {
@@ -294,21 +264,15 @@ public class ScanQRCodeForHireEmployeeFragment extends Fragment {
                     @Override
                     public void onFinish() {
                         progressDialog.dismiss();
-                        showMessageFragmentDialog(new OnClickMyButtonDialogListener() {
-                            @Override
-                            public void onClickMyButtonDialogListener(DialogFragment dialogFragment) {
-                                dialogFragment.dismiss();
-                            }
-                        }, barcode.getRawValue() + "   //  QR CODE");
+                        showMessageFragmentDialog((OnClickMyButtonDialogListener) dialogFragment -> dialogFragment.dismiss(),
+                                barcode.getRawValue() + "   //  QR CODE",
+                                false);
                     }
                 }.start();
             } else {
-                showMessageFragmentDialog(new OnClickMyButtonDialogListener() {
-                    @Override
-                    public void onClickMyButtonDialogListener(DialogFragment dialogFragment) {
-                        dialogFragment.dismiss();
-                    }
-                }, getString(R.string.not_matching_qr_code));
+                showMessageFragmentDialog((OnClickMyButtonDialogListener) dialogFragment -> dialogFragment.dismiss(),
+                        getString(R.string.not_matching_qr_code),
+                        false);
             }
             checkPermissionCameraAndStartPreviewScanner();
         }

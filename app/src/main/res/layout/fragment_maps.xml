@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MapsFragment">
 
@@ -7,16 +8,356 @@
 
     </data>
 
-    <FrameLayout
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
+        style="?attr/drawerLayoutStyle"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/my_purple_light">
+        android:layout_gravity="start">
 
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/supportMapFragment"
-            android:name="com.google.android.gms.maps.SupportMapFragment"
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent">
 
-    </FrameLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:orientation="vertical">
+
+                <androidx.fragment.app.FragmentContainerView
+                    android:id="@+id/supportMapFragment"
+                    android:name="com.google.android.gms.maps.SupportMapFragment"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:uiCompass="false"
+                    app:uiRotateGestures="false"
+                    app:uiTiltGestures="false"
+                    app:uiZoomControls="true"
+                    app:uiZoomGestures="true" />
+
+
+                <View
+                    android:id="@+id/marker_dot"
+                    android:layout_width="@dimen/d8dp"
+                    android:layout_height="@dimen/d8dp"
+                    android:layout_marginTop="?actionBarSize"
+                    android:background="@drawable/stepper_source_layerlist_bg"
+                    app:layout_constraintBottom_toTopOf="@+id/frame"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <FrameLayout
+                    android:id="@+id/frame"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_shap_transparent"
+                    android:paddingStart="@dimen/d20dp"
+                    android:paddingEnd="@dimen/d20dp"
+                    android:paddingBottom="@dimen/d20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent">
+
+                    <LinearLayout
+                        android:id="@+id/pickers_linear_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/titleMessage_text_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/pick_up_launch_point_text"
+                            android:textAppearance="?textAppearanceHeadline5"
+                            android:textColor="@color/black" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/companyName_textview"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/demo_company_name_text"
+                            android:textAppearance="?textAppearanceBody2"
+                            android:textColor="@color/my_grey_color" />
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/d5dp"
+                            android:layout_marginBottom="@dimen/d5dp"
+                            app:cardBackgroundColor="@color/white"
+                            app:cardCornerRadius="@dimen/d10dp"
+                            app:cardElevation="@dimen/d2dp"
+                            app:cardUseCompatPadding="true"
+                            app:contentPadding="@dimen/d5dp">
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/d50dp"
+                                android:orientation="horizontal"
+                                android:paddingStart="@dimen/d5dp"
+                                android:paddingEnd="@dimen/d5dp">
+
+                                <View
+                                    android:id="@+id/icon_stats"
+                                    android:layout_width="@dimen/d15dp"
+                                    android:layout_height="@dimen/d15dp"
+                                    android:layout_gravity="center"
+                                    android:background="@drawable/stepper_source_layerlist_bg" />
+
+                                <TextView
+                                    android:id="@+id/text_view_latlng"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginStart="@dimen/d5dp"
+                                    android:gravity="center_vertical"
+                                    android:padding="@dimen/d5dp"
+                                    android:text="@string/pick_source_text"
+                                    android:textAppearance="?textAppearanceHeadline6"
+                                    android:textDirection="locale" />
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <FrameLayout
+                            android:id="@+id/frame_layout_button"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            tools:visibility="visible">
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/confirm_button"
+                                style="@style/MyStylePrimaryButton"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/confirm_pick_up_text"
+                                android:textAllCaps="false" />
+
+                        </FrameLayout>
+
+
+                    </LinearLayout>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/go_to_trip_card"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        app:cardBackgroundColor="@color/my_purple_light"
+                        app:cardCornerRadius="@dimen/d10dp"
+                        app:cardElevation="@dimen/d0dp"
+                        app:contentPadding="@dimen/d5dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="@dimen/d10dp">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/companyName_text"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/d5dp"
+                                android:layout_marginBottom="@dimen/d5dp"
+                                android:text="@string/demo_company_name_text"
+                                android:textAppearance="?textAppearanceBody1"
+                                android:textColor="@color/my_grey_color" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <!--       stepper linear layout-->
+                                <androidx.appcompat.widget.LinearLayoutCompat
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="@dimen/d10dp"
+                                    android:orientation="vertical"
+                                    android:padding="@dimen/d6dp">
+
+                                    <View
+                                        android:layout_width="@dimen/d15dp"
+                                        android:layout_height="@dimen/d15dp"
+                                        android:layout_gravity="center"
+                                        android:background="@drawable/stepper_source_layerlist_bg" />
+
+                                    <View
+                                        android:layout_width="2dp"
+                                        android:layout_height="@dimen/d35dp"
+                                        android:layout_gravity="center"
+                                        android:layout_margin="@dimen/d6dp"
+                                        android:background="@color/my_purple_Dark" />
+
+                                    <View
+                                        android:layout_width="@dimen/d15dp"
+                                        android:layout_height="@dimen/d15dp"
+                                        android:layout_gravity="center"
+                                        android:background="@drawable/stepper_destination_shape_bg" />
+
+                                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                                <!--       source and destination Text view layout-->
+                                <androidx.appcompat.widget.LinearLayoutCompat
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical"
+                                    android:padding="@dimen/d5dp">
+
+                                    <com.google.android.material.textview.MaterialTextView
+                                        android:id="@+id/sourceTrip_textView"
+                                        style="@style/MyStyleTextView"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_margin="@dimen/d0dp"
+                                        android:text="@string/demo_source_place_text"
+                                        android:textColor="@color/black"
+                                        android:textDirection="locale" />
+
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="2dp"
+                                        android:layout_margin="@dimen/d6dp"
+                                        android:layout_marginStart="@dimen/d10dp"
+                                        android:background="?android:attr/listDivider" />
+
+                                    <com.google.android.material.textview.MaterialTextView
+                                        android:id="@+id/destinationTrip_textView"
+                                        style="@style/MyStyleTextView"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_margin="@dimen/d0dp"
+                                        android:text="@string/demo_destination_place_text"
+                                        android:textColor="@color/black"
+                                        android:textDirection="locale" />
+                                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                            </LinearLayout>
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/go_button"
+                                style="@style/MyStylePrimaryButton"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/go_text" />
+                        </LinearLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                </FrameLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:background="@android:color/transparent"
+                app:elevation="@dimen/d0dp">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingEnd="@dimen/d8dp">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/back_status_card"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:visibility="gone"
+                            app:cardCornerRadius="@dimen/d15dp"
+                            app:cardElevation="@dimen/d5dp"
+                            app:cardUseCompatPadding="true">
+
+                            <ImageView
+                                android:id="@+id/back_status_button"
+                                android:layout_width="@dimen/d35dp"
+                                android:layout_height="@dimen/d35dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/bg_button_layer_list"
+                                android:padding="@dimen/d8dp"
+                                app:srcCompat="@drawable/ic_baseline_arrow_back_ios_24" />
+
+                        </com.google.android.material.card.MaterialCardView>
+
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/nav_button_card"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            app:cardCornerRadius="@dimen/d15dp"
+                            app:cardElevation="@dimen/d5dp"
+                            app:cardUseCompatPadding="true">
+
+                            <ImageView
+                                android:id="@+id/nav_button_menu"
+                                android:layout_width="@dimen/d35dp"
+                                android:layout_height="@dimen/d35dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/bg_button_layer_list"
+                                android:padding="@dimen/d8dp"
+                                app:srcCompat="@drawable/ic_baseline_menu_24" />
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/close_button_card"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            app:cardCornerRadius="@dimen/d15dp"
+                            app:cardElevation="@dimen/d5dp"
+                            app:cardUseCompatPadding="true">
+
+                            <ImageView
+                                android:id="@+id/close_button"
+                                android:layout_width="@dimen/d35dp"
+                                android:layout_height="@dimen/d35dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/bg_button_layer_list"
+                                android:padding="@dimen/d8dp"
+                                app:srcCompat="@drawable/ic_baseline_close_24" />
+                        </com.google.android.material.card.MaterialCardView>
+
+                    </RelativeLayout>
+
+                </androidx.appcompat.widget.Toolbar>
+
+            </com.google.android.material.appbar.AppBarLayout>
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/nav_view"
+            style="?attr/navigationViewStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:fitsSystemWindows="true"
+            app:headerLayout="@layout/header_layout" />
+
+
+    </androidx.drawerlayout.widget.DrawerLayout>
 </layout>

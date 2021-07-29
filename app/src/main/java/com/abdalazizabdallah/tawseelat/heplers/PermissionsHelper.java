@@ -3,6 +3,7 @@ package com.abdalazizabdallah.tawseelat.heplers;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Build;
 
@@ -21,7 +22,35 @@ import com.abdalazizabdallah.tawseelat.view.OnClickMyButtonDialogListener;
 public class PermissionsHelper {
 
     private static final String TAG = "PermissionsHelper";
-    private String permission;
+
+    public static boolean checkIsLocationGrand(Context context) {
+        return ContextCompat.checkSelfPermission(context,
+                Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED;
+    }
+
+    @RequiresPermission(Manifest.permission.ACCESS_FINE_LOCATION)
+    public static void checkPermissionLocationAndAction(@NonNull Activity activity,
+                                                        @NonNull OnMyActionListener myActionListener,
+                                                        @NonNull ActivityResultLauncher<String> registerRequestPermissionLocation) {
+        NavController navController = Navigation.findNavController(activity, R.id.nav_host_fragment);
+        if (ContextCompat.checkSelfPermission(activity,
+                Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+            if (ActivityCompat.shouldShowRequestPermissionRationale(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+                showMessageFragmentDialog(navController, (OnClickMyButtonDialogListener) dialogFragment -> {
+
+                    registerRequestPermissionLocation.launch(Manifest.permission.ACCESS_FINE_LOCATION);
+                    dialogFragment.dismiss();
+                }, activity.getString(R.string.message_for_permission), true);
+            } else {
+                registerRequestPermissionLocation.launch(Manifest.permission.ACCESS_FINE_LOCATION);
+            }
+
+        } else {
+            myActionListener.onMyAction();
+        }
+    }
+
 
     @RequiresPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
     public static void checkPermissionStorageAndAction(@NonNull Activity activity,
@@ -38,7 +67,7 @@ public class PermissionsHelper {
                         requestPermissionWriteExternal.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE);
                         dialogFragment.dismiss();
 
-                    }, activity.getString(R.string.message_for_permission));
+                    }, activity.getString(R.string.message_for_permission), false);
                 } else {
                     requestPermissionWriteExternal.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE);
                 }
@@ -52,11 +81,14 @@ public class PermissionsHelper {
     }
 
 
-    private static void showMessageFragmentDialog(NavController navController, OnClickMyButtonDialogListener onClickMyButtonDialogListener, String message) {
+    private static void showMessageFragmentDialog(NavController navController,
+                                                  OnClickMyButtonDialogListener onClickMyButtonDialogListener,
+                                                  String message,
+                                                  boolean isCancelable
+    ) {
         navController.navigate(NavGraphDirections.actionGlobalToMessageFragmentDialog(
-                onClickMyButtonDialogListener, message));
+                onClickMyButtonDialogListener, message, isCancelable));
     }
-
 
     @SuppressLint("SupportAnnotationUsage")
     @RequiresPermission
@@ -74,7 +106,7 @@ public class PermissionsHelper {
                     registerRequestPermission.launch(permission);
                     dialogFragment.dismiss();
 
-                }, activity.getString(R.string.message_for_permission));
+                }, activity.getString(R.string.message_for_permission), false);
             } else {
                 registerRequestPermission.launch(permission);
             }
@@ -85,7 +117,4 @@ public class PermissionsHelper {
     }
 
 
-    public interface OnMyActionListener {
-        void onMyAction();
-    }
 }

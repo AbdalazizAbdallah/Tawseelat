@@ -34,7 +34,8 @@
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/sourceTrip_textView"
-                    style="@style/MyStyleTextView"
+                    android:padding="@dimen/d6dp"
+                    android:textAppearance="?textAppearanceBody1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/d0dp"
@@ -51,8 +52,9 @@
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/destinationTrip_textView"
-                    style="@style/MyStyleTextView"
+                    android:padding="@dimen/d6dp"
                     android:layout_width="match_parent"
+                    android:textAppearance="?textAppearanceBody1"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/d0dp"
                     android:text="@string/demo_destination_place_text"

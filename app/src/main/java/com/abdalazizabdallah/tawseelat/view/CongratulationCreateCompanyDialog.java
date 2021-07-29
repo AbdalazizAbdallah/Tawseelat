@@ -11,8 +11,10 @@ import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.DialogFragment;
 import androidx.navigation.NavController;
+import androidx.navigation.NavOptions;
 import androidx.navigation.Navigation;
 
+import com.abdalazizabdallah.tawseelat.NavGraphDirections;
 import com.abdalazizabdallah.tawseelat.R;
 import com.abdalazizabdallah.tawseelat.databinding.FragmentCongratulationCreateCompanyBinding;
 
@@ -29,12 +31,13 @@ public class CongratulationCreateCompanyDialog extends DialogFragment {
 
         FragmentCongratulationCreateCompanyBinding fragmentDialogBinding = DataBindingUtil.bind(inflateView);
 
-        fragmentDialogBinding.joinUsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                navController.navigate(CongratulationCreateCompanyDialogDirections.actionCongratulationCreateCompanyDialogToVerifyManagerIDFragment2());
-                dismiss();
-            }
+        fragmentDialogBinding.joinUsButton.setOnClickListener(v -> {
+            dismiss();
+            NavOptions navOptions = new NavOptions.Builder()
+                    .setPopUpTo(R.id.createCompanyTransportationFragment, true)
+                    .build();
+            navController.navigate(NavGraphDirections.actionGlobalVerifyManagerIDFragment2(), navOptions);
+
         });
 
         AlertDialog alertDialog = new AlertDialog.Builder(getContext())

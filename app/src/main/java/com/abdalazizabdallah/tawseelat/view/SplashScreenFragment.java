@@ -85,7 +85,6 @@ public class SplashScreenFragment extends Fragment {
     public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         remainingTime -= (System.currentTimeMillis() - currentTime);
-        Log.e(TAG, "onSaveInstanceState : " + remainingTime, null);
         outState.putLong(REMAINING_TIME, (2000 - remainingTime));
     }
 

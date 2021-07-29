@@ -69,9 +69,9 @@ public class ClientProfileFragment extends Fragment implements View.OnClickListe
         } else if (fragmentClientProfileBinding.changePasswordTextview.getId() == v.getId()) {
             navController.navigate(ClientProfileFragmentDirections.actionClientProfileFragmentToChangePasswordFragment());
         } else if (fragmentClientProfileBinding.myInfo.getId() == v.getId()) {
-            navController.navigate(ClientProfileFragmentDirections.actionClientProfileFragmentToUpdateInfoAccountFragment());
+            navController.navigate(NavGraphDirections.actionGlobalUpdateInfoAccountFragment());
         } else if (fragmentClientProfileBinding.myTripsTextview.getId() == v.getId()) {
-            navController.navigate(ClientProfileFragmentDirections.actionClientProfileFragmentToTripsFragment());
+            navController.navigate(NavGraphDirections.actionGlobalTripsFragment());
         } else if (fragmentClientProfileBinding.logoutTextview.getId() == v.getId()) {
             //TODO : remove login Key and Navigate to login fragment
             preferenceHelper.removeLoginKey();
@@ -92,12 +92,7 @@ public class ClientProfileFragment extends Fragment implements View.OnClickListe
                 PublicHelper.showMessageSnackbarWithButton(requireActivity().findViewById(android.R.id.content)
                         , getString(R.string.message_not_employee)
                         , R.string.sign_up_as_employee
-                        , new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                navController.navigate(ClientProfileFragmentDirections.actionClientProfileFragmentToSignUpAsEmployeeFragment());
-                            }
-                        }
+                        , v1 -> navController.navigate(ClientProfileFragmentDirections.actionClientProfileFragmentToSignUpAsEmployeeFragment())
                 );
                 //TODO : Check the Client is Manager to show option to navigate Manager WorkSpace or not
             } else if (!isClientManager(preferenceHelper.getLoginKey())) {
@@ -107,7 +102,7 @@ public class ClientProfileFragment extends Fragment implements View.OnClickListe
                     //TODO navigate to BarCode fragment
                     navController.navigate(ClientProfileFragmentDirections.actionClientProfileFragmentToGeneratorQREmployeeFragment2());
                 } else {
-                    navController.navigate(NavGraphDirections.actionGlobalMapsFragment());
+                    navController.navigate(NavGraphDirections.actionGlobalMapsFragment(R.menu.menu_employee_navigation));
                 }
             } else {//isEmployeeManager
                 //TODO : show option navigate to Manager WorkSpace or employee WorkSpace
